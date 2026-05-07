@@ -1,13 +1,11 @@
 <!-- Layout: code-right — Prose/text left 50%, code panel right 50% in ruled frame with corner brackets -->
 <script setup lang="ts">
-import FieldManualHeader from '../components/FieldManualHeader.vue'
-import FieldManualFooter from '../components/FieldManualFooter.vue'
+import VesperHeader from '../components/VesperHeader.vue'
+import VesperFooter from '../components/VesperFooter.vue'
 
 defineProps<{
   title?: string
   sectionNumber?: string
-  docNumber?: string
-  unit?: string
   codeTitle?: string
   codeLang?: string
   lineNumbers?: boolean
@@ -16,10 +14,10 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-code-right">
-    <FieldManualHeader
+    <VesperHeader
       :title="title ?? ''"
       :section-number="sectionNumber ?? ''"
-      :doc-number="docNumber ?? 'FM 24-SLIDE'"
+
     />
 
     <div class="cdr-body">
@@ -58,7 +56,7 @@ defineProps<{
       </div>
     </div>
 
-    <FieldManualFooter :section-number="sectionNumber ?? ''" :unit="unit ?? ''" />
+    <VesperFooter :section-number="sectionNumber ?? ''" />
   </div>
 </template>
 
@@ -110,14 +108,9 @@ defineProps<{
   display: flex;
   flex-direction: column;
   border: var(--rule-mid) solid var(--color-rule);
-  background: var(--c-paper-dark);
+  background: var(--color-bg-alt);
   overflow: hidden;
   position: relative;
-}
-
-.dark .cdr-code-panel {
-  background: var(--c-paper-deeper);
-  border-color: var(--c-olive-light);
 }
 
 /* Corner brackets */
@@ -129,10 +122,10 @@ defineProps<{
   pointer-events: none;
 }
 
-.cdr-bracket--tl { top: 0;  left: 0;  border-top: 2px solid var(--c-khaki); border-left: 2px solid var(--c-khaki); }
-.cdr-bracket--tr { top: 0;  right: 0; border-top: 2px solid var(--c-khaki); border-right: 2px solid var(--c-khaki); }
-.cdr-bracket--bl { bottom: 0; left: 0;  border-bottom: 2px solid var(--c-khaki); border-left: 2px solid var(--c-khaki); }
-.cdr-bracket--br { bottom: 0; right: 0; border-bottom: 2px solid var(--c-khaki); border-right: 2px solid var(--c-khaki); }
+.cdr-bracket--tl { top: 0;  left: 0;  border-top: 2px solid var(--color-rule-light); border-left: 2px solid var(--color-rule-light); }
+.cdr-bracket--tr { top: 0;  right: 0; border-top: 2px solid var(--color-rule-light); border-right: 2px solid var(--color-rule-light); }
+.cdr-bracket--bl { bottom: 0; left: 0;  border-bottom: 2px solid var(--color-rule-light); border-left: 2px solid var(--color-rule-light); }
+.cdr-bracket--br { bottom: 0; right: 0; border-bottom: 2px solid var(--color-rule-light); border-right: 2px solid var(--color-rule-light); }
 
 /* Code header bar */
 .cdr-code-header {
@@ -140,13 +133,9 @@ defineProps<{
   align-items: center;
   justify-content: space-between;
   padding: var(--space-2) var(--space-4);
-  background: var(--c-olive);
-  border-bottom: 1px solid var(--c-khaki-dark);
+  background: var(--color-bg-alt);
+  border-bottom: 1px solid var(--color-rule-light);
   flex-shrink: 0;
-}
-
-.dark .cdr-code-header {
-  background: var(--c-olive-mid);
 }
 
 .cdr-code-title {
@@ -155,7 +144,7 @@ defineProps<{
   font-weight: 700;
   letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
-  color: var(--c-khaki-light);
+  color: var(--color-fg-muted);
 }
 
 .cdr-code-badge {
@@ -163,8 +152,8 @@ defineProps<{
   font-size: var(--text-xs);
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  color: var(--c-khaki-dark);
-  border: 1px solid var(--c-khaki-dark);
+  color: var(--color-rule-light);
+  border: 1px solid var(--color-rule-light);
   padding: 0 4px;
 }
 
@@ -193,8 +182,8 @@ defineProps<{
 /* Caption bar */
 .cdr-code-caption {
   padding: var(--space-2) var(--space-4);
-  border-top: 1px solid var(--c-khaki-dark);
-  background: var(--c-olive-ghost);
+  border-top: 1px solid var(--color-rule-light);
+  background: var(--vp-surface0-alpha);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   letter-spacing: var(--tracking-wide);

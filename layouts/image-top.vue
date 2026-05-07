@@ -1,14 +1,12 @@
 <!-- Layout: image-top — Image spans full width top ~40%, content below with FIG. caption treatment -->
 <script setup lang="ts">
-import FieldManualHeader from '../components/FieldManualHeader.vue'
-import FieldManualFooter from '../components/FieldManualFooter.vue'
+import VesperHeader from '../components/VesperHeader.vue'
+import VesperFooter from '../components/VesperFooter.vue'
 import FigureCaption from '../components/FigureCaption.vue'
 
 defineProps<{
   title?: string
   sectionNumber?: string
-  unit?: string
-  docNumber?: string
   figNumber?: string | number
   figLabel?: string
 }>()
@@ -16,10 +14,10 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-image-top">
-    <FieldManualHeader
+    <VesperHeader
       :title="title ?? ''"
       :section-number="sectionNumber ?? ''"
-      :doc-number="docNumber ?? 'FM 24-SLIDE'"
+
     />
 
     <!-- Top image band -->
@@ -27,7 +25,7 @@ defineProps<{
       <div class="it-image-frame">
         <slot name="image">
           <div class="it-placeholder">
-            <span class="fm-label" style="color: var(--c-khaki-dark); letter-spacing: var(--tracking-widest);">IMAGE</span>
+            <span class="vp-label" style="color: var(--color-rule-light); letter-spacing: var(--tracking-widest);">IMAGE</span>
           </div>
         </slot>
       </div>
@@ -45,7 +43,7 @@ defineProps<{
       </div>
     </div>
 
-    <FieldManualFooter :section-number="sectionNumber ?? ''" :unit="unit ?? ''" />
+    <VesperFooter :section-number="sectionNumber ?? ''" />
   </div>
 </template>
 
@@ -79,7 +77,7 @@ defineProps<{
 .it-placeholder {
   width: 100%;
   height: 100%;
-  background: var(--c-paper-shadow);
+  background: var(--vp-surface1);
   display: flex;
   align-items: center;
   justify-content: center;

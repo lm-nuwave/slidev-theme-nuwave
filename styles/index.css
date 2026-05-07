@@ -1,66 +1,63 @@
 /**
- * Field Manual Theme — Global Styles
- * Vintage US Army FM series aesthetic (1950s–1980s)
- * ─────────────────────────────────────────────────
+ * Vesper Theme — Global Styles
+ * Catppuccin Latte (light) / Catppuccin Mocha (dark)
+ * ────────────────────────────────────────────────────
  */
 
 /* ── Google Fonts ─────────────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Oswald:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Fira+Code:wght@400;500;700&display=swap');
 
-/* ── Design Tokens ────────────────────────────────────────────────────────── */
+/* ── Design Tokens — Catppuccin Latte (light mode) ───────────────────────── */
 :root {
-  /* Color Palette — Light (Aged Paper) */
-  --c-olive-dark:    #3a3a1e;
-  --c-olive:         #4a4a2a;
-  --c-olive-mid:     #5c5c30;
-  --c-olive-light:   #7a7a45;
-  --c-olive-ghost:   rgba(74, 74, 42, 0.08);
-  --c-olive-subtle:  rgba(74, 74, 42, 0.15);
+  /* Catppuccin Latte raw palette */
+  --vp-base:      #eff1f5;
+  --vp-mantle:    #e6e9ef;
+  --vp-crust:     #dce0e8;
+  --vp-surface0:  #ccd0da;
+  --vp-surface1:  #bcc0cc;
+  --vp-surface2:  #acb0be;
+  --vp-overlay0:  #9ca0b0;
+  --vp-overlay1:  #8c8fa1;
+  --vp-overlay2:  #7c7f93;
+  --vp-subtext0:  #6c6f85;
+  --vp-subtext1:  #5c5f77;
+  --vp-text:      #4c4f69;
+  --vp-lavender:  #7287fd;
+  --vp-blue:      #1e66f5;
+  --vp-sapphire:  #209fb5;
+  --vp-sky:       #04a5e5;
+  --vp-teal:      #179299;
+  --vp-green:     #40a02b;
+  --vp-yellow:    #df8e1d;
+  --vp-peach:     #fe640b;
+  --vp-red:       #d20f39;
+  --vp-mauve:     #8839ef;
+  --vp-pink:      #ea76cb;
+  --vp-flamingo:  #dd7878;
 
-  --c-khaki-dark:    #8a7a50;
-  --c-khaki:         #b5a060;
-  --c-khaki-light:   #c8b87a;
-  --c-khaki-pale:    #ddd0a0;
-
-  --c-paper:         #f5f0e0;
-  --c-paper-dark:    #ede8d0;
-  --c-paper-deeper:  #e0d8be;
-  --c-paper-shadow:  #d0c8a8;
-
-  --c-ink:           #1a1a14;
-  --c-ink-muted:     #3a3830;
-  --c-ink-light:     #6a6458;
-
-  --c-amber:         #b05e10;
-  --c-amber-pale:    rgba(176, 94, 16, 0.10);
-
-  --c-red:           #bf2020;
-  --c-red-light:     #d63030;
-  --c-red-pale:      rgba(191, 32, 32, 0.12);
-
-  --c-blue:          #2a3d5c;
-  --c-blue-mid:      #2a4a6e;
-  --c-blue-light:    #3d6080;
-  --c-blue-pale:     rgba(42, 61, 92, 0.12);
+  /* Alpha variants for subtle fills */
+  --vp-surface0-alpha: rgba(204, 208, 218, 0.5);
+  --vp-surface1-alpha: rgba(188, 192, 204, 0.4);
+  --vp-overlay1-alpha: rgba(140, 143, 161, 0.25);
 
   /* Semantic aliases */
-  --color-bg:        var(--c-paper);
-  --color-bg-alt:    var(--c-paper-dark);
-  --color-bg-panel:  var(--c-paper-deeper);
-  --color-fg:        var(--c-ink);
-  --color-fg-muted:  var(--c-ink-muted);
-  --color-fg-subtle: var(--c-ink-light);
-  --color-accent:    var(--c-red);
-  --color-accent-alt: var(--c-blue);
-  --color-rule:      var(--c-olive);
-  --color-rule-light: var(--c-khaki);
+  --color-bg:         var(--vp-base);
+  --color-bg-alt:     var(--vp-mantle);
+  --color-bg-panel:   var(--vp-surface0);
+  --color-fg:         var(--vp-text);
+  --color-fg-muted:   var(--vp-subtext1);
+  --color-fg-subtle:  var(--vp-subtext0);
+  --color-accent:     var(--vp-mauve);
+  --color-accent-alt: var(--vp-blue);
+  --color-rule:       var(--vp-overlay1);
+  --color-rule-light: var(--vp-surface2);
 
   /* Typography */
-  --font-heading:         'Playfair Display', Georgia, serif;
-  --font-body:            'Source Serif 4', 'Georgia', serif;
-  --font-mono:            'Courier Prime', 'Courier New', monospace;
-  --font-label:           'Courier Prime', 'Courier New', monospace;
-  --font-condensed-sans:  'Oswald', 'Arial Narrow', sans-serif;
+  --font-heading:        'IBM Plex Sans', sans-serif;
+  --font-body:           'IBM Plex Sans', sans-serif;
+  --font-mono:           'Fira Code', monospace;
+  --font-label:          'IBM Plex Sans', sans-serif;
+  --font-condensed-sans: 'IBM Plex Sans', sans-serif;
 
   /* Type scale — clamp(min, preferred, max) */
   --text-xs:    clamp(0.60rem, 0.9vw, 0.70rem);
@@ -89,64 +86,62 @@
   --rule-thin:   1px;
 
   /* Corner bracket size */
-  --bracket-size: 14px;
+  --bracket-size:   14px;
   --bracket-weight: 2px;
-  --bracket-color: var(--c-olive);
+  --bracket-color:  var(--vp-overlay1);
 
   /* Letter spacing for labels */
-  --tracking-wide:   0.12em;
-  --tracking-wider:  0.20em;
-  --tracking-widest: 0.32em;
-
+  --tracking-wide:   0.10em;
+  --tracking-wider:  0.16em;
+  --tracking-widest: 0.24em;
 }
 
-/* ── Dark Mode Tokens ─────────────────────────────────────────────────────── */
+/* ── Design Tokens — Catppuccin Mocha (dark mode) ────────────────────────── */
 .dark {
-  --c-olive-dark:    #0e0f08;
-  --c-olive:         #1e2214;
-  --c-olive-mid:     #2a3018;
-  --c-olive-light:   #3d4a22;
-  --c-olive-ghost:   rgba(74, 90, 42, 0.12);
-  --c-olive-subtle:  rgba(74, 90, 42, 0.22);
+  /* Catppuccin Mocha raw palette */
+  --vp-base:      #1e1e2e;
+  --vp-mantle:    #181825;
+  --vp-crust:     #11111b;
+  --vp-surface0:  #313244;
+  --vp-surface1:  #45475a;
+  --vp-surface2:  #585b70;
+  --vp-overlay0:  #6c7086;
+  --vp-overlay1:  #7f849c;
+  --vp-overlay2:  #9399b2;
+  --vp-subtext0:  #a6adc8;
+  --vp-subtext1:  #bac2de;
+  --vp-text:      #cdd6f4;
+  --vp-lavender:  #b4befe;
+  --vp-blue:      #89b4fa;
+  --vp-sapphire:  #74c7ec;
+  --vp-sky:       #89dceb;
+  --vp-teal:      #94e2d5;
+  --vp-green:     #a6e3a1;
+  --vp-yellow:    #f9e2af;
+  --vp-peach:     #fab387;
+  --vp-red:       #f38ba8;
+  --vp-mauve:     #cba6f7;
+  --vp-pink:      #f5c2e7;
+  --vp-flamingo:  #f2cdcd;
 
-  --c-khaki-dark:    #6a5c38;
-  --c-khaki:         #8a7a50;
-  --c-khaki-light:   #b5a060;
-  --c-khaki-pale:    #c8b87a;
+  /* Alpha variants */
+  --vp-surface0-alpha: rgba(49, 50, 68, 0.5);
+  --vp-surface1-alpha: rgba(69, 71, 90, 0.4);
+  --vp-overlay1-alpha: rgba(127, 132, 156, 0.25);
 
-  --c-paper:         #1e2214;
-  --c-paper-dark:    #161a0e;
-  --c-paper-deeper:  #12150a;
-  --c-paper-shadow:  #0a0d06;
+  /* Semantic aliases (same names, Mocha values) */
+  --color-bg:         var(--vp-base);
+  --color-bg-alt:     var(--vp-mantle);
+  --color-bg-panel:   var(--vp-surface0);
+  --color-fg:         var(--vp-text);
+  --color-fg-muted:   var(--vp-subtext1);
+  --color-fg-subtle:  var(--vp-subtext0);
+  --color-accent:     var(--vp-mauve);
+  --color-accent-alt: var(--vp-blue);
+  --color-rule:       var(--vp-overlay1);
+  --color-rule-light: var(--vp-surface2);
 
-  --c-ink:           #e8e0c8;
-  --c-ink-muted:     #c8b87a;
-  --c-ink-light:     #9a8c6a;
-
-  --c-amber:         #c87c30;
-  --c-amber-pale:    rgba(200, 124, 48, 0.15);
-
-  --c-red:           #c04040;
-  --c-red-light:     #d45555;
-  --c-red-pale:      rgba(192, 64, 64, 0.15);
-
-  --c-blue:          #4a6a9a;
-  --c-blue-mid:      #5a7aaa;
-  --c-blue-light:    #7090c0;
-  --c-blue-pale:     rgba(74, 106, 154, 0.15);
-
-  --color-bg:        var(--c-paper);
-  --color-bg-alt:    var(--c-paper-dark);
-  --color-bg-panel:  var(--c-paper-deeper);
-  --color-fg:        var(--c-ink);
-  --color-fg-muted:  var(--c-ink-muted);
-  --color-fg-subtle: var(--c-ink-light);
-  --color-accent:    var(--c-red);
-  --color-accent-alt: var(--c-blue);
-  --color-rule:      var(--c-olive-light);
-  --color-rule-light: var(--c-khaki);
-
-  --bracket-color:    var(--c-olive-light);
+  --bracket-color: var(--vp-overlay1);
 }
 
 /* ── Slidev Base Reset ────────────────────────────────────────────────────── */
@@ -163,42 +158,21 @@
   box-sizing: border-box;
 }
 
-/* ── Paper Grain Overlay ──────────────────────────────────────────────────── */
-/* Applied to every layout via shared ::before pseudo-element on .slidev-layout */
-.slidev-layout::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1000;
-  opacity: 0.30;
-  mix-blend-mode: multiply;
-  background-image: url('./texture.png');
-  background-repeat: repeat;
-  background-size: 512px 512px;
-}
-
-.dark .slidev-layout::before {
-  opacity: 0.08;
-  mix-blend-mode: normal;
-}
-
 /* ── Base Typography ──────────────────────────────────────────────────────── */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--color-fg);
   line-height: 1.15;
   margin: 0 0 var(--space-3);
-  font-weight: 900;
+  font-weight: 700;
 }
 
-h1 { font-size: var(--text-2xl); }
+h1 { font-size: var(--text-2xl); font-weight: 700; }
 h2 {
   font-family: var(--font-condensed-sans);
   font-size: var(--text-xl);
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   margin-bottom: var(--space-4);
 }
 
@@ -224,10 +198,9 @@ h2 + h3, h3 + h4 {
   font-family: var(--font-condensed-sans);
   font-size: clamp(2.4rem, 5vw, 4.2rem);
   font-weight: 700;
-  letter-spacing: 0.04em;
-  line-height: 1.0;
-  text-transform: uppercase;
-  color: var(--c-ink);
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  color: var(--color-fg);
   margin: 0 0 var(--space-3);
 }
 
@@ -235,26 +208,24 @@ h2 + h3, h3 + h4 {
   font-family: var(--font-condensed-sans);
   font-size: clamp(1.1rem, 2.0vw, 1.6rem);
   font-weight: 400;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   line-height: 1.2;
-  text-transform: uppercase;
-  color: var(--c-olive-mid);
+  color: var(--color-fg-muted);
   margin: 0 0 var(--space-5);
   border: none;
   padding: 0;
 }
 
-/* Section slide — reversed hierarchy: h1 reads like cover h2, h2 reads like cover h1 */
+/* Section slide — reversed hierarchy */
 .layout-section h1 {
   font-family: var(--font-condensed-sans);
   font-size: clamp(1.1rem, 2.0vw, 1.6rem);
   font-weight: 400;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   line-height: 1.2;
-  text-transform: uppercase;
-  color: var(--c-olive-mid);
+  color: var(--color-fg-muted);
   margin: 0 0 var(--space-2);
-  border-top: 4px solid var(--c-olive-dark);
+  border-top: 4px solid var(--color-accent);
   padding-top: var(--space-3);
 }
 
@@ -262,14 +233,13 @@ h2 + h3, h3 + h4 {
   font-family: var(--font-condensed-sans);
   font-size: clamp(2.4rem, 5vw, 4.2rem);
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   line-height: 1.0;
-  text-transform: uppercase;
-  color: var(--c-ink);
+  color: var(--color-fg);
   margin: 0 0 var(--space-5);
   border-top: none;
   padding-top: 0;
-  border-bottom: 2px solid var(--c-olive);
+  border-bottom: 2px solid var(--color-rule);
   padding-bottom: var(--space-3);
 }
 
@@ -283,7 +253,7 @@ h2 + h3, h3 + h4 {
 }
 
 strong {
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-fg);
 }
 
@@ -294,11 +264,10 @@ em {
 a {
   color: var(--color-accent-alt);
   text-decoration: underline;
-  text-decoration-color: rgba(42, 61, 92, 0.4);
+  text-underline-offset: 2px;
 }
 
 /* ── List Styles ──────────────────────────────────────────────────────────── */
-/* Scope to .slidev-layout to beat Slidev's own CSS reset (ul { padding: 0 }) */
 .slidev-layout ul,
 .slidev-layout ol {
   margin: 0 0 var(--space-3);
@@ -326,11 +295,11 @@ ul li::before {
 
 ol {
   list-style: none;
-  counter-reset: fm-list;
+  counter-reset: vp-list;
 }
 
 ol li {
-  counter-increment: fm-list;
+  counter-increment: vp-list;
   margin-bottom: var(--space-2);
   position: relative;
 }
@@ -340,7 +309,7 @@ ol li:last-child {
 }
 
 ol li::before {
-  content: '(' counter(fm-list) ')';
+  content: '(' counter(vp-list) ')';
   position: absolute;
   left: -2.2em;
   color: var(--color-fg-muted);
@@ -350,15 +319,11 @@ ol li::before {
 code:not(pre code) {
   font-family: var(--font-mono);
   font-size: 0.88em;
-  background: var(--c-olive-ghost);
-  border: 1px solid var(--c-olive-subtle);
+  background: var(--vp-surface0-alpha);
+  border: 1px solid var(--color-rule-light);
   padding: 0.1em 0.4em;
-  border-radius: 0;
-  color: var(--c-blue-mid);
-}
-
-.dark code:not(pre code) {
-  color: var(--c-khaki-light);
+  border-radius: 3px;
+  color: var(--color-accent-alt);
 }
 
 /* ── Pre / Code Block Base ────────────────────────────────────────────────── */
@@ -392,38 +357,34 @@ hr.accent {
   border-top-color: var(--color-accent);
 }
 
-/* ── Label / Classification Text Utility ─────────────────────────────────── */
-.fm-label {
-  font-family: var(--font-condensed-sans);
+/* ── Label Utility ────────────────────────────────────────────────────────── */
+.vp-label {
+  font-family: var(--font-label);
   font-size: var(--text-xs);
-  letter-spacing: var(--tracking-widest);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-fg-muted);
 }
 
-.fm-label-accent {
+.vp-label-accent {
   color: var(--color-accent);
 }
 
-.fm-section-id {
-  font-family: var(--font-condensed-sans);
+.vp-section-id {
+  font-family: var(--font-label);
   font-size: var(--text-sm);
-  letter-spacing: var(--tracking-wide);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-fg-subtle);
 }
 
 /* ── Corner Brackets — CSS-drawn ─────────────────────────────────────────── */
-/*
-  Apply .fm-bracketed to any container.
-  Pseudo-elements draw the four corner brackets.
-*/
-.fm-bracketed {
+.vp-bracketed {
   position: relative;
 }
 
-.fm-bracketed::before,
-.fm-bracketed::after {
+.vp-bracketed::before,
+.vp-bracketed::after {
   content: '';
   position: absolute;
   width: var(--bracket-size);
@@ -433,7 +394,7 @@ hr.accent {
 }
 
 /* Top-left */
-.fm-bracketed::before {
+.vp-bracketed::before {
   top: -2px;
   left: -2px;
   border-top: var(--bracket-weight) solid var(--bracket-color);
@@ -441,16 +402,16 @@ hr.accent {
 }
 
 /* Top-right */
-.fm-bracketed::after {
+.vp-bracketed::after {
   top: -2px;
   right: -2px;
   border-top: var(--bracket-weight) solid var(--bracket-color);
   border-right: var(--bracket-weight) solid var(--bracket-color);
 }
 
-/* Bottom brackets via child span */
-.fm-bracketed .fm-bracket-bl,
-.fm-bracketed .fm-bracket-br {
+/* Bottom brackets via child spans */
+.vp-bracketed .vp-bracket-bl,
+.vp-bracketed .vp-bracket-br {
   position: absolute;
   width: var(--bracket-size);
   height: var(--bracket-size);
@@ -458,83 +419,49 @@ hr.accent {
   z-index: 10;
 }
 
-.fm-bracketed .fm-bracket-bl {
+.vp-bracketed .vp-bracket-bl {
   bottom: -2px;
   left: -2px;
   border-bottom: var(--bracket-weight) solid var(--bracket-color);
   border-left: var(--bracket-weight) solid var(--bracket-color);
 }
 
-.fm-bracketed .fm-bracket-br {
+.vp-bracketed .vp-bracket-br {
   bottom: -2px;
   right: -2px;
   border-bottom: var(--bracket-weight) solid var(--bracket-color);
   border-right: var(--bracket-weight) solid var(--bracket-color);
 }
 
-/* ── Crosshair / Reticle — CSS-drawn ─────────────────────────────────────── */
-.fm-reticle {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  pointer-events: none;
-  opacity: 0.25;
-}
-
-.fm-reticle::before,
-.fm-reticle::after {
-  content: '';
-  position: absolute;
-  background: var(--bracket-color);
-}
-
-/* Horizontal bar */
-.fm-reticle::before {
-  width: 100%;
-  height: 1px;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-}
-
-/* Vertical bar */
-.fm-reticle::after {
-  width: 1px;
-  height: 100%;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
-}
-
 /* ── Callout Box Base ─────────────────────────────────────────────────────── */
-.fm-callout {
+.vp-callout {
   border: var(--rule-mid) dashed var(--color-rule);
   padding: var(--space-4) var(--space-5);
   margin: var(--space-4) 0;
   position: relative;
-  background: var(--c-olive-ghost);
+  background: var(--vp-surface0-alpha);
 }
 
-.fm-callout-warning { border-color: var(--c-red); background: var(--c-red-pale); }
-.fm-callout-note    { border-color: var(--c-blue); background: var(--c-blue-pale); }
-.fm-callout-caution { border-color: var(--c-khaki); background: var(--c-olive-ghost); }
-.fm-callout-important { border-color: var(--c-olive-mid); background: var(--c-olive-ghost); }
+.vp-callout-warning   { border-color: var(--vp-red);   background: rgba(242, 139, 168, 0.10); }
+.vp-callout-note      { border-color: var(--vp-blue);  background: rgba(137, 180, 250, 0.10); }
+.vp-callout-caution   { border-color: var(--vp-peach); background: rgba(250, 179, 135, 0.10); }
+.vp-callout-important { border-color: var(--vp-mauve); background: rgba(203, 166, 247, 0.10); }
 
-.fm-callout-label {
-  font-family: var(--font-condensed-sans);
+.vp-callout-label {
+  font-family: var(--font-label);
   font-size: var(--text-sm);
-  font-weight: 700;
-  letter-spacing: var(--tracking-wider);
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   display: block;
   margin-bottom: var(--space-3);
 }
 
 /* ── Figure Caption Base ──────────────────────────────────────────────────── */
-.fm-fig-caption {
-  font-family: var(--font-condensed-sans);
+.vp-fig-caption {
+  font-family: var(--font-label);
   font-size: var(--text-xs);
-  letter-spacing: var(--tracking-wide);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-fg-muted);
   margin-top: var(--space-2);
@@ -542,19 +469,18 @@ hr.accent {
 }
 
 /* ── Image Frame ──────────────────────────────────────────────────────────── */
-.fm-image-frame {
+.vp-image-frame {
   border: var(--rule-thick) solid var(--color-rule);
   position: relative;
   overflow: hidden;
   display: block;
 }
 
-.fm-image-frame img {
+.vp-image-frame img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: sepia(0.15) contrast(1.05);
 }
 
 /* ── Table Styles ─────────────────────────────────────────────────────────── */
@@ -567,32 +493,32 @@ table {
 }
 
 thead {
-  background: var(--c-olive);
-  color: var(--c-khaki-light);
+  background: var(--vp-surface1);
+  color: var(--color-fg);
 }
 
 thead th {
   padding: var(--space-2) var(--space-3);
   text-align: left;
-  font-family: var(--font-condensed-sans);
-  letter-spacing: var(--tracking-wide);
+  font-family: var(--font-label);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: var(--text-xs);
-  font-weight: 700;
-  border-right: 1px solid var(--c-olive-mid);
+  font-weight: 600;
+  border-right: 1px solid var(--color-rule-light);
 }
 
 tbody tr {
-  border-bottom: 1px solid var(--c-paper-shadow);
+  border-bottom: 1px solid var(--color-rule-light);
 }
 
 tbody tr:nth-child(even) {
-  background: var(--c-olive-ghost);
+  background: var(--vp-surface0-alpha);
 }
 
 tbody td {
   padding: var(--space-2) var(--space-3);
-  border-right: 1px solid var(--c-paper-shadow);
+  border-right: 1px solid var(--color-rule-light);
 }
 
 /* ── Blockquote ───────────────────────────────────────────────────────────── */
@@ -609,14 +535,6 @@ blockquote {
   background: transparent !important;
 }
 
-/*
- * Mermaid chart areas: padding + SVG sizing.
- * - Scoped layout styles provide centering (align-items/justify-content: center)
- *   — do NOT override those or centering breaks.
- * - SVG: fill available width (scales up from Mermaid's fixed pixel size),
- *   auto-height preserves aspect ratio, max-height prevents overflow.
- *   The flex container then vertically centers the naturally-sized SVG.
- */
 .cf-chart-area,
 .cr-chart-area,
 .cl-chart-area {
@@ -646,91 +564,12 @@ blockquote {
 }
 
 /* ── Dark Mode Layout-Specific Overrides ─────────────────────────────────── */
-/*
- * These override scoped component rules that hardcode palette vars which are
- * near-black in dark mode (--c-olive-dark, --c-olive, --c-olive-mid).
- * Selectors use 3–4 class levels to beat the scoped rule's 0,2,0 specificity.
- * Light mode is intentionally untouched.
- */
 
-/* ── Global heading rules ── */
-/* Cover h2 — --c-olive-mid (#2a3018) is near-invisible on dark bg */
-.dark .layout-cover h2 { color: var(--c-khaki-light); }
-
-/* Section h1 label — same; border-top also uses near-black --c-olive-dark */
-.dark .layout-section h1 {
-  color: var(--c-khaki);
-  border-top-color: var(--c-khaki-dark);
-}
-/* Section h2 border-bottom uses --c-olive which equals the dark paper bg */
-.dark .layout-section h2 { border-bottom-color: var(--c-khaki-dark); }
-
-/* ── Cover layout ── (scoped rules in cover.vue use near-black olive vars) */
-.dark .layout-cover .cover-rule-top  { background: var(--c-khaki-dark); }
-.dark .layout-cover .cover-rule-mid  { background: var(--c-olive-light); }
-.dark .layout-cover .cover-frame     { border-color: rgba(181, 160, 96, 0.40); }
-.dark .layout-cover .cover-frame__tl,
-.dark .layout-cover .cover-frame__tr,
-.dark .layout-cover .cover-frame__bl,
-.dark .layout-cover .cover-frame__br { border-color: var(--c-khaki-dark); }
-.dark .layout-cover .cover-reticle   { opacity: 0.55; }
-.dark .layout-cover .reticle-h,
-.dark .layout-cover .reticle-v       { background: var(--c-khaki-light); }
-.dark .layout-cover .reticle-circle  { border-color: var(--c-khaki-light); }
-
-/* ── TOC chapter title — --c-olive-dark text is near-black in dark ── */
-/* :deep() scoped rules compile to [data-v-xxx] .child → 0,3,0 specificity;
-   we need 0,4,0 here to win */
-.dark .layout-toc .toc-entry--chapter .toc-entry-title { color: var(--c-khaki-light); }
-
-/* ── Callout: important type ── */
-/* All four properties use --c-olive-mid; nested scoped rules are 0,3,0 so
-   we use a 4-class chain for 0,4,0 */
-.dark .slidev-layout .callout--important {
-  border-color: var(--c-khaki);
-  background: var(--c-olive-subtle);
-}
-.dark .slidev-layout .callout--important .callout-header {
-  background: var(--c-olive-subtle);
-  border-bottom-color: var(--c-khaki);
-}
-.dark .slidev-layout .callout--important .callout-icon  { color: var(--c-khaki); }
-.dark .slidev-layout .callout--important .callout-label { color: var(--c-khaki); }
-
-/* ── Callout: caution type ── */
-/* --c-khaki-dark (#6a5c38 in dark) is too dim; swap to amber */
-.dark .slidev-layout .callout--caution {
-  border-color: var(--c-amber);
-  background: var(--c-amber-pale);
-}
-.dark .slidev-layout .callout--caution .callout-header {
-  background: var(--c-amber-pale);
-  border-bottom-color: var(--c-amber);
-}
-.dark .slidev-layout .callout--caution .callout-icon  { color: var(--c-amber); }
-.dark .slidev-layout .callout--caution .callout-label { color: var(--c-amber); }
-
-/* ── Mermaid xychart text ── */
-/* xychart-beta computes axis/title text colour from its own internal logic
-   and ignores primaryTextColor. Scoped to .cl-chart-area so other chart
-   layouts (flowchart, quadrant) keep their classDef fill colours. */
+/* Mermaid xychart: axis/title text color computed internally, needs override */
 .dark .cl-chart-area svg text,
 .dark .cl-chart-area svg tspan {
-  fill: var(--c-ink) !important;
+  fill: var(--vp-text) !important;
 }
-
-/* ── Timeline spine ── */
-/* --c-olive (#1e2214) equals the dark paper background — invisible.
-   Use khaki for a visible warm-tan line in dark mode. */
-.dark .layout-timeline .tl-track--horizontal::before,
-.dark .layout-timeline .tl-track--vertical::before {
-  background: var(--c-khaki);
-}
-
-/* ── End layout ── */
-.dark .layout-end .end-eof      { color: var(--c-khaki); }
-.dark .layout-end .end-rule-top { background: var(--c-khaki-dark); }
-.dark .layout-end .end-rule-mid { background: var(--c-olive-light); }
 
 /* ── Print safe zone ─────────────────────────────────────────────────────── */
 @media print {

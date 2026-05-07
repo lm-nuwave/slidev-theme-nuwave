@@ -1,19 +1,18 @@
-<!-- Layout: end — Final slide with END OF BRIEFING treatment and contact block -->
+<!-- Layout: end — Final slide with closing treatment and optional contact block -->
 <script setup lang="ts">
-import ClassificationBanner from '../components/ClassificationBanner.vue'
+import Banner from '../components/Banner.vue'
 
 defineProps<{
-  classification?: string
-  docNumber?: string
-  unit?: string
   contact?: string
   photo?: string
+  subtitle?: string
+  bannerText?: string
 }>()
 </script>
 
 <template>
   <div class="slidev-layout layout-end">
-    <ClassificationBanner :text="classification ?? 'FOR TRAINING USE ONLY'" />
+    <Banner :text="bannerText" />
 
     <div class="end-body">
       <!-- Presenter photo (optional) -->
@@ -23,11 +22,11 @@ defineProps<{
 
       <div class="end-text">
         <div class="end-rule-top"></div>
-        <div class="end-eof fm-label">
-          ─── End of Briefing ───
+        <div v-if="subtitle" class="end-subtitle vp-label">
+          {{ subtitle }}
         </div>
         <h1 class="end-title">
-          <slot name="title">Questions?</slot>
+          <slot name="title">Thank You</slot>
         </h1>
         <div class="end-rule-mid"></div>
         <div class="end-contact">
@@ -35,14 +34,10 @@ defineProps<{
             <p v-if="contact">{{ contact }}</p>
           </slot>
         </div>
-        <div class="end-doc fm-label">
-          {{ docNumber ?? 'FM 24-SLIDE' }}
-          <span v-if="unit"> · {{ unit }}</span>
-        </div>
       </div>
     </div>
 
-    <ClassificationBanner :text="classification ?? 'FOR TRAINING USE ONLY'" />
+    <Banner :text="bannerText" />
   </div>
 </template>
 
@@ -76,8 +71,8 @@ defineProps<{
   object-fit: cover;
   object-position: center top;
   display: block;
-  border: 3px solid var(--c-olive-dark);
-  box-shadow: 0 0 0 6px var(--c-olive-ghost);
+  border: 3px solid var(--color-accent);
+  box-shadow: 0 0 0 6px var(--vp-surface0-alpha);
 }
 
 .end-text {
@@ -87,12 +82,12 @@ defineProps<{
 
 .end-rule-top {
   height: 3px;
-  background: var(--c-olive-dark);
+  background: var(--color-accent);
   margin-bottom: var(--space-4);
 }
 
-.end-eof {
-  color: var(--c-olive-mid);
+.end-subtitle {
+  color: var(--color-fg-subtle);
   letter-spacing: var(--tracking-widest);
   margin-bottom: var(--space-4);
 }
@@ -100,16 +95,15 @@ defineProps<{
 .end-title {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 4vw, 3.4rem);
-  font-weight: 900;
-  color: var(--c-ink);
+  font-weight: 700;
+  color: var(--color-fg);
   margin: 0 0 var(--space-5);
   line-height: 1.05;
-  text-transform: uppercase;
 }
 
 .end-rule-mid {
   height: 1px;
-  background: var(--c-olive);
+  background: var(--color-rule);
   margin-bottom: var(--space-4);
 }
 
@@ -117,12 +111,6 @@ defineProps<{
   font-family: var(--font-mono);
   font-size: var(--text-sm);
   color: var(--color-fg-muted);
-  margin-bottom: var(--space-4);
   line-height: 1.7;
-}
-
-.end-doc {
-  color: var(--color-fg-subtle);
-  letter-spacing: var(--tracking-widest);
 }
 </style>

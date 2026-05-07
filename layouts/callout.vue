@@ -1,7 +1,7 @@
 <!-- Layout: callout — Main content with a prominent WARNING/NOTE/CAUTION box -->
 <script setup lang="ts">
-import FieldManualHeader from '../components/FieldManualHeader.vue'
-import FieldManualFooter from '../components/FieldManualFooter.vue'
+import VesperHeader from '../components/VesperHeader.vue'
+import VesperFooter from '../components/VesperFooter.vue'
 import Callout from '../components/Callout.vue'
 
 defineProps<{
@@ -9,17 +9,15 @@ defineProps<{
   calloutType?: 'warning' | 'note' | 'caution' | 'important'
   calloutTitle?: string
   sectionNumber?: string
-  docNumber?: string
-  unit?: string
 }>()
 </script>
 
 <template>
   <div class="slidev-layout layout-callout">
-    <FieldManualHeader
+    <VesperHeader
       :title="title ?? ''"
       :section-number="sectionNumber ?? ''"
-      :doc-number="docNumber ?? 'FM 24-SLIDE'"
+
     />
 
     <div class="ca-body">
@@ -41,7 +39,7 @@ defineProps<{
       </Callout>
     </div>
 
-    <FieldManualFooter :section-number="sectionNumber ?? ''" :unit="unit ?? ''" />
+    <VesperFooter :section-number="sectionNumber ?? ''" />
   </div>
 </template>
 

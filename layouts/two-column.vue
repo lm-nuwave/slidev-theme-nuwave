@@ -1,22 +1,20 @@
 <!-- Layout: two-column — Equal two-column text layout with a center dividing rule -->
 <script setup lang="ts">
-import FieldManualHeader from '../components/FieldManualHeader.vue'
-import FieldManualFooter from '../components/FieldManualFooter.vue'
+import VesperHeader from '../components/VesperHeader.vue'
+import VesperFooter from '../components/VesperFooter.vue'
 
 defineProps<{
   title?: string
   sectionNumber?: string
-  docNumber?: string
-  unit?: string
 }>()
 </script>
 
 <template>
   <div class="slidev-layout layout-two-column">
-    <FieldManualHeader
+    <VesperHeader
       :title="title ?? ''"
       :section-number="sectionNumber ?? ''"
-      :doc-number="docNumber ?? 'FM 24-SLIDE'"
+
     />
 
     <div class="tc-body">
@@ -43,7 +41,7 @@ defineProps<{
       </div>
     </div>
 
-    <FieldManualFooter :section-number="sectionNumber ?? ''" :unit="unit ?? ''" />
+    <VesperFooter :section-number="sectionNumber ?? ''" />
   </div>
 </template>
 
@@ -106,7 +104,7 @@ defineProps<{
 
 .tc-divider {
   width: 1px;
-  background: var(--c-olive-mid);
+  background: var(--color-fg-subtle);
   flex-shrink: 0;
   position: relative;
 }
@@ -136,7 +134,7 @@ defineProps<{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: var(--c-khaki-dark);
+  color: var(--color-rule-light);
   font-size: 8px;
   background: var(--color-bg);
   padding: 2px 0;

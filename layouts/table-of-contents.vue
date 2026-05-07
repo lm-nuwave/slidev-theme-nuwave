@@ -1,25 +1,20 @@
-<!-- Layout: table-of-contents — Formatted like a field manual ToC with dot leaders and section numbers -->
+<!-- Layout: table-of-contents — ToC with dot leaders and section numbers -->
 <script setup lang="ts">
-import FieldManualHeader from '../components/FieldManualHeader.vue'
-import FieldManualFooter from '../components/FieldManualFooter.vue'
-import ClassificationBanner from '../components/ClassificationBanner.vue'
+import VesperHeader from '../components/VesperHeader.vue'
+import VesperFooter from '../components/VesperFooter.vue'
 
 defineProps<{
   title?: string
   sectionNumber?: string
-  docNumber?: string
-  unit?: string
-  classification?: string
 }>()
 </script>
 
 <template>
   <div class="slidev-layout layout-toc">
-    <ClassificationBanner :text="classification ?? 'FOR TRAINING USE ONLY'" />
-    <FieldManualHeader
+    <VesperHeader
       :title="title ?? 'TABLE OF CONTENTS'"
       :section-number="sectionNumber ?? ''"
-      :doc-number="docNumber ?? 'FM 24-SLIDE'"
+
     />
 
     <div class="toc-body">
@@ -53,7 +48,7 @@ defineProps<{
       </div>
     </div>
 
-    <FieldManualFooter :section-number="sectionNumber ?? ''" :unit="unit ?? ''" />
+    <VesperFooter :section-number="sectionNumber ?? ''" />
   </div>
 </template>
 
@@ -62,7 +57,7 @@ defineProps<{
   display: flex;
   flex-direction: column;
   padding: 0;
-  background: var(--c-paper) !important;
+  background: var(--color-bg) !important;
 }
 
 .toc-body {
@@ -102,7 +97,7 @@ defineProps<{
   font-weight: 700;
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
-  color: var(--c-khaki-dark);
+  color: var(--color-rule-light);
   margin-bottom: var(--space-2);
 }
 
@@ -112,7 +107,7 @@ defineProps<{
 
 .toc-header-rule {
   height: 1px;
-  background: var(--c-khaki-dark);
+  background: var(--color-rule-light);
 }
 
 .toc-entries {
@@ -130,14 +125,14 @@ defineProps<{
   gap: var(--space-3);
   align-items: baseline;
   padding: var(--space-1) 0;
-  border-bottom: 1px dotted var(--c-paper-shadow);
+  border-bottom: 1px dotted var(--vp-surface1);
 }
 
 :deep(.toc-entry-num) {
   font-family: var(--font-mono);
   font-size: var(--text-sm);
   font-weight: 700;
-  color: var(--c-red);
+  color: var(--color-accent);
   letter-spacing: var(--tracking-wide);
 }
 
@@ -150,7 +145,7 @@ defineProps<{
 /* CSS dot leaders */
 :deep(.toc-leaders) {
   align-self: center;
-  border-bottom: 2px dotted var(--c-khaki-pale);
+  border-bottom: 2px dotted var(--color-bg-panel);
   min-width: 20px;
 }
 
@@ -167,17 +162,17 @@ defineProps<{
   padding-left: var(--space-6);
 }
 
-/* Chapter-level entry (bold, olive background) */
+/* Chapter-level entry (bold, elevated background) */
 :deep(.toc-entry--chapter) {
-  background: var(--c-olive-ghost);
+  background: var(--vp-surface0-alpha);
   padding: var(--space-1) 0;
   padding-left: var(--space-3);
-  border-bottom: 1px solid var(--c-khaki-dark);
+  border-bottom: 1px solid var(--color-rule-light);
 }
 
 :deep(.toc-entry--chapter .toc-entry-title) {
   font-weight: 700;
-  color: var(--c-olive-dark);
+  color: var(--color-fg-muted);
   font-family: var(--font-heading);
   font-size: var(--text-md);
 }

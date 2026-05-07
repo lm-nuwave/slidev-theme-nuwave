@@ -1,13 +1,12 @@
-<!-- Layout: quote — Attributed quotation with large faded olive quotation mark, rank/name/unit attribution -->
+<!-- Layout: quote — Attributed quotation with large decorative quotation mark and name/title/affiliation attribution -->
 <script setup lang="ts">
-import FieldManualFooter from '../components/FieldManualFooter.vue'
+import VesperFooter from '../components/VesperFooter.vue'
 
 defineProps<{
   attribution?: string
   rank?: string
   unit?: string
   sectionNumber?: string
-  docNumber?: string
 }>()
 </script>
 
@@ -28,14 +27,14 @@ defineProps<{
 
         <!-- Attribution block -->
         <div class="quote-attribution">
-          <span v-if="rank" class="quote-rank fm-label">{{ rank }}</span>
+          <span v-if="rank" class="quote-rank vp-label">{{ rank }}</span>
           <span v-if="attribution" class="quote-name">{{ attribution }}</span>
-          <span v-if="unit" class="quote-unit fm-label">{{ unit }}</span>
+          <span v-if="unit" class="quote-unit vp-label">{{ unit }}</span>
         </div>
       </div>
     </div>
 
-    <FieldManualFooter :section-number="sectionNumber ?? ''" />
+    <VesperFooter :section-number="sectionNumber ?? ''" />
   </div>
 </template>
 
@@ -43,7 +42,7 @@ defineProps<{
 .layout-quote {
   display: flex;
   flex-direction: column;
-  background: var(--c-paper-dark) !important;
+  background: var(--color-bg-alt) !important;
   padding: 0;
 }
 
@@ -62,7 +61,7 @@ defineProps<{
   font-family: var(--font-heading);
   font-size: clamp(6rem, 15vw, 11rem);
   font-weight: 900;
-  color: var(--c-olive);
+  color: var(--color-rule);
   opacity: 0.18;
   line-height: 1;
   flex-shrink: 0;
@@ -79,7 +78,7 @@ defineProps<{
 .quote-rule-top,
 .quote-rule-bottom {
   height: 1px;
-  background: var(--c-khaki-dark);
+  background: var(--color-rule-light);
 }
 
 .quote-rule-top { margin-bottom: var(--space-5); }
@@ -91,7 +90,7 @@ defineProps<{
   font-style: italic;
   font-weight: 700;
   line-height: 1.35;
-  color: var(--c-ink);
+  color: var(--color-fg);
   margin: 0;
   padding: 0;
   border: none;
@@ -104,7 +103,7 @@ defineProps<{
 }
 
 .quote-rank {
-  color: var(--c-red);
+  color: var(--vp-red);
   letter-spacing: var(--tracking-widest);
 }
 
@@ -116,7 +115,7 @@ defineProps<{
 }
 
 .quote-unit {
-  color: var(--c-khaki-dark);
+  color: var(--color-rule-light);
   letter-spacing: var(--tracking-wide);
 }
 </style>

@@ -1,6 +1,6 @@
 /**
- * Field Manual Theme — Code Block Overrides
- * Applied on top of Shiki highlighting to enforce the FM visual vocabulary
+ * Vesper Theme — Code Block Styles
+ * Applied on top of Shiki highlighting
  * ─────────────────────────────────────────────────────────────────────────
  */
 
@@ -34,34 +34,25 @@
 
 /* ── Line highlight ───────────────────────────────────────────────────────── */
 .shiki .line.highlighted {
-  background: var(--c-olive-subtle);
+  background: var(--vp-surface1-alpha);
   border-left: 2px solid var(--color-accent);
   padding-left: calc(var(--space-4) - 2px);
 }
 
-/* ── The FM code container ────────────────────────────────────────────────── */
-/*
-  .fm-code-container wraps everything:
-  header bar → line-number-gutter + code panel → footer caption
-*/
-.fm-code-container {
+/* ── The Vesper code container ────────────────────────────────────────────── */
+.vp-code-container {
   display: flex;
   flex-direction: column;
   border: var(--rule-mid) solid var(--color-rule);
-  background: var(--c-paper-dark);
+  background: var(--color-bg-panel);
   position: relative;
   overflow: hidden;
   font-family: var(--font-mono);
 }
 
-.dark .fm-code-container {
-  background: var(--c-paper-deeper);
-  border-color: var(--c-olive-light);
-}
-
 /* Corner brackets on code container */
-.fm-code-container::before,
-.fm-code-container::after {
+.vp-code-container::before,
+.vp-code-container::after {
   content: '';
   position: absolute;
   width: 10px;
@@ -70,20 +61,20 @@
   pointer-events: none;
 }
 
-.fm-code-container::before {
+.vp-code-container::before {
   top: 0; left: 0;
-  border-top: 2px solid var(--c-khaki);
-  border-left: 2px solid var(--c-khaki);
+  border-top: 2px solid var(--color-rule-light);
+  border-left: 2px solid var(--color-rule-light);
 }
 
-.fm-code-container::after {
+.vp-code-container::after {
   top: 0; right: 0;
-  border-top: 2px solid var(--c-khaki);
-  border-right: 2px solid var(--c-khaki);
+  border-top: 2px solid var(--color-rule-light);
+  border-right: 2px solid var(--color-rule-light);
 }
 
-.fm-code-container .fm-code-bl,
-.fm-code-container .fm-code-br {
+.vp-code-container .vp-code-bl,
+.vp-code-container .vp-code-br {
   position: absolute;
   width: 10px;
   height: 10px;
@@ -91,59 +82,50 @@
   pointer-events: none;
 }
 
-.fm-code-container .fm-code-bl {
+.vp-code-container .vp-code-bl {
   bottom: 0; left: 0;
-  border-bottom: 2px solid var(--c-khaki);
-  border-left: 2px solid var(--c-khaki);
+  border-bottom: 2px solid var(--color-rule-light);
+  border-left: 2px solid var(--color-rule-light);
 }
 
-.fm-code-container .fm-code-br {
+.vp-code-container .vp-code-br {
   bottom: 0; right: 0;
-  border-bottom: 2px solid var(--c-khaki);
-  border-right: 2px solid var(--c-khaki);
+  border-bottom: 2px solid var(--color-rule-light);
+  border-right: 2px solid var(--color-rule-light);
 }
 
 /* ── Code header bar ──────────────────────────────────────────────────────── */
-.fm-code-header {
+.vp-code-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: var(--space-2) var(--space-4);
-  background: var(--c-olive);
-  border-bottom: var(--rule-thin) solid var(--c-khaki-dark);
+  background: var(--color-bg-alt);
+  border-bottom: var(--rule-thin) solid var(--color-rule);
   flex-shrink: 0;
 }
 
-.dark .fm-code-header {
-  background: var(--c-olive-mid);
+.vp-code-title {
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
 }
 
-.fm-code-title {
-  font-family: var(--font-condensed-sans);
+.vp-code-lang-badge {
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: var(--tracking-wider);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--c-khaki-light);
-}
-
-.fm-code-lang-badge {
-  font-family: var(--font-condensed-sans);
-  font-size: var(--text-xs);
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
-  color: var(--c-khaki-dark);
+  color: var(--color-fg-subtle);
   padding: 1px 6px;
-  border: 1px solid var(--c-khaki-dark);
-}
-
-.dark .fm-code-lang-badge {
-  color: var(--c-khaki);
-  border-color: var(--c-khaki-dark);
+  border: 1px solid var(--color-rule-light);
 }
 
 /* ── Code body ────────────────────────────────────────────────────────────── */
-.fm-code-body {
+.vp-code-body {
   display: flex;
   flex: 1;
   overflow: hidden;
@@ -151,72 +133,63 @@
 }
 
 /* ── Line number gutter ───────────────────────────────────────────────────── */
-.fm-code-gutter {
+.vp-code-gutter {
   display: flex;
   flex-direction: column;
   min-width: 2.8em;
   padding: 0 var(--space-2);
-  border-right: var(--rule-thin) solid var(--c-khaki-dark);
-  background: var(--c-paper-deeper);
+  border-right: var(--rule-thin) solid var(--color-rule-light);
+  background: var(--color-bg-alt);
   flex-shrink: 0;
   user-select: none;
   pointer-events: none;
 }
 
-.dark .fm-code-gutter {
-  background: var(--c-paper-dark);
-  border-right-color: var(--c-olive-light);
-}
-
-.fm-line-number {
+.vp-line-number {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   line-height: 1.65;
-  color: var(--c-khaki-dark);
+  color: var(--color-fg-subtle);
   text-align: right;
   padding: 0 var(--space-2);
 }
 
-.dark .fm-line-number {
-  color: var(--c-olive-light);
-}
-
 /* ── Code content area ────────────────────────────────────────────────────── */
-.fm-code-content {
+.vp-code-content {
   flex: 1;
   overflow: auto;
   padding: var(--space-2) 0;
 }
 
 /* ── 5-line ruler marks ───────────────────────────────────────────────────── */
-.fm-code-ruler-line {
-  border-top: 1px solid var(--c-olive-subtle);
+.vp-code-ruler-line {
+  border-top: 1px solid var(--vp-overlay1-alpha);
 }
 
 /* ── Code footer / caption ────────────────────────────────────────────────── */
-.fm-code-footer {
+.vp-code-footer {
   padding: var(--space-2) var(--space-4);
-  border-top: var(--rule-thin) solid var(--c-khaki-dark);
-  background: var(--c-olive-ghost);
-  font-family: var(--font-condensed-sans);
+  border-top: var(--rule-thin) solid var(--color-rule);
+  background: var(--color-bg-alt);
+  font-family: var(--font-label);
   font-size: var(--text-xs);
-  letter-spacing: var(--tracking-wide);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-fg-subtle);
   flex-shrink: 0;
 }
 
 /* ── Full-slide code layout special sizing ────────────────────────────────── */
-.layout-code-full .fm-code-container {
+.layout-code-full .vp-code-container {
   height: 100%;
 }
 
-.layout-code-full .fm-code-content {
+.layout-code-full .vp-code-content {
   font-size: calc(var(--text-sm) * 1.05);
 }
 
 /* ── code-right layout panel sizing ──────────────────────────────────────── */
-.layout-code-right .fm-code-container,
-.layout-code-left .fm-code-container {
+.layout-code-right .vp-code-container,
+.layout-code-left .vp-code-container {
   height: 100%;
 }

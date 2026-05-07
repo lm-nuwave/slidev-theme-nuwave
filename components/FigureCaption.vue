@@ -27,11 +27,11 @@ defineProps<{
 
 .fig-caption__num {
   font-weight: 700;
-  color: var(--c-red);
+  color: var(--color-accent);
 }
 
 .fig-caption__sep {
-  color: var(--c-khaki-dark);
+  color: var(--color-fg-subtle);
 }
 
 .fig-caption__label {

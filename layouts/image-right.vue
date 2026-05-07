@@ -1,14 +1,12 @@
 <!-- Layout: image-right — Text 55% left, bracketed image frame 45% right with caption slot -->
 <script setup lang="ts">
-import FieldManualHeader from '../components/FieldManualHeader.vue'
-import FieldManualFooter from '../components/FieldManualFooter.vue'
+import VesperHeader from '../components/VesperHeader.vue'
+import VesperFooter from '../components/VesperFooter.vue'
 import FigureCaption from '../components/FigureCaption.vue'
 
 defineProps<{
   title?: string
   sectionNumber?: string
-  docNumber?: string
-  unit?: string
   figNumber?: string | number
   figLabel?: string
 }>()
@@ -16,10 +14,10 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-image-right">
-    <FieldManualHeader
+    <VesperHeader
       :title="title ?? ''"
       :section-number="sectionNumber ?? ''"
-      :doc-number="docNumber ?? 'FM 24-SLIDE'"
+
     />
 
     <div class="ir-body">
@@ -34,12 +32,12 @@ defineProps<{
 
       <!-- Right image column -->
       <div class="ir-image-col">
-        <div class="ir-image-frame fm-bracketed">
-          <span class="fm-bracket-bl"></span>
-          <span class="fm-bracket-br"></span>
+        <div class="ir-image-frame vp-bracketed">
+          <span class="vp-bracket-bl"></span>
+          <span class="vp-bracket-br"></span>
           <slot name="image">
             <div class="ir-image-placeholder">
-              <span class="ir-placeholder-label fm-label">IMAGE</span>
+              <span class="ir-placeholder-label vp-label">IMAGE</span>
             </div>
           </slot>
         </div>
@@ -53,7 +51,7 @@ defineProps<{
       </div>
     </div>
 
-    <FieldManualFooter :section-number="sectionNumber ?? ''" :unit="unit ?? ''" />
+    <VesperFooter :section-number="sectionNumber ?? ''" />
   </div>
 </template>
 
@@ -127,7 +125,7 @@ defineProps<{
 .ir-image-placeholder {
   width: 100%;
   height: 100%;
-  background: var(--c-paper-shadow);
+  background: var(--vp-surface1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -135,7 +133,7 @@ defineProps<{
 }
 
 .ir-placeholder-label {
-  color: var(--c-khaki-dark);
+  color: var(--color-rule-light);
   letter-spacing: var(--tracking-widest);
 }
 

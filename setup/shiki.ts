@@ -1,6 +1,6 @@
 /**
- * Field Manual Theme — Custom Shiki Syntax Highlighting
- * Maps to the FM color palette: warm paper / olive / signal red / blueprint blue
+ * Vesper Theme — Custom Shiki Syntax Highlighting
+ * Catppuccin Latte (light) + Catppuccin Mocha (dark)
  *
  * Exports a plain function — Slidev calls setup/shiki.ts default export as a function.
  * No imports needed; @slidev/types may not be installed locally in the theme directory.
@@ -8,234 +8,196 @@
 export default () => {
   return {
     theme: {
-      // ── Light theme (aged paper) ────────────────────────────────────────
+      // ── Light theme (Catppuccin Latte) ─────────────────────────────────
       light: {
-        name: 'field-manual-light',
+        name: 'vesper-light',
         type: 'light',
-        bg: '#ede8d0',
-        fg: '#1a1a14',
+        bg: '#eff1f5',
+        fg: '#4c4f69',
         colors: {
-          'editor.background':              '#ede8d0',
-          'editor.foreground':              '#1a1a14',
-          'editor.lineHighlightBackground': '#e0d8be',
-          'editorLineNumber.foreground':    '#8a7a50',
-          'editorLineNumber.activeForeground': '#5c5c30',
-          'editorCursor.foreground':        '#8b1a1a',
-          'editor.selectionBackground':     '#c8b87a44',
-        },
-        tokenColors: [
-          // Comments — muted khaki, italic
-          {
-            scope: ['comment', 'punctuation.definition.comment'],
-            settings: { foreground: '#8a7a50', fontStyle: 'italic' },
-          },
-          // Keywords — signal red
-          {
-            scope: [
-              'keyword',
-              'keyword.control',
-              'keyword.operator',
-              'keyword.declaration',
-              'storage.type',
-              'storage.modifier',
-            ],
-            settings: { foreground: '#8b1a1a', fontStyle: 'bold' },
-          },
-          // Strings — blueprint blue
-          {
-            scope: [
-              'string',
-              'string.quoted',
-              'string.template',
-              'string.interpolated',
-            ],
-            settings: { foreground: '#2a4a6e' },
-          },
-          // String punctuation
-          {
-            scope: ['punctuation.definition.string'],
-            settings: { foreground: '#3d6080' },
-          },
-          // Numbers — warm amber
-          {
-            scope: ['constant.numeric', 'constant.language.boolean'],
-            settings: { foreground: '#6b4a1a' },
-          },
-          // Functions — dark olive
-          {
-            scope: [
-              'entity.name.function',
-              'meta.function-call',
-              'support.function',
-            ],
-            settings: { foreground: '#3d4a1a', fontStyle: 'bold' },
-          },
-          // Classes / types
-          {
-            scope: [
-              'entity.name.class',
-              'entity.name.type',
-              'support.class',
-              'support.type',
-            ],
-            settings: { foreground: '#4a4a2a', fontStyle: 'bold' },
-          },
-          // Variables / identifiers
-          {
-            scope: ['variable', 'variable.other', 'meta.definition.variable'],
-            settings: { foreground: '#3a3830' },
-          },
-          // Constants
-          {
-            scope: ['constant', 'constant.other'],
-            settings: { foreground: '#6b4a1a' },
-          },
-          // Operators
-          {
-            scope: ['keyword.operator', 'punctuation.accessor'],
-            settings: { foreground: '#5c5c30' },
-          },
-          // Parameters
-          {
-            scope: ['variable.parameter', 'meta.parameter'],
-            settings: { foreground: '#3a3830', fontStyle: 'italic' },
-          },
-          // Decorators / attributes
-          {
-            scope: ['meta.decorator', 'entity.name.tag'],
-            settings: { foreground: '#8b1a1a' },
-          },
-          // Properties
-          {
-            scope: ['support.type.property-name', 'variable.other.property'],
-            settings: { foreground: '#2a3d5c' },
-          },
-          // Punctuation
-          {
-            scope: ['punctuation', 'meta.brace'],
-            settings: { foreground: '#6a6458' },
-          },
-          // Import / module paths
-          {
-            scope: ['entity.name.module', 'support.module'],
-            settings: { foreground: '#2a4a6e' },
-          },
-          // YAML keys
-          {
-            scope: ['entity.name.tag.yaml', 'support.type.property-name.yaml'],
-            settings: { foreground: '#3d4a1a' },
-          },
-          // Shell commands / builtins
-          {
-            scope: [
-              'support.function.builtin.shell',
-              'keyword.other.shell',
-              'entity.name.command.shell',
-              'meta.function-call.shell',
-            ],
-            settings: { foreground: '#8b1a1a', fontStyle: 'bold' },
-          },
-          // Markdown headings
-          {
-            scope: ['markup.heading', 'entity.name.section.markdown'],
-            settings: { foreground: '#3d4a1a', fontStyle: 'bold' },
-          },
-        ],
-      },
-
-      // ── Dark theme (night map / NOD palette) ───────────────────────────
-      dark: {
-        name: 'field-manual-dark',
-        type: 'dark',
-        bg: '#1e2214',
-        fg: '#e8e0c8',
-        colors: {
-          'editor.background':              '#1e2214',
-          'editor.foreground':              '#e8e0c8',
-          'editor.lineHighlightBackground': '#2a3018',
-          'editorLineNumber.foreground':    '#5c5c30',
-          'editorLineNumber.activeForeground': '#b5a060',
-          'editorCursor.foreground':        '#c04040',
-          'editor.selectionBackground':     '#3d4a2244',
+          'editor.background':                 '#eff1f5',
+          'editor.foreground':                 '#4c4f69',
+          'editor.lineHighlightBackground':    '#ccd0da',
+          'editorLineNumber.foreground':       '#9ca0b0',
+          'editorLineNumber.activeForeground': '#6c6f85',
+          'editorCursor.foreground':           '#8839ef',
+          'editor.selectionBackground':        '#8839ef44',
         },
         tokenColors: [
           {
             scope: ['comment', 'punctuation.definition.comment'],
-            settings: { foreground: '#6a6048', fontStyle: 'italic' },
+            settings: { foreground: '#8c8fa1', fontStyle: 'italic' },
           },
           {
             scope: [
               'keyword', 'keyword.control', 'keyword.operator',
               'keyword.declaration', 'storage.type', 'storage.modifier',
             ],
-            settings: { foreground: '#c04040', fontStyle: 'bold' },
+            settings: { foreground: '#8839ef', fontStyle: 'bold' },
           },
           {
             scope: ['string', 'string.quoted', 'string.template', 'string.interpolated'],
-            settings: { foreground: '#7090c0' },
+            settings: { foreground: '#40a02b' },
           },
           {
             scope: ['punctuation.definition.string'],
-            settings: { foreground: '#5a7aaa' },
+            settings: { foreground: '#179299' },
           },
           {
             scope: ['constant.numeric', 'constant.language.boolean'],
-            settings: { foreground: '#c8963a' },
+            settings: { foreground: '#fe640b' },
           },
           {
             scope: ['entity.name.function', 'meta.function-call', 'support.function'],
-            settings: { foreground: '#a0b860', fontStyle: 'bold' },
+            settings: { foreground: '#1e66f5', fontStyle: 'bold' },
           },
           {
             scope: ['entity.name.class', 'entity.name.type', 'support.class', 'support.type'],
-            settings: { foreground: '#c8b87a', fontStyle: 'bold' },
+            settings: { foreground: '#df8e1d', fontStyle: 'bold' },
           },
           {
             scope: ['variable', 'variable.other', 'meta.definition.variable'],
-            settings: { foreground: '#d8d0b8' },
+            settings: { foreground: '#4c4f69' },
           },
           {
             scope: ['constant', 'constant.other'],
-            settings: { foreground: '#c8963a' },
+            settings: { foreground: '#fe640b' },
           },
           {
             scope: ['keyword.operator', 'punctuation.accessor'],
-            settings: { foreground: '#8a9060' },
+            settings: { foreground: '#04a5e5' },
           },
           {
             scope: ['variable.parameter', 'meta.parameter'],
-            settings: { foreground: '#b8b098', fontStyle: 'italic' },
+            settings: { foreground: '#7287fd', fontStyle: 'italic' },
           },
           {
             scope: ['meta.decorator', 'entity.name.tag'],
-            settings: { foreground: '#d45555' },
+            settings: { foreground: '#d20f39' },
           },
           {
             scope: ['support.type.property-name', 'variable.other.property'],
-            settings: { foreground: '#7090c0' },
+            settings: { foreground: '#179299' },
           },
           {
             scope: ['punctuation', 'meta.brace'],
-            settings: { foreground: '#8a8070' },
+            settings: { foreground: '#7c7f93' },
           },
           {
             scope: ['entity.name.module', 'support.module'],
-            settings: { foreground: '#7090c0' },
+            settings: { foreground: '#8839ef' },
           },
           {
             scope: ['entity.name.tag.yaml', 'support.type.property-name.yaml'],
-            settings: { foreground: '#a0b860' },
+            settings: { foreground: '#1e66f5' },
           },
           {
             scope: [
               'support.function.builtin.shell', 'keyword.other.shell',
               'entity.name.command.shell', 'meta.function-call.shell',
             ],
-            settings: { foreground: '#d45555', fontStyle: 'bold' },
+            settings: { foreground: '#d20f39', fontStyle: 'bold' },
           },
           {
             scope: ['markup.heading', 'entity.name.section.markdown'],
-            settings: { foreground: '#a0b860', fontStyle: 'bold' },
+            settings: { foreground: '#8839ef', fontStyle: 'bold' },
+          },
+        ],
+      },
+
+      // ── Dark theme (Catppuccin Mocha) ──────────────────────────────────
+      dark: {
+        name: 'vesper-dark',
+        type: 'dark',
+        bg: '#1e1e2e',
+        fg: '#cdd6f4',
+        colors: {
+          'editor.background':                 '#1e1e2e',
+          'editor.foreground':                 '#cdd6f4',
+          'editor.lineHighlightBackground':    '#313244',
+          'editorLineNumber.foreground':       '#6c7086',
+          'editorLineNumber.activeForeground': '#a6adc8',
+          'editorCursor.foreground':           '#cba6f7',
+          'editor.selectionBackground':        '#cba6f744',
+        },
+        tokenColors: [
+          {
+            scope: ['comment', 'punctuation.definition.comment'],
+            settings: { foreground: '#7f849c', fontStyle: 'italic' },
+          },
+          {
+            scope: [
+              'keyword', 'keyword.control', 'keyword.operator',
+              'keyword.declaration', 'storage.type', 'storage.modifier',
+            ],
+            settings: { foreground: '#cba6f7', fontStyle: 'bold' },
+          },
+          {
+            scope: ['string', 'string.quoted', 'string.template', 'string.interpolated'],
+            settings: { foreground: '#a6e3a1' },
+          },
+          {
+            scope: ['punctuation.definition.string'],
+            settings: { foreground: '#94e2d5' },
+          },
+          {
+            scope: ['constant.numeric', 'constant.language.boolean'],
+            settings: { foreground: '#fab387' },
+          },
+          {
+            scope: ['entity.name.function', 'meta.function-call', 'support.function'],
+            settings: { foreground: '#89b4fa', fontStyle: 'bold' },
+          },
+          {
+            scope: ['entity.name.class', 'entity.name.type', 'support.class', 'support.type'],
+            settings: { foreground: '#f9e2af', fontStyle: 'bold' },
+          },
+          {
+            scope: ['variable', 'variable.other', 'meta.definition.variable'],
+            settings: { foreground: '#cdd6f4' },
+          },
+          {
+            scope: ['constant', 'constant.other'],
+            settings: { foreground: '#fab387' },
+          },
+          {
+            scope: ['keyword.operator', 'punctuation.accessor'],
+            settings: { foreground: '#89dceb' },
+          },
+          {
+            scope: ['variable.parameter', 'meta.parameter'],
+            settings: { foreground: '#b4befe', fontStyle: 'italic' },
+          },
+          {
+            scope: ['meta.decorator', 'entity.name.tag'],
+            settings: { foreground: '#f38ba8' },
+          },
+          {
+            scope: ['support.type.property-name', 'variable.other.property'],
+            settings: { foreground: '#94e2d5' },
+          },
+          {
+            scope: ['punctuation', 'meta.brace'],
+            settings: { foreground: '#9399b2' },
+          },
+          {
+            scope: ['entity.name.module', 'support.module'],
+            settings: { foreground: '#cba6f7' },
+          },
+          {
+            scope: ['entity.name.tag.yaml', 'support.type.property-name.yaml'],
+            settings: { foreground: '#89b4fa' },
+          },
+          {
+            scope: [
+              'support.function.builtin.shell', 'keyword.other.shell',
+              'entity.name.command.shell', 'meta.function-call.shell',
+            ],
+            settings: { foreground: '#f38ba8', fontStyle: 'bold' },
+          },
+          {
+            scope: ['markup.heading', 'entity.name.section.markdown'],
+            settings: { foreground: '#cba6f7', fontStyle: 'bold' },
           },
         ],
       },

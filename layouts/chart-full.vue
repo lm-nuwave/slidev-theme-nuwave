@@ -1,14 +1,12 @@
 <!-- Layout: chart-full — Chart/diagram takes 70% of slide height, title above, caption below -->
 <script setup lang="ts">
-import FieldManualHeader from '../components/FieldManualHeader.vue'
-import FieldManualFooter from '../components/FieldManualFooter.vue'
+import VesperHeader from '../components/VesperHeader.vue'
+import VesperFooter from '../components/VesperFooter.vue'
 import FigureCaption from '../components/FigureCaption.vue'
 
 defineProps<{
   title?: string
   sectionNumber?: string
-  docNumber?: string
-  unit?: string
   figNumber?: string | number
   figLabel?: string
 }>()
@@ -16,10 +14,10 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-chart-full">
-    <FieldManualHeader
+    <VesperHeader
       :title="title ?? ''"
       :section-number="sectionNumber ?? ''"
-      :doc-number="docNumber ?? 'FM 24-SLIDE'"
+
     />
 
     <div class="cf-body">
@@ -46,7 +44,7 @@ defineProps<{
       </div>
     </div>
 
-    <FieldManualFooter :section-number="sectionNumber ?? ''" :unit="unit ?? ''" />
+    <VesperFooter :section-number="sectionNumber ?? ''" />
   </div>
 </template>
 
@@ -85,8 +83,8 @@ defineProps<{
   position: relative;
   border: var(--rule-mid) solid var(--color-rule);
   background-image:
-    linear-gradient(to right, var(--c-olive-ghost) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--c-olive-ghost) 1px, transparent 1px);
+    linear-gradient(to right, var(--vp-surface0-alpha) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--vp-surface0-alpha) 1px, transparent 1px);
   background-size: 30px 30px;
   display: flex;
   align-items: center;
@@ -103,7 +101,7 @@ defineProps<{
   content: '';
   position: absolute;
   inset: 10% 10% 15% 10%;
-  background: rgba(74, 74, 42, 0.22);
+  background: var(--vp-surface0-alpha);
   clip-path: polygon(
     0% 100%,
     0% 60%, 16.7% 60%,
@@ -120,8 +118,8 @@ defineProps<{
   content: '';
   position: absolute;
   inset: 10% 10% 15% 10%;
-  border-bottom: 1px solid var(--c-khaki-dark);
-  border-left: 1px solid var(--c-khaki-dark);
+  border-bottom: 1px solid var(--color-rule-light);
+  border-left: 1px solid var(--color-rule-light);
 }
 
 .cf-caption-bar {

@@ -1,23 +1,21 @@
 <script setup lang="ts">
 defineProps<{
   sectionNumber?: string
-  unit?: string
-  docLabel?: string
+  date?: string
 }>()
 </script>
 
 <template>
-  <footer class="fm-footer">
-    <div class="fm-footer__rule"></div>
-    <div class="fm-footer__inner">
-      <span class="fm-footer__section fm-section-id">
-        {{ sectionNumber ?? '1-1' }}
+  <footer class="vp-footer">
+    <div class="vp-footer__rule"></div>
+    <div class="vp-footer__inner">
+      <span class="vp-footer__section vp-section-id">
+        {{ sectionNumber ?? '' }}
       </span>
-      <span class="fm-footer__doc fm-label">
-        {{ docLabel ?? 'FM 24-SLIDE' }}
-        <span v-if="unit"> · {{ unit }}</span>
+      <span class="vp-footer__date vp-label">
+        {{ date ?? $slidev?.configs?.date ?? '' }}
       </span>
-      <span class="fm-footer__page fm-section-id">
+      <span class="vp-footer__page vp-section-id">
         {{ $nav?.currentPage ?? '' }}
         <template v-if="$nav?.total"> / {{ $nav.total }}</template>
       </span>
@@ -26,16 +24,16 @@ defineProps<{
 </template>
 
 <style scoped>
-.fm-footer {
+.vp-footer {
   flex-shrink: 0;
 }
 
-.fm-footer__rule {
+.vp-footer__rule {
   height: var(--rule-thick);
   background: var(--color-rule);
 }
 
-.fm-footer__inner {
+.vp-footer__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -44,20 +42,20 @@ defineProps<{
   gap: var(--space-4);
 }
 
-.fm-footer__section {
-  color: var(--c-red);
-  font-weight: 700;
+.vp-footer__section {
+  color: var(--color-accent);
+  font-weight: 600;
   flex-shrink: 0;
 }
 
-.fm-footer__doc {
-  color: var(--c-khaki-dark);
-  letter-spacing: var(--tracking-wider);
+.vp-footer__date {
+  color: var(--color-fg-subtle);
+  letter-spacing: 0.10em;
   text-align: center;
   flex: 1;
 }
 
-.fm-footer__page {
+.vp-footer__page {
   color: var(--color-fg-muted);
   flex-shrink: 0;
 }

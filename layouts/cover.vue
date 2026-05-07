@@ -1,57 +1,26 @@
-<!-- Layout: cover — Full-bleed olive title slide with classification banners, corner brackets, crosshairs -->
+<!-- Layout: cover — Full-bleed title slide with accent banners and corner bracket frame -->
 <script setup lang="ts">
-import ClassificationBanner from '../components/ClassificationBanner.vue'
+import Banner from '../components/Banner.vue'
 
 defineProps<{
-  classification?: string
-  docNumber?: string
   date?: string
+  bannerText?: string
 }>()
 </script>
 
 <template>
   <div class="slidev-layout layout-cover">
-    <!-- Paper grain is applied via ::before in global styles -->
-
-    <!-- Classification banner top -->
-    <ClassificationBanner :text="classification ?? 'FOR TRAINING USE ONLY'" />
-
-    <!-- Corner reticles -->
-    <div class="cover-reticle cover-reticle--tl">
-      <div class="reticle-h"></div>
-      <div class="reticle-v"></div>
-      <div class="reticle-circle"></div>
-    </div>
-    <div class="cover-reticle cover-reticle--tr">
-      <div class="reticle-h"></div>
-      <div class="reticle-v"></div>
-      <div class="reticle-circle"></div>
-    </div>
-    <div class="cover-reticle cover-reticle--bl">
-      <div class="reticle-h"></div>
-      <div class="reticle-v"></div>
-      <div class="reticle-circle"></div>
-    </div>
-    <div class="cover-reticle cover-reticle--br">
-      <div class="reticle-h"></div>
-      <div class="reticle-v"></div>
-      <div class="reticle-circle"></div>
-    </div>
+    <!-- Accent banner top -->
+    <Banner :text="bannerText" />
 
     <!-- Main content area -->
     <div class="cover-body">
-      <!-- Corner bracket decoration top-left -->
       <div class="cover-frame">
         <!-- Bracket corners -->
         <span class="cover-frame__tl"></span>
         <span class="cover-frame__tr"></span>
         <span class="cover-frame__bl"></span>
         <span class="cover-frame__br"></span>
-
-        <!-- Doc number -->
-        <div class="cover-doc-number fm-label">
-          {{ docNumber ?? 'FM 24-SLIDE' }}
-        </div>
 
         <!-- Thick top rule -->
         <div class="cover-rule-top"></div>
@@ -73,14 +42,14 @@ defineProps<{
 
         <!-- Date -->
         <div class="cover-meta">
-          <span class="cover-date fm-label">{{ date ?? '' }}</span>
+          <span class="cover-date vp-label">{{ date ?? '' }}</span>
           <slot name="meta" />
         </div>
       </div>
     </div>
 
-    <!-- Classification banner bottom -->
-    <ClassificationBanner :text="classification ?? 'FOR TRAINING USE ONLY'" />
+    <!-- Accent banner bottom -->
+    <Banner :text="bannerText" />
   </div>
 </template>
 
@@ -89,7 +58,7 @@ defineProps<{
   background: var(--color-bg) !important;
   display: flex;
   flex-direction: column;
-  color: var(--c-ink);
+  color: var(--color-fg);
   padding: 0;
   position: relative;
 }
@@ -109,7 +78,7 @@ defineProps<{
   max-width: 800px;
   padding: var(--space-6) var(--space-7);
   position: relative;
-  border: 1px solid rgba(61, 74, 26, 0.35);
+  border: 1px solid var(--vp-overlay1-alpha);
 }
 
 /* Corner brackets */
@@ -124,37 +93,31 @@ defineProps<{
 
 .cover-frame__tl {
   top: -2px; left: -2px;
-  border-top: 2px solid var(--c-olive-dark);
-  border-left: 2px solid var(--c-olive-dark);
+  border-top: 2px solid var(--color-accent);
+  border-left: 2px solid var(--color-accent);
 }
 
 .cover-frame__tr {
   top: -2px; right: -2px;
-  border-top: 2px solid var(--c-olive-dark);
-  border-right: 2px solid var(--c-olive-dark);
+  border-top: 2px solid var(--color-accent);
+  border-right: 2px solid var(--color-accent);
 }
 
 .cover-frame__bl {
   bottom: -2px; left: -2px;
-  border-bottom: 2px solid var(--c-olive-dark);
-  border-left: 2px solid var(--c-olive-dark);
+  border-bottom: 2px solid var(--color-accent);
+  border-left: 2px solid var(--color-accent);
 }
 
 .cover-frame__br {
   bottom: -2px; right: -2px;
-  border-bottom: 2px solid var(--c-olive-dark);
-  border-right: 2px solid var(--c-olive-dark);
-}
-
-.cover-doc-number {
-  color: var(--c-red);
-  margin-bottom: var(--space-3);
-  letter-spacing: var(--tracking-widest);
+  border-bottom: 2px solid var(--color-accent);
+  border-right: 2px solid var(--color-accent);
 }
 
 .cover-rule-top {
   height: 4px;
-  background: var(--c-olive-dark);
+  background: var(--color-accent);
   margin-bottom: var(--space-5);
 }
 
@@ -163,7 +126,7 @@ defineProps<{
   font-size: clamp(2.4rem, 5vw, 4.2rem);
   font-weight: 700;
   line-height: 1.0;
-  color: var(--c-ink);
+  color: var(--color-fg);
   letter-spacing: 0.04em;
   margin: 0 0 var(--space-5);
   text-transform: uppercase;
@@ -171,14 +134,14 @@ defineProps<{
 
 .cover-rule-mid {
   height: 2px;
-  background: var(--c-olive);
+  background: var(--color-rule);
   margin-bottom: var(--space-4);
 }
 
 .cover-subtitle {
   font-family: var(--font-body);
   font-size: var(--text-md);
-  color: var(--c-ink);
+  color: var(--color-fg);
   margin-bottom: var(--space-4);
   line-height: 1.4;
 }
@@ -190,52 +153,8 @@ defineProps<{
 }
 
 .cover-date {
-  color: var(--c-ink);
+  color: var(--color-fg);
   letter-spacing: var(--tracking-widest);
 }
-
-/* Crosshair reticles at corners */
-.cover-reticle {
-  position: absolute;
-  width: 36px;
-  height: 36px;
-  z-index: 3;
-  opacity: 0.30;
-}
-
-.cover-reticle--tl { top: 28px; left: 16px; }
-.cover-reticle--tr { top: 28px; right: 16px; }
-.cover-reticle--bl { bottom: 28px; left: 16px; }
-.cover-reticle--br { bottom: 28px; right: 16px; }
-
-.reticle-h {
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  background: var(--c-olive-dark);
-  top: 50%;
-  left: 0;
-}
-
-.reticle-v {
-  position: absolute;
-  width: 1px;
-  height: 100%;
-  background: var(--c-olive-dark);
-  left: 50%;
-  top: 0;
-}
-
-.reticle-circle {
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  border: 1px solid var(--c-olive-dark);
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 
 </style>

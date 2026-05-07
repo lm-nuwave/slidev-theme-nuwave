@@ -1,23 +1,21 @@
 <!-- Layout: timeline — CSS-only horizontal or vertical timeline with military stencil aesthetic -->
 <script setup lang="ts">
-import FieldManualHeader from '../components/FieldManualHeader.vue'
-import FieldManualFooter from '../components/FieldManualFooter.vue'
+import VesperHeader from '../components/VesperHeader.vue'
+import VesperFooter from '../components/VesperFooter.vue'
 
 defineProps<{
   title?: string
   sectionNumber?: string
-  docNumber?: string
-  unit?: string
   direction?: 'horizontal' | 'vertical'
 }>()
 </script>
 
 <template>
   <div class="slidev-layout layout-timeline">
-    <FieldManualHeader
+    <VesperHeader
       :title="title ?? ''"
       :section-number="sectionNumber ?? ''"
-      :doc-number="docNumber ?? 'FM 24-SLIDE'"
+
     />
 
     <div class="tl-body">
@@ -34,7 +32,7 @@ defineProps<{
               <div class="tl-entry-dot"></div>
             </div>
             <div class="tl-entry-body">
-              <div class="tl-entry-date fm-label">T+0</div>
+              <div class="tl-entry-date vp-label">T+0</div>
               <div class="tl-entry-title">Entry One</div>
               <div class="tl-entry-desc">Description goes here</div>
             </div>
@@ -43,7 +41,7 @@ defineProps<{
       </div>
     </div>
 
-    <FieldManualFooter :section-number="sectionNumber ?? ''" :unit="unit ?? ''" />
+    <VesperFooter :section-number="sectionNumber ?? ''" />
   </div>
 </template>
 
@@ -100,7 +98,7 @@ defineProps<{
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--c-olive);
+  background: var(--color-rule);
 }
 
 .tl-track--horizontal :deep(.tl-entry) {
@@ -141,7 +139,7 @@ defineProps<{
   top: 0;
   bottom: 0;
   width: 2px;
-  background: var(--c-olive);
+  background: var(--color-rule);
 }
 
 .tl-track--vertical :deep(.tl-entry) {
@@ -166,8 +164,8 @@ defineProps<{
 :deep(.tl-entry-dot) {
   width: 14px;
   height: 14px;
-  border: 2px solid var(--c-red);
-  background: var(--c-paper);
+  border: 2px solid var(--vp-red);
+  background: var(--color-bg);
   position: relative;
 }
 
@@ -180,11 +178,11 @@ defineProps<{
   transform: translate(-50%, -50%);
   width: 5px;
   height: 5px;
-  background: var(--c-red);
+  background: var(--vp-red);
 }
 
 :deep(.tl-entry-date) {
-  color: var(--c-red);
+  color: var(--vp-red);
   letter-spacing: var(--tracking-widest);
   margin-bottom: var(--space-1);
 }

@@ -1,22 +1,20 @@
 <!-- Layout: default — Standard text layout with top rule, title treatment, and footer -->
 <script setup lang="ts">
-import FieldManualHeader from '../components/FieldManualHeader.vue'
-import FieldManualFooter from '../components/FieldManualFooter.vue'
+import VesperHeader from '../components/VesperHeader.vue'
+import VesperFooter from '../components/VesperFooter.vue'
 
 defineProps<{
   title?: string
   sectionNumber?: string
-  docNumber?: string
-  unit?: string
 }>()
 </script>
 
 <template>
   <div class="slidev-layout layout-default">
-    <FieldManualHeader
+    <VesperHeader
       :title="title ?? $slidev?.configs?.title ?? ''"
       :section-number="sectionNumber ?? ''"
-      :doc-number="docNumber ?? 'FM 24-SLIDE'"
+
     />
 
     <main class="layout-default__body">
@@ -32,9 +30,9 @@ defineProps<{
       </div>
     </main>
 
-    <FieldManualFooter
+    <VesperFooter
       :section-number="sectionNumber ?? '1-1'"
-      :unit="unit ?? ''"
+
     />
   </div>
 </template>

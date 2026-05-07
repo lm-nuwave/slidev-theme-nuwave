@@ -1,7 +1,7 @@
 <!-- Layout: three-column — Three equal panels each with its own header slot -->
 <script setup lang="ts">
-import FieldManualHeader from '../components/FieldManualHeader.vue'
-import FieldManualFooter from '../components/FieldManualFooter.vue'
+import VesperHeader from '../components/VesperHeader.vue'
+import VesperFooter from '../components/VesperFooter.vue'
 
 defineProps<{
   title?: string
@@ -9,17 +9,15 @@ defineProps<{
   col2Header?: string
   col3Header?: string
   sectionNumber?: string
-  docNumber?: string
-  unit?: string
 }>()
 </script>
 
 <template>
   <div class="slidev-layout layout-three-column">
-    <FieldManualHeader
+    <VesperHeader
       :title="title ?? ''"
       :section-number="sectionNumber ?? ''"
-      :doc-number="docNumber ?? 'FM 24-SLIDE'"
+
     />
 
     <div class="thc-body">
@@ -65,7 +63,7 @@ defineProps<{
       </div>
     </div>
 
-    <FieldManualFooter :section-number="sectionNumber ?? ''" :unit="unit ?? ''" />
+    <VesperFooter :section-number="sectionNumber ?? ''" />
   </div>
 </template>
 
@@ -124,11 +122,11 @@ defineProps<{
   font-weight: 700;
   letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
-  color: var(--c-khaki-light);
-  background: var(--c-olive);
+  color: var(--color-fg-muted);
+  background: var(--color-rule);
   padding: var(--space-2) var(--space-3);
   margin-bottom: var(--space-3);
-  border-bottom: 2px solid var(--c-khaki-dark);
+  border-bottom: 2px solid var(--color-rule-light);
   flex-shrink: 0;
 }
 
@@ -140,7 +138,7 @@ defineProps<{
 
 .thc-divider {
   width: 1px;
-  background: var(--c-olive-mid);
+  background: var(--color-fg-subtle);
   margin: 0 var(--space-2);
   flex-shrink: 0;
 }

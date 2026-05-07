@@ -1,14 +1,12 @@
 <!-- Layout: chart-right — Text/bullets left, chart/graphic right with subtle grid background -->
 <script setup lang="ts">
-import FieldManualHeader from '../components/FieldManualHeader.vue'
-import FieldManualFooter from '../components/FieldManualFooter.vue'
+import VesperHeader from '../components/VesperHeader.vue'
+import VesperFooter from '../components/VesperFooter.vue'
 import FigureCaption from '../components/FigureCaption.vue'
 
 defineProps<{
   title?: string
   sectionNumber?: string
-  docNumber?: string
-  unit?: string
   figNumber?: string | number
   figLabel?: string
 }>()
@@ -16,10 +14,10 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-chart-right">
-    <FieldManualHeader
+    <VesperHeader
       :title="title ?? ''"
       :section-number="sectionNumber ?? ''"
-      :doc-number="docNumber ?? 'FM 24-SLIDE'"
+
     />
 
     <div class="cr-body">
@@ -34,7 +32,7 @@ defineProps<{
 
       <!-- Right chart panel -->
       <div class="cr-chart-panel">
-        <div class="cr-chart-label fm-label">DATA / CHART</div>
+        <div class="cr-chart-label vp-label">DATA / CHART</div>
         <div class="cr-chart-area">
           <slot name="chart">
             <div class="cr-chart-placeholder"></div>
@@ -47,7 +45,7 @@ defineProps<{
       </div>
     </div>
 
-    <FieldManualFooter :section-number="sectionNumber ?? ''" :unit="unit ?? ''" />
+    <VesperFooter :section-number="sectionNumber ?? ''" />
   </div>
 </template>
 
@@ -102,7 +100,7 @@ defineProps<{
 }
 
 .cr-chart-label {
-  color: var(--c-khaki-dark);
+  color: var(--color-rule-light);
   letter-spacing: var(--tracking-widest);
   margin-bottom: var(--space-2);
 }
@@ -113,10 +111,10 @@ defineProps<{
   position: relative;
   /* Subtle grid background */
   background-image:
-    linear-gradient(to right, var(--c-olive-ghost) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--c-olive-ghost) 1px, transparent 1px);
+    linear-gradient(to right, var(--vp-surface0-alpha) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--vp-surface0-alpha) 1px, transparent 1px);
   background-size: 24px 24px;
-  border: 1px solid var(--c-olive-subtle);
+  border: 1px solid var(--vp-overlay1-alpha);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -131,7 +129,7 @@ defineProps<{
   content: '';
   position: absolute;
   inset: 10% 10% 15% 10%;
-  background: rgba(74, 74, 42, 0.22);
+  background: var(--vp-surface0-alpha);
   clip-path: polygon(
     0% 100%,
     0% 60%, 16.7% 60%,
@@ -148,8 +146,8 @@ defineProps<{
   content: '';
   position: absolute;
   inset: 10% 10% 15% 10%;
-  border-bottom: 1px solid var(--c-khaki-dark);
-  border-left: 1px solid var(--c-khaki-dark);
+  border-bottom: 1px solid var(--color-rule-light);
+  border-left: 1px solid var(--color-rule-light);
 }
 
 .cr-source {

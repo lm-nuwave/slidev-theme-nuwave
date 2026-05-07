@@ -1,11 +1,10 @@
 <!-- Layout: image-full — Full-bleed background image with gradient overlay and text block bottom-left -->
 <script setup lang="ts">
-import ClassificationBanner from '../components/ClassificationBanner.vue'
+import Banner from '../components/Banner.vue'
 
 defineProps<{
-  classification?: string
   sectionNumber?: string
-  docNumber?: string
+  bannerText?: string
 }>()
 </script>
 
@@ -21,16 +20,12 @@ defineProps<{
     <!-- Gradient overlay -->
     <div class="if-overlay"></div>
 
-    <!-- Classification banner preserved on top -->
-    <ClassificationBanner
-      :text="classification ?? 'FOR TRAINING USE ONLY'"
-      class="if-banner"
-    />
+    <!-- Optional banner on top -->
+    <Banner v-if="bannerText" :text="bannerText" class="if-banner" />
 
     <!-- Text block anchored bottom-left -->
     <div class="if-text-block">
       <div class="if-text-rule"></div>
-      <div class="if-doc-label fm-label">{{ docNumber ?? 'FM 24-SLIDE' }}</div>
       <div class="if-title">
         <slot />
       </div>
@@ -59,13 +54,13 @@ defineProps<{
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: sepia(0.25) contrast(1.1) brightness(0.85);
+  filter: brightness(0.85);
 }
 
 .if-bg-placeholder {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, var(--c-olive) 0%, var(--c-olive-dark) 100%);
+  background: linear-gradient(135deg, var(--color-rule) 0%, var(--vp-surface1) 100%);
 }
 
 .if-overlay {
@@ -74,9 +69,9 @@ defineProps<{
   z-index: 1;
   background: linear-gradient(
     to top,
-    rgba(26, 26, 20, 0.85) 0%,
-    rgba(26, 26, 20, 0.40) 50%,
-    rgba(26, 26, 20, 0.10) 100%
+    rgba(14, 14, 26, 0.88) 0%,
+    rgba(14, 14, 26, 0.45) 50%,
+    rgba(14, 14, 26, 0.10) 100%
   );
 }
 
@@ -96,19 +91,13 @@ defineProps<{
 .if-text-rule {
   height: 3px;
   width: 60px;
-  background: var(--c-khaki-light);
+  background: var(--color-fg-muted);
   margin-bottom: var(--space-3);
-}
-
-.if-doc-label {
-  color: var(--c-khaki-dark);
-  letter-spacing: var(--tracking-widest);
-  margin-bottom: var(--space-2);
 }
 
 .if-title {
   font-family: var(--font-heading);
-  color: var(--c-khaki-light);
+  color: var(--color-fg-muted);
   font-size: clamp(1.6rem, 3.2vw, 2.6rem);
   font-weight: 900;
   line-height: 1.1;
@@ -120,7 +109,7 @@ defineProps<{
 .if-title :deep(h1),
 .if-title :deep(h2),
 .if-title :deep(p) {
-  color: var(--c-khaki-light);
+  color: var(--color-fg-muted);
   font-family: var(--font-heading);
   font-size: inherit;
   font-weight: 900;
@@ -129,7 +118,7 @@ defineProps<{
 
 .if-subtitle {
   font-family: var(--font-body);
-  color: var(--c-khaki-pale);
+  color: var(--color-bg-panel);
   font-size: var(--text-md);
 }
 </style>

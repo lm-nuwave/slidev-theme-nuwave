@@ -9,38 +9,22 @@ const props = defineProps<{
 const typeConfig = computed(() => {
   switch (props.type) {
     case 'warning':
-      return {
-        label: 'WARNING',
-        icon: '⚠',
-        colorClass: 'callout--warning',
-      }
+      return { label: 'WARNING',   icon: '⚠', colorClass: 'callout--warning'   }
     case 'caution':
-      return {
-        label: 'CAUTION',
-        icon: '△',
-        colorClass: 'callout--caution',
-      }
+      return { label: 'CAUTION',   icon: '△', colorClass: 'callout--caution'   }
     case 'important':
-      return {
-        label: 'IMPORTANT',
-        icon: '★',
-        colorClass: 'callout--important',
-      }
+      return { label: 'IMPORTANT', icon: '★', colorClass: 'callout--important' }
     default:
-      return {
-        label: 'NOTE',
-        icon: 'i',
-        colorClass: 'callout--note',
-      }
+      return { label: 'NOTE',      icon: 'i', colorClass: 'callout--note'      }
   }
 })
 </script>
 
 <template>
-  <div :class="['fm-callout-box', typeConfig.colorClass]">
+  <div :class="['vp-callout-box', typeConfig.colorClass]">
     <div class="callout-header">
       <span class="callout-icon">{{ typeConfig.icon }}</span>
-      <span class="callout-label fm-label">{{ title || typeConfig.label }}</span>
+      <span class="callout-label vp-label">{{ title || typeConfig.label }}</span>
     </div>
     <div class="callout-body">
       <slot />
@@ -49,7 +33,7 @@ const typeConfig = computed(() => {
 </template>
 
 <style scoped>
-.fm-callout-box {
+.vp-callout-box {
   border: 2px dashed var(--color-rule);
   padding: 0;
   position: relative;
@@ -59,37 +43,43 @@ const typeConfig = computed(() => {
   flex-direction: column;
 }
 
-.fm-callout-box::after {
+.vp-callout-box::after {
   content: '';
   display: block;
   height: 1.25rem;
   flex-shrink: 0;
 }
 
-.fm-callout-box:last-child {
+.vp-callout-box:last-child {
   margin-bottom: 0;
 }
 
 /* Type variants */
 .callout--warning {
-  border-color: var(--c-red);
-  background: var(--c-red-pale);
+  border-color: var(--vp-red);
+  background: rgba(242, 139, 168, 0.10);
 }
 
 .callout--note {
-  border-color: var(--c-blue);
-  background: var(--c-blue-pale);
+  border-color: var(--vp-blue);
+  background: rgba(137, 180, 250, 0.10);
 }
 
 .callout--caution {
-  border-color: var(--c-amber);
-  background: var(--c-amber-pale);
+  border-color: var(--vp-peach);
+  background: rgba(250, 179, 135, 0.10);
 }
 
 .callout--important {
-  border-color: var(--c-olive-mid);
-  background: var(--c-olive-ghost);
+  border-color: var(--vp-mauve);
+  background: rgba(203, 166, 247, 0.10);
 }
+
+/* Dark mode: Latte palette uses different values for the same vars */
+:global(.dark) .callout--warning  { background: rgba(243, 139, 168, 0.12); }
+:global(.dark) .callout--note     { background: rgba(137, 180, 250, 0.12); }
+:global(.dark) .callout--caution  { background: rgba(250, 179, 135, 0.12); }
+:global(.dark) .callout--important { background: rgba(203, 166, 247, 0.12); }
 
 /* Header bar */
 .callout-header {
@@ -100,10 +90,10 @@ const typeConfig = computed(() => {
   border-bottom: 1px dashed currentColor;
 }
 
-.callout--warning .callout-header  { background: var(--c-red-pale);   border-bottom-color: var(--c-red); }
-.callout--note .callout-header     { background: var(--c-blue-pale);  border-bottom-color: var(--c-blue); }
-.callout--caution .callout-header  { background: var(--c-amber-pale);  border-bottom-color: var(--c-amber); }
-.callout--important .callout-header { background: var(--c-olive-ghost); border-bottom-color: var(--c-olive-mid); }
+.callout--warning  .callout-header  { background: rgba(242, 139, 168, 0.15); border-bottom-color: var(--vp-red); }
+.callout--note     .callout-header  { background: rgba(137, 180, 250, 0.15); border-bottom-color: var(--vp-blue); }
+.callout--caution  .callout-header  { background: rgba(250, 179, 135, 0.15); border-bottom-color: var(--vp-peach); }
+.callout--important .callout-header { background: rgba(203, 166, 247, 0.15); border-bottom-color: var(--vp-mauve); }
 
 .callout-icon {
   font-size: var(--text-md);
@@ -111,20 +101,20 @@ const typeConfig = computed(() => {
   line-height: 1;
 }
 
-.callout--warning .callout-icon  { color: var(--c-red); }
-.callout--note .callout-icon     { color: var(--c-blue); }
-.callout--caution .callout-icon  { color: var(--c-amber); }
-.callout--important .callout-icon { color: var(--c-olive-mid); }
+.callout--warning  .callout-icon  { color: var(--vp-red); }
+.callout--note     .callout-icon  { color: var(--vp-blue); }
+.callout--caution  .callout-icon  { color: var(--vp-peach); }
+.callout--important .callout-icon { color: var(--vp-mauve); }
 
 .callout-label {
-  font-weight: 700;
-  letter-spacing: var(--tracking-wider);
+  font-weight: 600;
+  letter-spacing: 0.12em;
 }
 
-.callout--warning .callout-label  { color: var(--c-red); }
-.callout--note .callout-label     { color: var(--c-blue); }
-.callout--caution .callout-label  { color: var(--c-amber); }
-.callout--important .callout-label { color: var(--c-olive-mid); }
+.callout--warning  .callout-label  { color: var(--vp-red); }
+.callout--note     .callout-label  { color: var(--vp-blue); }
+.callout--caution  .callout-label  { color: var(--vp-peach); }
+.callout--important .callout-label { color: var(--vp-mauve); }
 
 /* Content */
 .callout-body {

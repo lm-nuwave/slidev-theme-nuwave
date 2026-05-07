@@ -1,25 +1,23 @@
 <!-- Layout: code-full — Full-slide code block with prominent title bar and caption/source line -->
 <script setup lang="ts">
-import FieldManualHeader from '../components/FieldManualHeader.vue'
-import FieldManualFooter from '../components/FieldManualFooter.vue'
+import VesperHeader from '../components/VesperHeader.vue'
+import VesperFooter from '../components/VesperFooter.vue'
 
 defineProps<{
   title?: string
   codeTitle?: string
   codeLang?: string
   sectionNumber?: string
-  docNumber?: string
-  unit?: string
   lineNumbers?: boolean
 }>()
 </script>
 
 <template>
   <div class="slidev-layout layout-code-full">
-    <FieldManualHeader
+    <VesperHeader
       :title="title ?? ''"
       :section-number="sectionNumber ?? ''"
-      :doc-number="docNumber ?? 'FM 24-SLIDE'"
+
     />
 
     <div class="cdf-body">
@@ -54,7 +52,7 @@ defineProps<{
       </div>
     </div>
 
-    <FieldManualFooter :section-number="sectionNumber ?? ''" :unit="unit ?? ''" />
+    <VesperFooter :section-number="sectionNumber ?? ''" />
   </div>
 </template>
 
@@ -79,14 +77,9 @@ defineProps<{
   display: flex;
   flex-direction: column;
   border: var(--rule-mid) solid var(--color-rule);
-  background: var(--c-paper-dark);
+  background: var(--color-bg-alt);
   overflow: hidden;
   position: relative;
-}
-
-.dark .cdf-code-panel {
-  background: var(--c-paper-deeper);
-  border-color: var(--c-olive-light);
 }
 
 /* Corner brackets */
@@ -98,10 +91,10 @@ defineProps<{
   pointer-events: none;
 }
 
-.cdf-bracket--tl { top: 0;  left: 0;  border-top: 2px solid var(--c-khaki); border-left: 2px solid var(--c-khaki); }
-.cdf-bracket--tr { top: 0;  right: 0; border-top: 2px solid var(--c-khaki); border-right: 2px solid var(--c-khaki); }
-.cdf-bracket--bl { bottom: 0; left: 0;  border-bottom: 2px solid var(--c-khaki); border-left: 2px solid var(--c-khaki); }
-.cdf-bracket--br { bottom: 0; right: 0; border-bottom: 2px solid var(--c-khaki); border-right: 2px solid var(--c-khaki); }
+.cdf-bracket--tl { top: 0;  left: 0;  border-top: 2px solid var(--color-rule-light); border-left: 2px solid var(--color-rule-light); }
+.cdf-bracket--tr { top: 0;  right: 0; border-top: 2px solid var(--color-rule-light); border-right: 2px solid var(--color-rule-light); }
+.cdf-bracket--bl { bottom: 0; left: 0;  border-bottom: 2px solid var(--color-rule-light); border-left: 2px solid var(--color-rule-light); }
+.cdf-bracket--br { bottom: 0; right: 0; border-bottom: 2px solid var(--color-rule-light); border-right: 2px solid var(--color-rule-light); }
 
 /* Prominent title bar */
 .cdf-code-header {
@@ -109,13 +102,9 @@ defineProps<{
   align-items: center;
   justify-content: space-between;
   padding: var(--space-2) var(--space-5);
-  background: var(--c-olive);
-  border-bottom: 2px solid var(--c-khaki-dark);
+  background: var(--color-bg-alt);
+  border-bottom: 2px solid var(--color-rule-light);
   flex-shrink: 0;
-}
-
-.dark .cdf-code-header {
-  background: var(--c-olive-mid);
 }
 
 .cdf-header-left {
@@ -128,7 +117,7 @@ defineProps<{
 .cdf-header-indicator {
   width: 8px;
   height: 8px;
-  background: var(--c-red);
+  background: var(--vp-red);
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -139,7 +128,7 @@ defineProps<{
   font-weight: 700;
   letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
-  color: var(--c-khaki-light);
+  color: var(--color-fg-muted);
 }
 
 .cdf-code-badge {
@@ -147,8 +136,8 @@ defineProps<{
   font-size: var(--text-sm);
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  color: var(--c-khaki-dark);
-  border: 1px solid var(--c-khaki-dark);
+  color: var(--color-rule-light);
+  border: 1px solid var(--color-rule-light);
   padding: 1px 6px;
 }
 
@@ -173,8 +162,8 @@ defineProps<{
 /* Footer caption / source line */
 .cdf-code-footer {
   padding: var(--space-2) var(--space-5);
-  border-top: 1px solid var(--c-khaki-dark);
-  background: var(--c-olive-ghost);
+  border-top: 1px solid var(--color-rule-light);
+  background: var(--vp-surface0-alpha);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   letter-spacing: var(--tracking-wide);
@@ -184,6 +173,6 @@ defineProps<{
 }
 
 .cdf-footer-label {
-  color: var(--c-khaki-dark);
+  color: var(--color-rule-light);
 }
 </style>

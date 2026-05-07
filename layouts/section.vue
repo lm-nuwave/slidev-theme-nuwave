@@ -1,11 +1,9 @@
 <!-- Layout: section — Chapter/section divider with ghosted large section number behind title -->
 <script setup lang="ts">
-import FieldManualFooter from '../components/FieldManualFooter.vue'
+import VesperFooter from '../components/VesperFooter.vue'
 
 defineProps<{
   sectionNumber?: string
-  unit?: string
-  docNumber?: string
 }>()
 </script>
 
@@ -14,10 +12,7 @@ defineProps<{
     <div class="section-body">
       <div class="section-top-rule"></div>
 
-      <div class="section-id fm-label">
-        {{ docNumber ?? 'FM 24-SLIDE' }}
-        <span v-if="sectionNumber"> · SECTION {{ sectionNumber }}</span>
-      </div>
+      <div v-if="sectionNumber" class="section-id vp-label">SECTION {{ sectionNumber }}</div>
 
       <div class="section-content">
         <slot />
@@ -30,9 +25,9 @@ defineProps<{
       <div class="section-bottom-rule"></div>
     </div>
 
-    <FieldManualFooter
+    <VesperFooter
       :section-number="sectionNumber ?? '1'"
-      :unit="unit ?? ''"
+
     />
   </div>
 </template>
@@ -59,13 +54,13 @@ defineProps<{
 
 .section-top-rule {
   height: var(--rule-thick);
-  background: var(--c-red);
+  background: var(--color-accent);
   width: 80px;
   margin-bottom: var(--space-4);
 }
 
 .section-id {
-  color: var(--c-khaki-dark);
+  color: var(--color-rule-light);
   margin-bottom: var(--space-3);
   letter-spacing: var(--tracking-widest);
 }
@@ -84,17 +79,17 @@ defineProps<{
 
 .section-bottom-rule {
   height: 1px;
-  background: var(--c-khaki-dark);
+  background: var(--color-rule-light);
   margin-top: var(--space-5);
   max-width: 70%;
 }
 
 /* ── Dark Mode ────────────────────────────────────────────────────────────── */
 :global(.dark) .section-id {
-  color: var(--c-khaki);
+  color: var(--color-rule-light);
 }
 
 :global(.dark) .section-bottom-rule {
-  background: var(--c-olive-light);
+  background: var(--color-rule);
 }
 </style>

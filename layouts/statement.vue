@@ -1,10 +1,9 @@
 <!-- Layout: statement — Single large pull quote or key statement, centered with decorative rules -->
 <script setup lang="ts">
-import FieldManualFooter from '../components/FieldManualFooter.vue'
+import VesperFooter from '../components/VesperFooter.vue'
 
 defineProps<{
   sectionNumber?: string
-  unit?: string
 }>()
 </script>
 
@@ -17,7 +16,7 @@ defineProps<{
       </div>
       <div class="statement-rule-bottom"></div>
     </div>
-    <FieldManualFooter :section-number="sectionNumber ?? ''" :unit="unit ?? ''" />
+    <VesperFooter :section-number="sectionNumber ?? ''" />
   </div>
 </template>
 
@@ -25,7 +24,7 @@ defineProps<{
 .layout-statement {
   display: flex;
   flex-direction: column;
-  background: var(--c-paper) !important;
+  background: var(--color-bg) !important;
   padding: 0;
 }
 
@@ -43,7 +42,7 @@ defineProps<{
 .statement-rule-bottom {
   width: 120px;
   height: 3px;
-  background: var(--c-red);
+  background: var(--vp-red);
 }
 
 .statement-rule-top { margin-bottom: var(--space-7); }
@@ -60,7 +59,7 @@ defineProps<{
   font-size: clamp(1.6rem, 3.4vw, 2.8rem);
   font-weight: 700;
   line-height: 1.2;
-  color: var(--c-ink);
+  color: var(--color-fg);
   margin: 0;
   font-style: italic;
 }

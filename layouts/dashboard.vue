@@ -1,13 +1,11 @@
 <!-- Layout: dashboard — 2×2 grid of labeled panels, each with metric/chart area and bottom caption -->
 <script setup lang="ts">
-import FieldManualHeader from '../components/FieldManualHeader.vue'
-import FieldManualFooter from '../components/FieldManualFooter.vue'
+import VesperHeader from '../components/VesperHeader.vue'
+import VesperFooter from '../components/VesperFooter.vue'
 
 defineProps<{
   title?: string
   sectionNumber?: string
-  docNumber?: string
-  unit?: string
   panel1Label?: string
   panel2Label?: string
   panel3Label?: string
@@ -17,10 +15,10 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-dashboard">
-    <FieldManualHeader
+    <VesperHeader
       :title="title ?? 'TACTICAL DATA DISPLAY'"
       :section-number="sectionNumber ?? ''"
-      :doc-number="docNumber ?? 'FM 24-SLIDE'"
+
     />
 
     <div class="db-body">
@@ -33,7 +31,7 @@ defineProps<{
         <!-- Panel 1 (top-left) -->
         <div class="db-panel">
           <div class="db-panel-header">
-            <span class="db-panel-label fm-label">{{ panel1Label ?? 'METRIC ALPHA' }}</span>
+            <span class="db-panel-label vp-label">{{ panel1Label ?? 'METRIC ALPHA' }}</span>
           </div>
           <div class="db-panel-content">
             <slot name="panel1">
@@ -48,7 +46,7 @@ defineProps<{
         <!-- Panel 2 (top-right) -->
         <div class="db-panel">
           <div class="db-panel-header">
-            <span class="db-panel-label fm-label">{{ panel2Label ?? 'METRIC BRAVO' }}</span>
+            <span class="db-panel-label vp-label">{{ panel2Label ?? 'METRIC BRAVO' }}</span>
           </div>
           <div class="db-panel-content">
             <slot name="panel2">
@@ -63,7 +61,7 @@ defineProps<{
         <!-- Panel 3 (bottom-left) -->
         <div class="db-panel">
           <div class="db-panel-header">
-            <span class="db-panel-label fm-label">{{ panel3Label ?? 'METRIC CHARLIE' }}</span>
+            <span class="db-panel-label vp-label">{{ panel3Label ?? 'METRIC CHARLIE' }}</span>
           </div>
           <div class="db-panel-content">
             <slot name="panel3">
@@ -78,7 +76,7 @@ defineProps<{
         <!-- Panel 4 (bottom-right) -->
         <div class="db-panel">
           <div class="db-panel-header">
-            <span class="db-panel-label fm-label">{{ panel4Label ?? 'METRIC DELTA' }}</span>
+            <span class="db-panel-label vp-label">{{ panel4Label ?? 'METRIC DELTA' }}</span>
           </div>
           <div class="db-panel-content">
             <slot name="panel4">
@@ -92,7 +90,7 @@ defineProps<{
       </div>
     </div>
 
-    <FieldManualFooter :section-number="sectionNumber ?? ''" :unit="unit ?? ''" />
+    <VesperFooter :section-number="sectionNumber ?? ''" />
   </div>
 </template>
 
@@ -146,18 +144,18 @@ defineProps<{
   flex-direction: column;
   border: var(--rule-mid) solid var(--color-rule);
   overflow: hidden;
-  background: var(--c-paper-dark);
+  background: var(--color-bg-alt);
 }
 
 .db-panel-header {
   padding: var(--space-1) var(--space-3);
-  background: var(--c-olive);
-  border-bottom: 1px solid var(--c-khaki-dark);
+  background: var(--color-rule);
+  border-bottom: 1px solid var(--color-rule-light);
   flex-shrink: 0;
 }
 
 .db-panel-label {
-  color: var(--c-khaki-light);
+  color: var(--color-fg-muted);
   letter-spacing: var(--tracking-wider);
 }
 
@@ -171,8 +169,8 @@ defineProps<{
   padding: var(--space-2);
   position: relative;
   background-image:
-    linear-gradient(to right, var(--c-olive-ghost) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--c-olive-ghost) 1px, transparent 1px);
+    linear-gradient(to right, var(--vp-surface0-alpha) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--vp-surface0-alpha) 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
@@ -185,7 +183,7 @@ defineProps<{
   content: '';
   position: absolute;
   inset: 10% 10% 15% 10%;
-  background: rgba(74, 74, 42, 0.22);
+  background: var(--vp-surface0-alpha);
   clip-path: polygon(
     0% 100%,
     0% 60%, 20% 60%,
@@ -201,13 +199,13 @@ defineProps<{
   content: '';
   position: absolute;
   inset: 10% 10% 15% 10%;
-  border-bottom: 1px solid var(--c-khaki-dark);
-  border-left: 1px solid var(--c-khaki-dark);
+  border-bottom: 1px solid var(--color-rule-light);
+  border-left: 1px solid var(--color-rule-light);
 }
 
 .db-panel-footer {
   padding: var(--space-1) var(--space-3);
-  border-top: 1px solid var(--c-olive-subtle);
+  border-top: 1px solid var(--vp-overlay1-alpha);
   font-family: var(--font-condensed-sans);
   font-size: var(--text-xs);
   text-transform: uppercase;

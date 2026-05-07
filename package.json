@@ -1,17 +1,16 @@
 {
-  "name": "slidev-theme-field-manual",
+  "name": "slidev-theme-vesper",
   "version": "0.1.0",
-  "description": "A Slidev theme modeled on vintage US Army field manuals (FM series, 1950s–1980s)",
+  "description": "A Slidev theme with Catppuccin Mocha/Latte palette, structured layouts, and technical documentation styling",
   "keywords": [
     "slidev-theme",
-    "military",
-    "field-manual",
-    "vintage",
-    "army",
-    "technical"
+    "catppuccin",
+    "dark-mode",
+    "technical",
+    "documentation"
   ],
-  "homepage": "https://github.com/pjdoland/slidev-theme-field-manual",
-  "author": "pjdoland",
+  "homepage": "https://github.com/luke-mcguire/slidev-theme-vesper",
+  "author": "luke.mcguire@gmail.com",
   "files": [
     "layouts/",
     "components/",
@@ -20,7 +19,7 @@
     "README.md"
   ],
   "slidev": {
-    "colorSchema": "light",
+    "colorSchema": "dark",
     "highlighter": "shiki"
   }
 }

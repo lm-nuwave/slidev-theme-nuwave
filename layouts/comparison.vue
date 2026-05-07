@@ -1,26 +1,24 @@
 <!-- Layout: comparison — Two-column with center dividing rule, each column has its own header -->
 <script setup lang="ts">
-import FieldManualHeader from '../components/FieldManualHeader.vue'
-import FieldManualFooter from '../components/FieldManualFooter.vue'
+import VesperHeader from '../components/VesperHeader.vue'
+import VesperFooter from '../components/VesperFooter.vue'
 
 defineProps<{
   title?: string
   leftHeader?: string
   rightHeader?: string
   sectionNumber?: string
-  docNumber?: string
-  unit?: string
-  leftAccent?: 'red' | 'blue' | 'olive'
-  rightAccent?: 'red' | 'blue' | 'olive'
+  leftAccent?: 'red' | 'blue' | 'teal'
+  rightAccent?: 'red' | 'blue' | 'teal'
 }>()
 </script>
 
 <template>
   <div class="slidev-layout layout-comparison">
-    <FieldManualHeader
+    <VesperHeader
       :title="title ?? ''"
       :section-number="sectionNumber ?? ''"
-      :doc-number="docNumber ?? 'FM 24-SLIDE'"
+
     />
 
     <!-- Main title rule -->
@@ -64,7 +62,7 @@ defineProps<{
       </div>
     </div>
 
-    <FieldManualFooter :section-number="sectionNumber ?? ''" :unit="unit ?? ''" />
+    <VesperFooter :section-number="sectionNumber ?? ''" />
   </div>
 </template>
 
@@ -116,9 +114,9 @@ defineProps<{
   flex-shrink: 0;
 }
 
-.cmp-col-header--red   { border-left: 4px solid var(--c-red);      background: var(--c-red-pale); }
-.cmp-col-header--blue  { border-left: 4px solid var(--c-blue);     background: var(--c-blue-pale); }
-.cmp-col-header--olive { border-left: 4px solid var(--c-olive-mid); background: var(--c-olive-ghost); }
+.cmp-col-header--red   { border-left: 4px solid var(--vp-red);      background: rgba(243,139,168,0.12); }
+.cmp-col-header--blue  { border-left: 4px solid var(--color-accent-alt);     background: rgba(137,180,250,0.12); }
+.cmp-col-header--teal  { border-left: 4px solid var(--vp-teal);           background: rgba(148,226,213,0.12); }
 
 .cmp-col-label {
   font-family: var(--font-mono);
