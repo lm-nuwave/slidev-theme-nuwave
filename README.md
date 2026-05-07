@@ -6,15 +6,27 @@ A Slidev theme with structured layouts, a dual-mode Catppuccin palette, and a co
 
 ## Installation
 
-```bash
-npm install slidev-theme-vesper
-```
-
-Reference it in your slide deck's front matter:
+**From GitHub** (no npm publish required — Slidev resolves themes directly from URLs):
 
 ```yaml
 ---
-theme: slidev-theme-vesper
+theme: https://github.com/lukemcguire/slidev-theme-vesper
+---
+```
+
+Slidev will download and cache the theme automatically on first run.
+
+**From a local clone:**
+
+```bash
+git clone https://github.com/lukemcguire/slidev-theme-vesper
+```
+
+Then reference it by path in your front matter:
+
+```yaml
+---
+theme: ./path/to/slidev-theme-vesper
 ---
 ```
 
