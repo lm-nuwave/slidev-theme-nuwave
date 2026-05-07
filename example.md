@@ -773,30 +773,18 @@ Both Block and Callout exist because they serve different roles. Callout is advi
 -->
 
 ---
-layout: code-right
+layout: default
 title: 4-6. CODEBLOCK COMPONENT
 sectionNumber: 4-6
-codeTitle: INLINE CODE BLOCK
-codeLang: vue
 ---
 
 ## 4-6. CodeBlock Component
 
-The `CodeBlock` component lets you embed a fully-styled code panel **inline** on any layout — not just the `code-right` or `code-full` layouts.
+The `CodeBlock` component embeds a fully-styled code panel **inline** on any layout — border, header bar, corner brackets, and caption — without needing `code-right` or `code-full`.
 
-Use it when you need a code snippet with the full panel treatment (border, header bar, corner brackets, caption) on a slide like `default` or `two-column`.
+**Props:** `title`, `lang`, `caption`
 
-**Props:**
-- `title` — header bar label
-- `lang` — language badge text
-- `caption` — footer annotation
-
-```vue
-<CodeBlock
-  title="API CLIENT"
-  lang="typescript"
-  caption="src/lib/api.ts"
->
+<CodeBlock title="API CLIENT" lang="typescript" caption="src/lib/api.ts">
 
 ```typescript
 export async function fetchUser(id: string) {
@@ -807,7 +795,6 @@ export async function fetchUser(id: string) {
 ```
 
 </CodeBlock>
-```
 
 <!--
 The CodeBlock component is the standalone version of the code panel — same styling as code-right and code-full, but available on any layout. The border and header bar are applied via the component's own scoped CSS so they render correctly regardless of the parent layout.
