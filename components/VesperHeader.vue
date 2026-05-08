@@ -10,7 +10,7 @@ defineProps<{
   <header class="vp-header">
     <div class="vp-header__inner">
       <span class="vp-header__deck vp-label">{{ $slidev?.configs?.title ?? '' }}</span>
-      <span v-if="title && title !== ($slidev?.configs?.title ?? '')" class="vp-header__title">{{ title }}</span>
+      <span v-if="title" class="vp-header__title">{{ title }}</span>
       <span v-if="author ?? $slidev?.configs?.author" class="vp-header__author vp-label">
         {{ author ?? $slidev?.configs?.author ?? '' }}
       </span>
@@ -56,6 +56,7 @@ defineProps<{
 }
 
 .vp-header__author {
+  grid-column: 3;
   color: var(--color-fg-subtle);
   letter-spacing: 0.12em;
   overflow: hidden;

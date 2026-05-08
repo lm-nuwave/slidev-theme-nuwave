@@ -31,6 +31,9 @@ mermaid:
     pie4: '#f9e2af'
     pie5: '#f38ba8'
     pie6: '#94e2d5'
+    xyChart:
+      backgroundColor: transparent
+      plotColorPalette: '#89b4fa,#cba6f7,#a6e3a1,#f9e2af,#f38ba8,#94e2d5'
     pieStrokeColor: '#1e1e2e'
     pieLegendTextColor: '#cdd6f4'
     pieTitleTextColor: '#cdd6f4'
@@ -454,12 +457,11 @@ The two-column layout splits the content area into two equal columns with a divi
 layout: three-column
 title: 3-3. THREE COLUMNS
 sectionNumber: 3-3
-col1Header: INGESTION
-col2Header: PROCESSING
-col3Header: DELIVERY
 ---
 
 <template v-slot:col1>
+
+<Block type="info" title="INGESTION" :compact="true">
 
 - Kafka topic per source
 - Schema registry validation
@@ -467,9 +469,13 @@ col3Header: DELIVERY
 - Backpressure at the connector
 - Retention: 7 days
 
+</Block>
+
 </template>
 
 <template v-slot:col2>
+
+<Block type="success" title="PROCESSING" :compact="true">
 
 - Flink streaming job
 - Windowed aggregations (5 min)
@@ -477,15 +483,21 @@ col3Header: DELIVERY
 - State store: RocksDB
 - Checkpoint interval: 60s
 
+</Block>
+
 </template>
 
 <template v-slot:col3>
+
+<Block type="warning" title="DELIVERY" :compact="true">
 
 - Write to ClickHouse cluster
 - Real-time materialized views
 - Grafana dashboard refresh: 30s
 - Alerting via PagerDuty
 - SLA: p99 < 2s end-to-end
+
+</Block>
 
 </template>
 

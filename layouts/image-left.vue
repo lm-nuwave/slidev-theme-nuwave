@@ -88,9 +88,8 @@ defineProps<{
 .il-image-frame :deep(img) {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
-  filter: sepia(0.12) contrast(1.05);
 }
 
 .il-image-placeholder {
