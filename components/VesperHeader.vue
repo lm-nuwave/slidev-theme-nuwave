@@ -10,7 +10,7 @@ defineProps<{
   <header class="vp-header">
     <div class="vp-header__inner">
       <span class="vp-header__deck vp-label">{{ $slidev?.configs?.title ?? '' }}</span>
-      <span v-if="title" class="vp-header__title">{{ title }}</span>
+      <span v-if="title && title !== ($slidev?.configs?.title ?? '')" class="vp-header__title">{{ title }}</span>
       <span v-if="author ?? $slidev?.configs?.author" class="vp-header__author vp-label">
         {{ author ?? $slidev?.configs?.author ?? '' }}
       </span>
@@ -25,9 +25,9 @@ defineProps<{
 }
 
 .vp-header__inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  justify-content: space-between;
   padding: var(--space-2) var(--space-6);
   background: var(--color-bg-alt);
   border-bottom: 1px solid var(--vp-overlay1-alpha);
@@ -38,8 +38,6 @@ defineProps<{
 .vp-header__deck {
   color: var(--color-fg-subtle);
   letter-spacing: 0.12em;
-  flex-shrink: 0;
-  max-width: 28%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -52,7 +50,6 @@ defineProps<{
   text-transform: uppercase;
   color: var(--color-fg-subtle);
   text-align: center;
-  flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -61,11 +58,10 @@ defineProps<{
 .vp-header__author {
   color: var(--color-fg-subtle);
   letter-spacing: 0.12em;
-  flex-shrink: 0;
-  max-width: 28%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-align: right;
 }
 
 .vp-header__rule {

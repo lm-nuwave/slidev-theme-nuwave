@@ -1,0 +1,75 @@
+<svg viewBox="0 0 800 340" xmlns="http://www.w3.org/2000/svg" font-family="'IBM Plex Sans', monospace, sans-serif">
+  <rect width="800" height="340" fill="#1e1e2e"/>
+
+  <text x="400" y="28" text-anchor="middle" fill="#7f849c" font-size="11" letter-spacing="3" font-weight="600">STREAMING DATA PIPELINE</text>
+
+  <!-- Sources -->
+  <text x="84" y="68" text-anchor="middle" fill="#585b70" font-size="9" letter-spacing="2">SOURCES</text>
+
+  <rect x="20" y="78" width="130" height="36" rx="3" fill="#313244" stroke="#89b4fa" stroke-width="1.5"/>
+  <text x="85" y="101" text-anchor="middle" fill="#89b4fa" font-size="10" letter-spacing="1" font-weight="600">API Events</text>
+
+  <rect x="20" y="128" width="130" height="36" rx="3" fill="#313244" stroke="#89b4fa" stroke-width="1.5"/>
+  <text x="85" y="151" text-anchor="middle" fill="#89b4fa" font-size="10" letter-spacing="1" font-weight="600">Clickstream</text>
+
+  <rect x="20" y="178" width="130" height="36" rx="3" fill="#313244" stroke="#89b4fa" stroke-width="1.5"/>
+  <text x="85" y="201" text-anchor="middle" fill="#89b4fa" font-size="10" letter-spacing="1" font-weight="600">CDC Binlog</text>
+
+  <!-- Arrows to Kafka -->
+  <line x1="150" y1="96" x2="225" y2="125" stroke="#585b70" stroke-width="1.5" marker-end="url(#b)"/>
+  <line x1="150" y1="146" x2="225" y2="146" stroke="#585b70" stroke-width="1.5" marker-end="url(#b)"/>
+  <line x1="150" y1="196" x2="225" y2="167" stroke="#585b70" stroke-width="1.5" marker-end="url(#b)"/>
+
+  <!-- Kafka -->
+  <rect x="225" y="96" width="140" height="100" rx="3" fill="#181825" stroke="#cba6f7" stroke-width="2"/>
+  <text x="295" y="120" text-anchor="middle" fill="#cba6f7" font-size="12" letter-spacing="2" font-weight="700">KAFKA</text>
+  <text x="295" y="140" text-anchor="middle" fill="#7f849c" font-size="9">3 brokers · RF=3</text>
+  <line x1="245" y1="152" x2="345" y2="152" stroke="#313244" stroke-width="1"/>
+  <text x="295" y="168" text-anchor="middle" fill="#45475a" font-size="9">16 partitions</text>
+  <text x="295" y="184" text-anchor="middle" fill="#45475a" font-size="9">7-day retention</text>
+
+  <!-- Arrow to Flink -->
+  <line x1="365" y1="146" x2="430" y2="146" stroke="#585b70" stroke-width="2" marker-end="url(#b)"/>
+
+  <!-- Flink -->
+  <rect x="430" y="96" width="140" height="100" rx="3" fill="#181825" stroke="#94e2d5" stroke-width="2"/>
+  <text x="500" y="120" text-anchor="middle" fill="#94e2d5" font-size="12" letter-spacing="2" font-weight="700">FLINK</text>
+  <text x="500" y="140" text-anchor="middle" fill="#7f849c" font-size="9">Stream processor</text>
+  <line x1="450" y1="152" x2="550" y2="152" stroke="#313244" stroke-width="1"/>
+  <text x="500" y="168" text-anchor="middle" fill="#45475a" font-size="9">Tumbling windows</text>
+  <text x="500" y="184" text-anchor="middle" fill="#45475a" font-size="9">Watermarks · CEP</text>
+
+  <!-- Arrow to sinks -->
+  <line x1="570" y1="128" x2="630" y2="108" stroke="#585b70" stroke-width="1.5" marker-end="url(#b)"/>
+  <line x1="570" y1="146" x2="630" y2="155" stroke="#585b70" stroke-width="1.5" marker-end="url(#b)"/>
+  <line x1="570" y1="165" x2="630" y2="202" stroke="#585b70" stroke-width="1.5" marker-end="url(#b)"/>
+
+  <!-- Sinks -->
+  <text x="720" y="68" text-anchor="middle" fill="#585b70" font-size="9" letter-spacing="2">SINKS</text>
+
+  <rect x="630" y="78" width="148" height="36" rx="3" fill="#313244" stroke="#f9e2af" stroke-width="1.5"/>
+  <text x="704" y="101" text-anchor="middle" fill="#f9e2af" font-size="10" letter-spacing="1" font-weight="600">ClickHouse OLAP</text>
+
+  <rect x="630" y="130" width="148" height="36" rx="3" fill="#313244" stroke="#f9e2af" stroke-width="1.5"/>
+  <text x="704" y="153" text-anchor="middle" fill="#f9e2af" font-size="10" letter-spacing="1" font-weight="600">Redis Cache</text>
+
+  <rect x="630" y="182" width="148" height="36" rx="3" fill="#313244" stroke="#f9e2af" stroke-width="1.5"/>
+  <text x="704" y="205" text-anchor="middle" fill="#f9e2af" font-size="10" letter-spacing="1" font-weight="600">Alert Manager</text>
+
+  <!-- Throughput indicator -->
+  <rect x="20" y="255" width="760" height="60" rx="3" fill="#181825" stroke="#313244" stroke-width="1"/>
+  <text x="34" y="274" fill="#7f849c" font-size="9" letter-spacing="2">THROUGHPUT METRICS</text>
+  <text x="34" y="298" fill="#7f849c" font-size="9">Ingress:</text>
+  <text x="90" y="298" fill="#a6e3a1" font-size="9" font-family="monospace">180,000 events/sec</text>
+  <text x="260" y="298" fill="#7f849c" font-size="9">Processing lag:</text>
+  <text x="362" y="298" fill="#a6e3a1" font-size="9" font-family="monospace">280ms p99</text>
+  <text x="490" y="298" fill="#7f849c" font-size="9">Egress:</text>
+  <text x="540" y="298" fill="#a6e3a1" font-size="9" font-family="monospace">178,400 events/sec</text>
+  <text x="34" y="308" fill="#45475a" font-size="8">Backpressure: none · Consumer lag: 12k msgs</text>
+
+  <defs>
+    <marker id="b" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#585b70"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,93 @@
+<svg viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" font-family="'IBM Plex Sans', monospace, sans-serif">
+  <rect width="800" height="480" fill="#1e1e2e"/>
+
+  <text x="400" y="36" text-anchor="middle" fill="#7f849c" font-size="11" letter-spacing="3" font-weight="600">CI / CD DEPLOYMENT PIPELINE</text>
+
+  <!-- Pipeline stages — horizontal flow -->
+  <!-- Stage 1: Commit -->
+  <rect x="30" y="80" width="110" height="70" rx="3" fill="#313244" stroke="#cba6f7" stroke-width="2"/>
+  <text x="85" y="108" text-anchor="middle" fill="#cba6f7" font-size="22">⬡</text>
+  <text x="85" y="128" text-anchor="middle" fill="#cba6f7" font-size="10" letter-spacing="2" font-weight="700">COMMIT</text>
+  <text x="85" y="142" text-anchor="middle" fill="#7f849c" font-size="8">git push</text>
+
+  <!-- Arrow -->
+  <line x1="140" y1="115" x2="175" y2="115" stroke="#585b70" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- Stage 2: Build -->
+  <rect x="175" y="80" width="110" height="70" rx="3" fill="#313244" stroke="#89b4fa" stroke-width="1.5"/>
+  <text x="230" y="108" text-anchor="middle" fill="#89b4fa" font-size="22">◈</text>
+  <text x="230" y="128" text-anchor="middle" fill="#89b4fa" font-size="10" letter-spacing="2" font-weight="700">BUILD</text>
+  <text x="230" y="142" text-anchor="middle" fill="#7f849c" font-size="8">Docker image</text>
+
+  <!-- Arrow -->
+  <line x1="285" y1="115" x2="320" y2="115" stroke="#585b70" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- Stage 3: Test -->
+  <rect x="320" y="80" width="110" height="70" rx="3" fill="#313244" stroke="#a6e3a1" stroke-width="1.5"/>
+  <text x="375" y="108" text-anchor="middle" fill="#a6e3a1" font-size="22">✓</text>
+  <text x="375" y="128" text-anchor="middle" fill="#a6e3a1" font-size="10" letter-spacing="2" font-weight="700">TEST</text>
+  <text x="375" y="142" text-anchor="middle" fill="#7f849c" font-size="8">Unit · Integration</text>
+
+  <!-- Arrow -->
+  <line x1="430" y1="115" x2="465" y2="115" stroke="#585b70" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- Stage 4: Stage -->
+  <rect x="465" y="80" width="110" height="70" rx="3" fill="#313244" stroke="#f9e2af" stroke-width="1.5"/>
+  <text x="520" y="108" text-anchor="middle" fill="#f9e2af" font-size="22">◉</text>
+  <text x="520" y="128" text-anchor="middle" fill="#f9e2af" font-size="10" letter-spacing="2" font-weight="700">STAGE</text>
+  <text x="520" y="142" text-anchor="middle" fill="#7f849c" font-size="8">Smoke · E2E</text>
+
+  <!-- Arrow -->
+  <line x1="575" y1="115" x2="610" y2="115" stroke="#585b70" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- Stage 5: Deploy -->
+  <rect x="610" y="80" width="110" height="70" rx="3" fill="#313244" stroke="#94e2d5" stroke-width="2"/>
+  <text x="665" y="108" text-anchor="middle" fill="#94e2d5" font-size="22">⟶</text>
+  <text x="665" y="128" text-anchor="middle" fill="#94e2d5" font-size="10" letter-spacing="2" font-weight="700">DEPLOY</text>
+  <text x="665" y="142" text-anchor="middle" fill="#7f849c" font-size="8">Kubernetes · EKS</text>
+
+  <!-- GitHub Actions YAML snippet -->
+  <rect x="30" y="195" width="350" height="240" rx="3" fill="#181825" stroke="#313244" stroke-width="1.5"/>
+  <rect x="30" y="195" width="350" height="24" rx="3" fill="#313244"/>
+  <text x="44" y="211" fill="#7f849c" font-size="9" letter-spacing="2">GITHUB ACTIONS — deploy.yml</text>
+
+  <text x="44" y="240" fill="#7f849c" font-size="10" font-family="monospace">on:</text>
+  <text x="44" y="256" fill="#7f849c" font-size="10" font-family="monospace">  push:</text>
+  <text x="44" y="272" fill="#7f849c" font-size="10" font-family="monospace">    branches: <tspan fill="#a6e3a1">[main]</tspan></text>
+  <text x="44" y="288" fill="#7f849c" font-size="10" font-family="monospace"> </text>
+  <text x="44" y="304" fill="#cba6f7" font-size="10" font-family="monospace">jobs:</text>
+  <text x="44" y="320" fill="#7f849c" font-size="10" font-family="monospace">  build-and-push:</text>
+  <text x="44" y="336" fill="#7f849c" font-size="10" font-family="monospace">    runs-on: <tspan fill="#a6e3a1">ubuntu-latest</tspan></text>
+  <text x="44" y="352" fill="#7f849c" font-size="10" font-family="monospace">    steps:</text>
+  <text x="44" y="368" fill="#89b4fa" font-size="10" font-family="monospace">      - uses: actions/checkout@v4</text>
+  <text x="44" y="384" fill="#89b4fa" font-size="10" font-family="monospace">      - run: docker build -t $IMAGE .</text>
+  <text x="44" y="400" fill="#89b4fa" font-size="10" font-family="monospace">      - run: kubectl rollout ...</text>
+  <text x="44" y="418" fill="#7f849c" font-size="10" font-family="monospace">    timeout-minutes: <tspan fill="#fab387">15</tspan></text>
+
+  <!-- Environments panel -->
+  <rect x="410" y="195" width="340" height="240" rx="3" fill="#181825" stroke="#313244" stroke-width="1.5"/>
+  <rect x="410" y="195" width="340" height="24" rx="3" fill="#313244"/>
+  <text x="424" y="211" fill="#7f849c" font-size="9" letter-spacing="2">ENVIRONMENTS</text>
+
+  <text x="424" y="248" fill="#a6e3a1" font-size="10" font-family="monospace" font-weight="700">● DEV</text>
+  <text x="424" y="264" fill="#7f849c" font-size="9">Auto-deploys on every commit</text>
+  <text x="424" y="278" fill="#585b70" font-size="9">dev.internal.example.com</text>
+
+  <line x1="424" y1="295" x2="735" y2="295" stroke="#313244" stroke-width="1"/>
+
+  <text x="424" y="315" fill="#f9e2af" font-size="10" font-family="monospace" font-weight="700">● STAGING</text>
+  <text x="424" y="331" fill="#7f849c" font-size="9">Merge to main → smoke tests pass</text>
+  <text x="424" y="345" fill="#585b70" font-size="9">staging.example.com</text>
+
+  <line x1="424" y1="362" x2="735" y2="362" stroke="#313244" stroke-width="1"/>
+
+  <text x="424" y="382" fill="#94e2d5" font-size="10" font-family="monospace" font-weight="700">● PRODUCTION</text>
+  <text x="424" y="398" fill="#7f849c" font-size="9">Manual approval gate · blue/green</text>
+  <text x="424" y="412" fill="#585b70" font-size="9">api.example.com</text>
+
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#585b70"/>
+    </marker>
+  </defs>
+</svg>

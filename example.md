@@ -236,7 +236,7 @@ Use this layout when the text is the primary content and the image is supporting
 - Reference photos with descriptive text
 
 <template v-slot:image>
-<img src="./assets/fig_1-1.jpg" alt="Component architecture diagram" />
+<img src="./assets/fig_1-1.svg" alt="Microservices architecture diagram" />
 </template>
 
 <!--
@@ -262,7 +262,7 @@ Both variants share the same front matter props:
 **Tip.** Leave `figNumber` and `figLabel` out of the front matter entirely to suppress the caption. The image fills the panel without any label below it.
 
 <template v-slot:image>
-<img src="./assets/fig_1-2.jpg" alt="Deployment pipeline diagram" />
+<img src="./assets/fig_1-2.svg" alt="CI/CD deployment pipeline" />
 </template>
 
 <!--
@@ -275,7 +275,7 @@ bannerText: VESPER THEME — LAYOUT SHOWCASE
 ---
 
 <template v-slot:image>
-<img src="./assets/fig_1-full.jpg" alt="Full bleed background" />
+<img src="./assets/fig_1-full.svg" alt="Abstract network topology" />
 </template>
 
 # Structure Without Noise
@@ -307,7 +307,7 @@ This layout works well when the visual **establishes the subject** and the text 
 - The image band height is fixed; resize images to fill the band proportionally
 
 <template v-slot:image>
-<img src="./assets/fig_1-3.jpg" alt="System monitoring dashboard" />
+<img src="./assets/fig_1-3.svg" alt="Observability dashboard" />
 </template>
 
 <!--
@@ -329,10 +329,9 @@ The **image-bottom** layout inverts image-top, placing the content area above an
 **Effective for:**
 - Process diagrams that confirm a stated conclusion
 - Results screenshots following a hypothesis
-- "Here's what it looks like in practice" moments
 
 <template v-slot:image>
-<img src="./assets/fig_1-4.jpg" alt="Data pipeline diagram" />
+<img src="./assets/fig_1-4.svg" alt="Streaming data pipeline" />
 </template>
 
 <!--
@@ -354,11 +353,11 @@ The **two-images** layout places two image panels side by side, each with an ind
 Natural uses: before/after comparisons, paired screenshots, or two reference diagrams that need to be seen together simultaneously.
 
 <template v-slot:image1>
-<img src="./assets/fig_1-5.jpg" alt="Before — default theme" />
+<img src="./assets/fig_1-5.svg" alt="Before — default theme" />
 </template>
 
 <template v-slot:image2>
-<img src="./assets/fig_1-6.jpg" alt="After — Vesper treatment" />
+<img src="./assets/fig_1-6.svg" alt="After — Vesper treatment" />
 </template>
 
 <!--
@@ -626,7 +625,7 @@ async def process_stream(
 ```
 
 <template v-slot:caption>
-SOURCE: stream_processor.py — deduplication window: {{ window_seconds }}s
+SOURCE: stream_processor.py — 60-second tumbling window
 </template>
 
 <!--
@@ -651,6 +650,8 @@ The **code-right** layout places explanatory prose on the left and a code panel 
 - The snippet is too long to embed inline on a default slide
 
 The code panel includes corner brackets, a title bar, a language badge, and a caption slot — all styled to match the global code system in `styles/code.css`.
+
+::code::
 
 ```typescript
 interface Config {
@@ -854,6 +855,8 @@ The **chart-right** layout places explanatory text on the left and a Mermaid dia
 
 The diagram panel uses the same corner bracket and title bar system as the code panel, adjusted for diagram aspect ratios.
 
+::chart::
+
 ```mermaid
 pie title Compute Cost Allocation
   "API Servers" : 38
@@ -880,6 +883,8 @@ The **chart-left** layout mirrors chart-right, placing the diagram on the left a
 Choose between the two based on visual composition — similar to the image-right vs. image-left decision.
 
 **Reading the chart:** p50 latency is well within the 200ms SLA across all three endpoints. The `POST /events` endpoint shows elevated p99 due to Kafka acknowledgement wait time. A local buffer flush before acknowledgement would reduce this to under 400ms p99.
+
+::chart::
 
 ```mermaid
 xychart-beta
@@ -929,38 +934,34 @@ Inline Mermaid is the simplest option — just write the fenced block in the sli
 layout: dashboard
 title: 5-5. DASHBOARD LAYOUT
 sectionNumber: 5-5
+panel1Label: 'API HEALTH'
+panel2Label: 'LATENCY P99'
+panel3Label: 'ERROR RATE'
+panel4Label: 'DEPLOY FREQUENCY'
 ---
 
-<template v-slot:panel-a>
+<template v-slot:panel1>
 
-### API HEALTH
-
-<div style="font-family: var(--font-mono); font-size: 3rem; font-weight: 900; color: var(--vp-green); text-align: center; padding: 1rem 0;">99.97%</div>
-<div style="font-family: var(--font-mono); font-size: 0.7rem; text-align: center; color: var(--color-fg-subtle); letter-spacing: 0.1em;">30-DAY UPTIME</div>
+<div style="font-family: var(--font-mono); font-size: 3.2rem; font-weight: 900; color: var(--vp-green); text-align: center; padding: 1.2rem 0 0.4rem;">99.97%</div>
+<div style="font-family: var(--font-mono); font-size: 0.65rem; text-align: center; color: var(--color-fg-subtle); letter-spacing: 0.12em;">30-DAY UPTIME</div>
 
 </template>
 
-<template v-slot:panel-b>
+<template v-slot:panel2>
 
-### LATENCY P99
-
-<div style="font-family: var(--font-mono); font-size: 3rem; font-weight: 900; color: var(--vp-yellow); text-align: center; padding: 1rem 0;">187ms</div>
-<div style="font-family: var(--font-mono); font-size: 0.7rem; text-align: center; color: var(--color-fg-subtle); letter-spacing: 0.1em;">SLA: &lt; 200ms ✓</div>
+<div style="font-family: var(--font-mono); font-size: 3.2rem; font-weight: 900; color: var(--vp-yellow); text-align: center; padding: 1.2rem 0 0.4rem;">187ms</div>
+<div style="font-family: var(--font-mono); font-size: 0.65rem; text-align: center; color: var(--color-fg-subtle); letter-spacing: 0.12em;">SLA: &lt; 200ms ✓</div>
 
 </template>
 
-<template v-slot:panel-c>
+<template v-slot:panel3>
 
-### ERROR RATE
-
-<div style="font-family: var(--font-mono); font-size: 3rem; font-weight: 900; color: var(--vp-red); text-align: center; padding: 1rem 0;">0.03%</div>
-<div style="font-family: var(--font-mono); font-size: 0.7rem; text-align: center; color: var(--color-fg-subtle); letter-spacing: 0.1em;">7-DAY AVERAGE</div>
+<div style="font-family: var(--font-mono); font-size: 3.2rem; font-weight: 900; color: var(--vp-red); text-align: center; padding: 1.2rem 0 0.4rem;">0.03%</div>
+<div style="font-family: var(--font-mono); font-size: 0.65rem; text-align: center; color: var(--color-fg-subtle); letter-spacing: 0.12em;">7-DAY AVERAGE</div>
 
 </template>
 
-<template v-slot:panel-d>
-
-### DEPLOY FREQUENCY
+<template v-slot:panel4>
 
 ```mermaid
 xychart-beta
@@ -971,87 +972,59 @@ xychart-beta
 
 </template>
 
-<template v-slot:panel-e>
-
-### RECENT INCIDENTS
-
-| SEVERITY | DATE | DURATION |
-|---|---|---|
-| P2 | 2026-04-28 | 12 min |
-| P3 | 2026-04-15 | 4 min |
-| P3 | 2026-04-02 | 7 min |
-
-</template>
-
-<template v-slot:panel-f>
-
-### ACTIVE ALERTS
-
-- `api-latency` — WARNING (3h)
-- `db-connections` — OK
-- `cache-hit-rate` — OK
-- `queue-lag` — OK
-- `disk-usage` — OK
-
-</template>
-
 <!--
 The dashboard layout provides six independent panels in a 3×2 grid, each accepting any Markdown or component content. Use it for status overviews, KPI summaries, or any situation where multiple parallel data points need to be read simultaneously.
 -->
 
 ---
 layout: timeline
-title: 5-6. TIMELINE LAYOUT
 sectionNumber: 5-6
+direction: horizontal
 ---
 
-<div class="tl-entries">
-
-  <div class="tl-entry">
+<div class="tl-entry">
+  <div class="tl-entry-marker"><div class="tl-entry-dot"></div></div>
+  <div class="tl-entry-body">
     <div class="tl-entry-date vp-label">WEEK 1</div>
-    <div class="tl-entry-node"></div>
-    <div class="tl-entry-content">
-      <div class="tl-entry-title">Discovery & Requirements</div>
-      <div class="tl-entry-body">Stakeholder interviews, system audit, API contract definition, data model design.</div>
-    </div>
+    <div class="tl-entry-title">Discovery</div>
+    <div class="tl-entry-desc">Stakeholder interviews, system audit, API contracts, data model.</div>
   </div>
+</div>
 
-  <div class="tl-entry">
+<div class="tl-entry">
+  <div class="tl-entry-marker"><div class="tl-entry-dot"></div></div>
+  <div class="tl-entry-body">
     <div class="tl-entry-date vp-label">WEEK 2–3</div>
-    <div class="tl-entry-node"></div>
-    <div class="tl-entry-content">
-      <div class="tl-entry-title">Core Infrastructure</div>
-      <div class="tl-entry-body">Kafka cluster, Flink job scaffolding, ClickHouse schema, CI/CD pipeline.</div>
-    </div>
+    <div class="tl-entry-title">Infrastructure</div>
+    <div class="tl-entry-desc">Kafka cluster, Flink scaffolding, ClickHouse schema, CI/CD pipeline.</div>
   </div>
+</div>
 
-  <div class="tl-entry">
+<div class="tl-entry">
+  <div class="tl-entry-marker"><div class="tl-entry-dot"></div></div>
+  <div class="tl-entry-body">
     <div class="tl-entry-date vp-label">WEEK 4–6</div>
-    <div class="tl-entry-node"></div>
-    <div class="tl-entry-content">
-      <div class="tl-entry-title">Feature Development</div>
-      <div class="tl-entry-body">Stream processor, API endpoints, Grafana dashboards, alerting rules.</div>
-    </div>
+    <div class="tl-entry-title">Feature Dev</div>
+    <div class="tl-entry-desc">Stream processor, API endpoints, Grafana dashboards, alerts.</div>
   </div>
+</div>
 
-  <div class="tl-entry">
+<div class="tl-entry">
+  <div class="tl-entry-marker"><div class="tl-entry-dot"></div></div>
+  <div class="tl-entry-body">
     <div class="tl-entry-date vp-label">WEEK 7</div>
-    <div class="tl-entry-node"></div>
-    <div class="tl-entry-content">
-      <div class="tl-entry-title">Load Testing & Hardening</div>
-      <div class="tl-entry-body">k6 load tests to 10× expected volume. Tune Kafka partitions and Flink parallelism.</div>
-    </div>
+    <div class="tl-entry-title">Load Testing</div>
+    <div class="tl-entry-desc">k6 tests to 10× volume. Tune Kafka partitions and Flink parallelism.</div>
   </div>
+</div>
 
-  <div class="tl-entry">
+<div class="tl-entry">
+  <div class="tl-entry-marker"><div class="tl-entry-dot"></div></div>
+  <div class="tl-entry-body">
     <div class="tl-entry-date vp-label">WEEK 8</div>
-    <div class="tl-entry-node"></div>
-    <div class="tl-entry-content">
-      <div class="tl-entry-title">Staged Rollout</div>
-      <div class="tl-entry-body">10% → 50% → 100% traffic migration. Full cutover with 30-minute rollback window.</div>
-    </div>
+    <div class="tl-entry-title">Staged Rollout</div>
+    <div class="tl-entry-desc">10% → 50% → 100% migration. 30-minute rollback window.</div>
   </div>
-
 </div>
 
 <!--
@@ -1076,9 +1049,7 @@ All four Callout types, side by side:
 
 <Callout type="important">**IMPORTANT.** Deserves attention but not alarming. Mauve accent.</Callout>
 
-And the `FigureCaption` component, used beneath images:
-
-<FigureCaption number="A-1" label="CALLOUT SEVERITY LEVELS — VISUAL REFERENCE" />
+See image layout slides for `FigureCaption` usage (renders below the image with figure number and label).
 
 <!--
 Appendix slides work identically to regular content slides. Use the `sectionNumber` front matter to assign appendix numbering (A-1, A-2, etc.) — it flows through to the header and footer automatically.
@@ -1102,16 +1073,7 @@ sectionNumber: A-2
 | `.vp-list` | Converts a `<ol>` to parenthesized list markers: (1), (2), (3) |
 | `.vp-section-id` | Section number label style |
 
-**Design tokens** — all layout CSS uses these semantic vars (never raw Catppuccin hex values):
-
-```css
-var(--color-bg)         /* Base — slide background */
-var(--color-fg)         /* Text — primary foreground */
-var(--color-accent)     /* Mauve — primary accent */
-var(--color-accent-alt) /* Blue — secondary accent */
-var(--color-rule)       /* Overlay1 — dividing rules */
-var(--color-rule-light) /* Surface2 — subtle rules */
-```
+**Design tokens** — all layout CSS uses semantic vars (`--color-bg`, `--color-fg`, `--color-accent`, `--color-accent-alt`, `--color-rule`, `--color-rule-light`) rather than raw Catppuccin hex values, so both light and dark modes update automatically.
 
 <!--
 This reference slide documents the CSS utility classes available for use in slide content. Because Slidev auto-imports components but not utility classes, you apply these directly via `class=""` attributes on HTML elements in your markdown.
@@ -1121,7 +1083,7 @@ This reference slide documents the CSS utility classes available for use in slid
 layout: end
 subtitle: VESPER THEME
 bannerText: VESPER — CATPPUCCIN · IBM PLEX SANS · FIRA CODE
-photo: ./assets/presenter.jpg
+photo: https://github.com/lukemcguire.png
 contact: luke.mcguire@gmail.com
 ---
 
@@ -1129,7 +1091,7 @@ contact: luke.mcguire@gmail.com
 
 <template v-slot:contact>
 
-`github.com/luke-mcguire/slidev-theme-vesper`
+`github.com/lukemcguire/slidev-theme-vesper`
 
 `luke.mcguire@gmail.com`
 

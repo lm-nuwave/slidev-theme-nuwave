@@ -16,7 +16,7 @@ defineProps<{
 <template>
   <div class="slidev-layout layout-dashboard">
     <VesperHeader
-      :title="title ?? 'TACTICAL DATA DISPLAY'"
+      :title="title ?? ''"
       :section-number="sectionNumber ?? ''"
 
     />
@@ -31,7 +31,7 @@ defineProps<{
         <!-- Panel 1 (top-left) -->
         <div class="db-panel">
           <div class="db-panel-header">
-            <span class="db-panel-label vp-label">{{ panel1Label ?? 'METRIC ALPHA' }}</span>
+            <span class="db-panel-label vp-label">{{ panel1Label ?? 'METRIC 01' }}</span>
           </div>
           <div class="db-panel-content">
             <slot name="panel1">
@@ -46,7 +46,7 @@ defineProps<{
         <!-- Panel 2 (top-right) -->
         <div class="db-panel">
           <div class="db-panel-header">
-            <span class="db-panel-label vp-label">{{ panel2Label ?? 'METRIC BRAVO' }}</span>
+            <span class="db-panel-label vp-label">{{ panel2Label ?? 'METRIC 02' }}</span>
           </div>
           <div class="db-panel-content">
             <slot name="panel2">
@@ -61,7 +61,7 @@ defineProps<{
         <!-- Panel 3 (bottom-left) -->
         <div class="db-panel">
           <div class="db-panel-header">
-            <span class="db-panel-label vp-label">{{ panel3Label ?? 'METRIC CHARLIE' }}</span>
+            <span class="db-panel-label vp-label">{{ panel3Label ?? 'METRIC 03' }}</span>
           </div>
           <div class="db-panel-content">
             <slot name="panel3">
@@ -76,7 +76,7 @@ defineProps<{
         <!-- Panel 4 (bottom-right) -->
         <div class="db-panel">
           <div class="db-panel-header">
-            <span class="db-panel-label vp-label">{{ panel4Label ?? 'METRIC DELTA' }}</span>
+            <span class="db-panel-label vp-label">{{ panel4Label ?? 'METRIC 04' }}</span>
           </div>
           <div class="db-panel-content">
             <slot name="panel4">
