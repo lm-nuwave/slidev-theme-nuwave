@@ -12,7 +12,7 @@ defineProps<{
 <template>
   <div class="slidev-layout layout-default">
     <VesperHeader
-      :title="title ?? $slidev?.configs?.title ?? ''"
+      :title="title ?? ''"
       :section-number="sectionNumber ?? ''"
 
     />

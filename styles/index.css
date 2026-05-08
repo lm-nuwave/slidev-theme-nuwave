@@ -171,6 +171,21 @@
   box-sizing: border-box;
 }
 
+/* ── Content text scale (body layouts only, excludes header/footer) ──────── */
+/* Hero layouts (cover, section, image-full, statement, quote, end) keep full scale. */
+/* Direct-child combinator ensures .vp-header and .vp-footer are untouched.         */
+.slidev-layout:not(.layout-cover):not(.layout-section):not(.layout-image-full):not(.layout-statement):not(.layout-quote):not(.layout-end) > :not(.vp-header):not(.vp-footer) {
+  --text-xs:    clamp(0.54rem, 0.81vw, 0.63rem);
+  --text-sm:    clamp(0.63rem, 0.99vw, 0.77rem);
+  --text-base:  clamp(0.77rem, 1.26vw, 0.95rem);
+  --text-md:    clamp(0.90rem, 1.44vw, 1.08rem);
+  --text-lg:    clamp(1.08rem, 1.80vw, 1.44rem);
+  --text-xl:    clamp(1.44rem, 2.52vw, 1.98rem);
+  --text-2xl:   clamp(1.80rem, 3.24vw, 2.70rem);
+  --text-3xl:   clamp(2.52rem, 4.50vw, 3.78rem);
+  --text-4xl:   clamp(3.60rem, 7.20vw, 6.30rem);
+}
+
 /* ── Base Typography ──────────────────────────────────────────────────────── */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
@@ -578,9 +593,32 @@ blockquote {
 
 /* ── Dark Mode Layout-Specific Overrides ─────────────────────────────────── */
 
-/* Mermaid xychart: transparent chart paper (xychart-beta renders its own background rect) */
+/* Mermaid xychart: transparent backgrounds.                                         */
+/* xychart may set background on the SVG element itself or on shallow <rect> elements. */
+/* Bars/data rects are deeper (≥3 levels), so targeting 1–2 levels is safe.           */
+.cf-chart-area svg,
+.cr-chart-area svg,
+.cl-chart-area svg,
+.db-panel-content svg {
+  background: transparent !important;
+}
+
 .slidev-layout svg rect.background,
-.slidev-layout svg rect[class*="background"] {
+.slidev-layout svg rect[class*="background"],
+.slidev-layout svg rect[class*="Background"],
+.slidev-layout svg rect[class*="plotBackground"],
+.cf-chart-area svg > rect,
+.cf-chart-area svg > g > rect,
+.cf-chart-area svg > g > g > rect,
+.cr-chart-area svg > rect,
+.cr-chart-area svg > g > rect,
+.cr-chart-area svg > g > g > rect,
+.cl-chart-area svg > rect,
+.cl-chart-area svg > g > rect,
+.cl-chart-area svg > g > g > rect,
+.db-panel-content svg > rect,
+.db-panel-content svg > g > rect,
+.db-panel-content svg > g > g > rect {
   fill: transparent !important;
 }
 

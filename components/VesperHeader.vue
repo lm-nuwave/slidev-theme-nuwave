@@ -9,11 +9,9 @@ defineProps<{
 <template>
   <header class="vp-header">
     <div class="vp-header__inner">
-      <span class="vp-header__deck vp-label">{{ $slidev?.configs?.title ?? '' }}</span>
-      <span v-if="title" class="vp-header__title">{{ title }}</span>
-      <span v-if="author ?? $slidev?.configs?.author" class="vp-header__author vp-label">
-        {{ author ?? $slidev?.configs?.author ?? '' }}
-      </span>
+      <span class="vp-header__deck vp-label">{{ $slidev?.configs?.deckTitle ?? $slidev?.configs?.title ?? '' }}</span>
+      <span v-if="title || $frontmatter?.title" class="vp-header__title">{{ title || $frontmatter?.title }}</span>
+      <span class="vp-header__author vp-label">{{ author ?? $slidev?.configs?.author ?? '' }}</span>
     </div>
     <div class="vp-header__rule"></div>
   </header>
@@ -36,6 +34,7 @@ defineProps<{
 }
 
 .vp-header__deck {
+  grid-column: 1;
   color: var(--color-fg-subtle);
   letter-spacing: 0.12em;
   overflow: hidden;
@@ -44,11 +43,13 @@ defineProps<{
 }
 
 .vp-header__title {
+  grid-column: 2;
   font-family: var(--font-label);
   font-size: var(--text-xs);
+  font-weight: 600;
   letter-spacing: 0.10em;
   text-transform: uppercase;
-  color: var(--color-fg-subtle);
+  color: var(--color-fg);
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;

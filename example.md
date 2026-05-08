@@ -2,6 +2,7 @@
 theme: ./
 canvasWidth: 960
 title: 'Vesper: A Technical Slidev Theme'
+deckTitle: 'Vesper: A Technical Slidev Theme'
 author: 'Luke McGuire'
 colorSchema: dark
 highlighter: shiki
@@ -38,9 +39,6 @@ mermaid:
     pieLegendTextColor: '#cdd6f4'
     pieTitleTextColor: '#cdd6f4'
     pieSectionTextColor: '#1e1e2e'
-    xyChart:
-      backgroundColor: '#1e1e2e'
-      plotColorPalette: '#cba6f7,#89b4fa,#a6e3a1,#f9e2af'
 ---
 
 # Vesper
@@ -405,7 +403,7 @@ The **one-idea principle**: each slide communicates exactly one primary idea. Su
 - Body text: 16–18px baseline for comfortable reading at distance
 - Bullet lists: 5–6 items maximum before cognitive load spikes
 - Tables: 5 columns maximum; use `th` styling for column headers
-- Code blocks inline: 25–30 lines maximum before scrolling occurs
+- Code blocks inline: ~20 lines maximum before scrolling occurs
 
 **When a slide feels crowded, it's a signal.** Split into two slides, not a smaller font. The `two-column` and `three-column` layouts exist for dense parallel content that must stay on one slide.
 
@@ -457,17 +455,22 @@ The two-column layout splits the content area into two equal columns with a divi
 layout: three-column
 title: 3-3. THREE COLUMNS
 sectionNumber: 3-3
+col1Header: INGESTION
+col2Header: PROCESSING
+col3Header: DELIVERY
 ---
 
 <template v-slot:col1>
 
-<Block type="info" title="INGESTION" :compact="true">
-
 - Kafka topic per source
 - Schema registry validation
-- Dead-letter queue on parse failure
+- Queue on parse failure
 - Backpressure at the connector
 - Retention: 7 days
+
+<Block type="info" title="DIGESTION" :compact="true">
+
+Rather "Kafka-esque"
 
 </Block>
 
@@ -475,13 +478,15 @@ sectionNumber: 3-3
 
 <template v-slot:col2>
 
-<Block type="success" title="PROCESSING" :compact="true">
-
 - Flink streaming job
 - Windowed aggregations (5 min)
 - Deduplication by event ID
 - State store: RocksDB
 - Checkpoint interval: 60s
+
+<Block type="success" title="PROGRESSING" :compact="true">
+
+Always moving forward
 
 </Block>
 
@@ -489,13 +494,15 @@ sectionNumber: 3-3
 
 <template v-slot:col3>
 
-<Block type="warning" title="DELIVERY" :compact="true">
-
 - Write to ClickHouse cluster
 - Real-time materialized views
 - Grafana dashboard refresh: 30s
 - Alerting via PagerDuty
 - SLA: p99 < 2s end-to-end
+
+<Block type="warning" title="THE LIVERY" :compact="true">
+
+Wear it with pride
 
 </Block>
 
@@ -723,34 +730,44 @@ The Block component is the inline version of the callout layout — it can appea
 
 ---
 layout: default
-title: 4-4. BLOCK VARIANTS
+title: 4-4. BLOCK VARIANTS (1/2)
 sectionNumber: 4-4
 ---
 
-## 4-4. All Block Variants
+## 4-4. Block Variants — Titled Types
 
-<Block type="default" title="DEFAULT — GENERAL NOTE">General-purpose callout in the theme's primary accent color (Mauve).</Block>
+<Block type="default" title="DEFAULT">General-purpose note in the theme accent color (Mauve). Use for observations, cross-references, or supplementary context.</Block>
 
-<Block type="danger" title="DANGER — IRREVERSIBLE">Use for actions that cannot be undone: database drops, secret rotation, production deployments.</Block>
+<Block type="info" title="INFO">Prerequisites, background reading, or contextual explanation. Blue accent.</Block>
 
-<Block type="example" title="EXAMPLE — USAGE">
+<Block type="success" title="SUCCESS">Confirmation, passing criteria, or positive outcome. Green accent.</Block>
 
-```bash
-npx slidev example.md
-```
+<Block type="warning" title="WARNING">Degraded state, caveat, or important constraint. Yellow accent.</Block>
 
-Starts the development server with hot reload at `localhost:3030`.
+<!--
+All six variants use the same component; only the `type` prop changes. The corner brackets on Block use the block's accent color, not the global bracket color.
+-->
 
-</Block>
+---
+layout: default
+title: 4-4. BLOCK VARIANTS (2/2)
+sectionNumber: 4-4
+---
 
-**Titleless variant.** Omit the `title` prop to get a left-accent border with no header bar:
+## 4-4. Block Variants — Alert Types + Modifiers
+
+<Block type="danger" title="DANGER">Irreversible action or hard failure. Use for data loss, secret rotation, production drops. Red accent.</Block>
+
+<Block type="example" title="EXAMPLE">Usage demonstration or runnable snippet. Teal accent.</Block>
+
+**Titleless** — omit `title` for a left-accent border with no header bar:
 
 <Block type="info">A titleless Block renders with a left accent border only — useful for inline asides without the visual weight of a full header bar.</Block>
 
-**Compact variant.** Add `compact` prop to reduce body padding for dense contexts.
+**Compact** — add `:compact="true"` to reduce body padding for dense contexts.
 
 <!--
-All six variants use the same component; only the `type` prop changes. The corner brackets on the Block component use the block's accent color, not the global bracket color — this distinguishes it visually from the slide-level corner bracket decorations in some layouts.
+The titleless variant is useful for advisory inline content that doesn't need the visual weight of the full header bar.
 -->
 
 ---
@@ -899,7 +916,7 @@ Choose between the two based on visual composition — similar to the image-righ
 ::chart::
 
 ```mermaid
-xychart-beta
+xychart
   title "API Latency (ms)"
   x-axis ["/users", "/events", "/search"]
   y-axis "Latency (ms)" 0 --> 600
@@ -976,7 +993,7 @@ panel4Label: 'DEPLOY FREQUENCY'
 <template v-slot:panel4>
 
 ```mermaid
-xychart-beta
+xychart
   x-axis ["Mon","Tue","Wed","Thu","Fri"]
   y-axis "Deploys" 0 --> 5
   bar [2, 3, 1, 4, 2]
