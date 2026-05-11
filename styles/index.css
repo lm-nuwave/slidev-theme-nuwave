@@ -201,7 +201,7 @@ h2 {
   font-size: var(--text-xl);
   font-weight: 600;
   letter-spacing: 0.03em;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
 }
 
 /* Content-area h2s only (plain markdown — layout title bars all carry a class) */
@@ -209,7 +209,7 @@ h2:not([class]) {
   border-top: var(--rule-thin) solid var(--color-rule);
   border-bottom: var(--rule-thin) solid var(--color-rule);
   padding: var(--space-2) 0;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
 }
 h3 { font-size: var(--text-lg); margin-bottom: var(--space-2); }
 h4 { font-size: var(--text-md); margin-bottom: var(--space-2); }
@@ -218,7 +218,7 @@ h4 { font-size: var(--text-md); margin-bottom: var(--space-2); }
 p + h2, ul + h2, ol + h2, blockquote + h2,
 p + h3, ul + h3, ol + h3, blockquote + h3,
 h2 + h3, h3 + h4 {
-  margin-top: var(--space-4);
+  margin-top: var(--space-3);
 }
 
 /* Cover slide — override global heading fonts */
@@ -239,7 +239,7 @@ h2 + h3, h3 + h4 {
   letter-spacing: 0.05em;
   line-height: 1.2;
   color: var(--color-fg-muted);
-  margin: 0 0 var(--space-5);
+  margin: 0 0 var(--space-3);
   border: none;
   padding: 0;
 }
@@ -264,7 +264,7 @@ h2 + h3, h3 + h4 {
   letter-spacing: 0.02em;
   line-height: 1.0;
   color: var(--color-fg);
-  margin: 0 0 var(--space-5);
+  margin: 0 0 var(--space-3);
   border-top: none;
   padding-top: 0;
   border-bottom: 2px solid var(--color-rule);
@@ -272,7 +272,7 @@ h2 + h3, h3 + h4 {
 }
 
 .slidev-layout p {
-  margin: 0 0 var(--space-5);
+  margin: 0 0 var(--space-3);
   font-size: var(--text-base);
 }
 
@@ -299,7 +299,7 @@ a {
 .slidev-layout ul,
 .slidev-layout ol {
   margin: 0 0 var(--space-3);
-  padding-left: var(--space-7);
+  padding-left: var(--space-6);
 }
 
 ul li {
@@ -315,7 +315,7 @@ ul li:last-child {
 ul li::before {
   content: '—';
   position: absolute;
-  left: -1.8em;
+  left: -1.5em;
   color: var(--color-accent);
   font-family: var(--font-mono);
   font-weight: 700;
@@ -339,7 +339,7 @@ ol li:last-child {
 ol li::before {
   content: '(' counter(vp-list) ')';
   position: absolute;
-  left: -2.2em;
+  left: -1.8em;
   color: var(--color-fg-muted);
 }
 
@@ -373,7 +373,7 @@ pre {
 hr {
   border: none;
   border-top: var(--rule-thick) solid var(--color-rule);
-  margin: var(--space-5) 0;
+  margin: var(--space-3) 0;
 }
 
 hr.thin {

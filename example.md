@@ -1,44 +1,11 @@
 ---
 theme: ./
-canvasWidth: 960
 title: 'Vesper: A Technical Slidev Theme'
 deckTitle: 'Vesper: A Technical Slidev Theme'
 author: 'Luke McGuire'
-colorSchema: dark
-highlighter: shiki
-lineNumbers: true
 layout: cover
 date: 'MAY 2026'
 katex: true
-mermaid:
-  theme: base
-  fontFamily: "'Fira Code', monospace"
-  themeVariables:
-    background: '#1e1e2e'
-    primaryColor: '#313244'
-    primaryTextColor: '#cdd6f4'
-    primaryBorderColor: '#585b70'
-    secondaryColor: '#181825'
-    tertiaryColor: '#1e1e2e'
-    lineColor: '#cba6f7'
-    mainBkg: '#313244'
-    nodeBorder: '#585b70'
-    clusterBkg: '#181825'
-    titleColor: '#cdd6f4'
-    edgeLabelBackground: '#1e1e2e'
-    pie1: '#cba6f7'
-    pie2: '#89b4fa'
-    pie3: '#a6e3a1'
-    pie4: '#f9e2af'
-    pie5: '#f38ba8'
-    pie6: '#94e2d5'
-    xyChart:
-      backgroundColor: transparent
-      plotColorPalette: '#89b4fa,#cba6f7,#a6e3a1,#f9e2af,#f38ba8,#94e2d5'
-    pieStrokeColor: '#1e1e2e'
-    pieLegendTextColor: '#cdd6f4'
-    pieTitleTextColor: '#cdd6f4'
-    pieSectionTextColor: '#1e1e2e'
 ---
 
 # Vesper
@@ -206,6 +173,27 @@ Understanding the three-zone structure makes it easy to reason about vertical sp
 -->
 
 ---
+layout: default
+title: 1-3. DESIGN TOKENS & SVG DIAGRAMS
+sectionNumber: 1-3
+---
+
+## 1-3. Design Tokens & SVG Diagrams
+
+All palette values live as **`--vp-*` CSS custom properties** (Catppuccin Latte in light mode, Mocha in dark). Never hardcode hex values.
+
+| Token | Role | Token | Role |
+|---|---|---|---|
+| `--vp-base` | Slide background | `--vp-text` | Body text |
+| `--vp-surface0` | Panel / node fill | `--vp-overlay1` | Muted / subtext |
+| `--vp-surface1` | Raised surface | `--vp-mauve` | Primary accent |
+| `--vp-surface2` | Border / divider | `--vp-blue` | Secondary accent |
+| `--vp-mantle` | Deep background | `--vp-teal` · `--vp-green` | Success / positive |
+| `--vp-overlay0` | Subtle stroke | `--vp-red` · `--vp-yellow` | Error / warning |
+
+**SVG diagrams** — use `var(--vp-*)` in `fill`/`stroke` attributes and embed with `<SvgDiagram src="..." />`. This inlines the SVG so CSS vars resolve and it responds to dark/light mode. Plain `<img>` tags cannot inherit CSS variables.
+
+---
 layout: section
 sectionNumber: '2'
 ---
@@ -237,7 +225,7 @@ Use this layout when the text is the primary content and the image is supporting
 - Reference photos with descriptive text
 
 <template v-slot:image>
-<img src="./assets/fig_1-1.svg" alt="Microservices architecture diagram" />
+<SvgDiagram src="./assets/fig_1-1.svg" />
 </template>
 
 <!--
@@ -263,7 +251,7 @@ Both variants share the same front matter props:
 **Tip.** Leave `figNumber` and `figLabel` out of the front matter entirely to suppress the caption. The image fills the panel without any label below it.
 
 <template v-slot:image>
-<img src="./assets/fig_1-2.svg" alt="CI/CD deployment pipeline" />
+<SvgDiagram src="./assets/fig_1-2.svg" />
 </template>
 
 <!--
@@ -276,7 +264,7 @@ bannerText: VESPER THEME — LAYOUT SHOWCASE
 ---
 
 <template v-slot:image>
-<img src="./assets/fig_1-full.svg" alt="Abstract network topology" />
+<SvgDiagram src="./assets/fig_1-full.svg" />
 </template>
 
 # Structure Without Noise
@@ -308,7 +296,7 @@ This layout works well when the visual **establishes the subject** and the text 
 - The image band height is fixed; resize images to fill the band proportionally
 
 <template v-slot:image>
-<img src="./assets/fig_1-3.svg" alt="Observability dashboard" />
+<SvgDiagram src="./assets/fig_1-3.svg" />
 </template>
 
 <!--
@@ -332,7 +320,7 @@ The **image-bottom** layout inverts image-top, placing the content area above an
 - Results screenshots following a hypothesis
 
 <template v-slot:image>
-<img src="./assets/fig_1-4.svg" alt="Streaming data pipeline" />
+<SvgDiagram src="./assets/fig_1-4.svg" />
 </template>
 
 <!--
@@ -358,7 +346,7 @@ Natural uses: before/after comparisons, paired screenshots, or two reference dia
 </template>
 
 <template v-slot:image2>
-<img src="./assets/fig_1-6.svg" alt="After — Vesper treatment" />
+<SvgDiagram src="./assets/fig_1-6.svg" />
 </template>
 
 <!--
@@ -764,7 +752,13 @@ sectionNumber: 4-4
 
 <Block type="info">A titleless Block renders with a left accent border only — useful for inline asides without the visual weight of a full header bar.</Block>
 
-**Compact** — add `:compact="true"` to reduce body padding for dense contexts.
+**Compact** —
+
+<Block type="example" title="EXAMPLE" compact="true">
+
+Add `:compact="true"` to reduce body padding for dense contexts.
+
+</Block>
 
 <!--
 The titleless variant is useful for advisory inline content that doesn't need the visual weight of the full header bar.
@@ -1070,13 +1064,29 @@ sectionNumber: A-1
 
 All four Callout types, side by side:
 
-<Callout type="warning">**WARNING.** The most serious level — conditions that can cause real harm. Red accent.</Callout>
+<Callout type="warning">
 
-<Callout type="caution">**CAUTION.** Conditions requiring care; recoverable if caught early. Peach/amber accent.</Callout>
+**WARNING.** The most serious level — conditions that can cause real harm. Red accent.
 
-<Callout type="note">**NOTE.** Supplementary information worth calling out explicitly. Blue accent.</Callout>
+</Callout>
 
-<Callout type="important">**IMPORTANT.** Deserves attention but not alarming. Mauve accent.</Callout>
+<Callout type="caution">
+
+**CAUTION.** Conditions requiring care; recoverable if caught early. Peach/amber accent.
+
+</Callout>
+
+<Callout type="note">
+
+**NOTE.** Supplementary information worth calling out explicitly. Blue accent.
+
+</Callout>
+
+<Callout type="important">
+
+**IMPORTANT.** Deserves attention but not alarming. Mauve accent.
+
+</Callout>
 
 See image layout slides for `FigureCaption` usage (renders below the image with figure number and label).
 

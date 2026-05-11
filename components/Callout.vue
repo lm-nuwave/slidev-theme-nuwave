@@ -43,12 +43,6 @@ const typeConfig = computed(() => {
   flex-direction: column;
 }
 
-.vp-callout-box::after {
-  content: '';
-  display: block;
-  height: 1.25rem;
-  flex-shrink: 0;
-}
 
 .vp-callout-box:last-child {
   margin-bottom: 0;
@@ -86,7 +80,7 @@ const typeConfig = computed(() => {
   display: flex;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
+  padding: var(--space-2) var(--space-4) var(--space-1);
   border-bottom: 1px dashed currentColor;
 }
 
@@ -118,7 +112,7 @@ const typeConfig = computed(() => {
 
 /* Content */
 .callout-body {
-  padding: var(--space-3) var(--space-4) 0;
+  padding: var(--space-1) var(--space-4) var(--space-3);
   font-size: var(--text-sm);
   color: var(--color-fg-muted);
   line-height: 1.6;

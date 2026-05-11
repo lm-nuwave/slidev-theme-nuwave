@@ -25,3 +25,5 @@ dist/
 # Env / secrets
 .env
 .env.*
+.claude/
+.agents/
