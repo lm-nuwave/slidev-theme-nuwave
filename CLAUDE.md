@@ -5,14 +5,15 @@ with code in this repository.
 
 ## Running the theme
 
-There are no local `node_modules` — the theme is loaded directly by a
-globally installed Slidev CLI:
+Dependencies are installed locally via pnpm:
 
 ```bash
-npx slidev example.md          # dev server with hot reload
-npx slidev build example.md    # static build
-npx slidev export example.md   # export to PDF/PNG
+pnpm slidev example.md          # dev server with hot reload (port 3030)
+pnpm slidev build example.md    # static build
+pnpm slidev export example.md   # export to PDF/PNG
 ```
+
+Or use the package scripts: `pnpm dev`, `pnpm build`, `pnpm export`.
 
 ## Architecture
 
@@ -33,6 +34,7 @@ runtime via Vite.
 - `setup/shiki.ts` — must export a **plain default function** (no imports
   from `@slidev/types`; the package is not installed locally). Slidev
   calls `mod.default()` to get the Shiki theme config.
+- `vite.config.ts` — ESM shim for lz-string; no other customizations
 
 ### Design token system
 
@@ -43,11 +45,12 @@ use the `--color-*`, `--nw-*`, `--space-*`, `--text-*`, and `--rule-*`
 variables.
 
 **Palette structure:**
-- `:root` — NuWave light mode (Stone Fog background, Deep Ocean Navy text)
+- `:root` — NuWave light mode (white background, Deep Ocean Navy text)
 - `.dark` — NuWave dark mode (deep navy background, light text)
 - Raw palette vars: `--nw-navy`, `--nw-cornflower`, `--nw-teal`,
-  `--nw-orange`, `--nw-green`, `--nw-sky`, `--nw-silver`, `--nw-base`,
-  `--nw-surface0/1/2`, `--nw-overlay1`, etc.
+  `--nw-orange`, `--nw-orange-rust`, `--nw-green`, `--nw-sky`,
+  `--nw-silver`, `--nw-red`, `--nw-base`, `--nw-surface0/1/2`,
+  `--nw-overlay0/1`, etc.
 - Semantic aliases: `--color-bg`, `--color-fg`, `--color-accent`,
   `--color-accent-alt`, `--color-rule`, `--color-rule-light`,
   `--color-fg-muted`, `--color-fg-subtle`, `--color-bg-alt`,
@@ -55,29 +58,32 @@ variables.
 
 Component CSS must use semantic `--color-*` vars, not raw `--nw-*`
 palette vars, so both themes auto-update. Exception: `Block.vue` uses
-`--nw-*` vars directly for per-type accent colors.
+`--nw-*` vars directly for per-type accent colors. SVG assets also use
+`--nw-*` and `--color-*` vars directly in `fill`/`stroke` attributes.
 
 ### Layout anatomy
 
 Every layout follows this structure:
 
 ```text
-<NuWaveHeader>  ← position: absolute top-right; NuWave logo image only
+<NuWaveHeader>  ← 52px flex band; title left + logo right (or logo only)
 <main content>  ← flex: 1, overflow: hidden
-<NuWaveFooter>  ← flex-shrink: 0; section number · date · page/total
+<NuWaveFooter>  ← flex-shrink: 0; date left · page/total right
 ```
 
 The `.slidev-layout` root element is always `display: flex;
 flex-direction: column` at 960×540px (16:9; renders at 1920×1080 at
 2×). Layouts must not exceed this height.
 
-**NuWaveHeader** is absolutely positioned (height: 0, overflow: visible)
-so it does not consume vertical space — the logo floats over slide
-content.
+**NuWaveHeader** is a real 52px flow element (not absolutely positioned).
+It reads `$frontmatter.title` directly via the Slidev template global:
+- With title: title left-aligned (`flex: 1`), logo right, Aqua Teal
+  `box-shadow: inset` accent at bottom (inset shadow used instead of
+  border-bottom to avoid layout shift between titled/untitled slides)
+- Without title: `margin-left: auto` on logo keeps it upper-right
 
-**Footer uses `$nav?.currentPage` (Vue template global)** — not
-`useNav()` from `@slidev/client`, which requires the package to be
-installed locally.
+**NuWaveFooter** uses `$nav?.currentPage` (Vue template global) — not
+`useNav()` from `@slidev/client`, which requires the package locally.
 
 ### CodeBlock / code panel system
 
@@ -129,6 +135,16 @@ in the template.
 No default text — the banner is always opt-in via `bannerText` prop on
 layouts that support it (`cover`, `end`, `image-full`).
 
+### SvgDiagram component
+
+`components/SvgDiagram.vue` fetches and inlines an external SVG file at
+runtime so that CSS custom properties (`--nw-*`, `--color-*`) in
+`fill`/`stroke` attributes resolve correctly and respond to dark/light
+mode toggling. Plain `<img>` tags cannot inherit CSS variables.
+
+All SVG assets in `assets/` must use `var(--nw-*)` or `var(--color-*)`
+vars — never hardcoded hex values — and `Source Sans 3` as the font.
+
 ### StepCircle component
 
 `components/StepCircle.vue` renders a colored numbered circle for
@@ -152,7 +168,7 @@ label below it. Props:
 `layouts/stat-sidebar.vue` — two-column layout:
 - Left: 260px dark navy column (use `::sidebar` slot with `MetricStat`
   components)
-- Right: standard content area with optional `title` prop
+- Right: standard content area (default slot)
 
 ### process-steps layout
 
@@ -162,6 +178,18 @@ label below it. Props:
   `title`, `sectionNumber`
 - Each step auto-renders a `StepCircle`; duration badges and decision
   point labels are driven by front matter props
+
+### image-left / image-right layouts
+
+Both accept an `image` prop (string URL/path) and optional `imageClass`
+as shorthand for a plain `<img>` without needing a named slot:
+
+```yaml
+image: ./assets/photo.jpg
+imageClass: object-cover
+```
+
+If `image` is absent, falls back to `<slot name="image">`.
 
 ### CSS class prefix
 
@@ -178,8 +206,15 @@ for code-right, `.cdf-` for code-full) to avoid collisions.
   `--block-accent` and raw `--nw-*` vars set per-type colors
 - Layout scoped styles use short two-letter prefixes to avoid collisions
   across layouts
-- The `colorSchema: dark` in `package.json` sets dark mode as default;
-  toggle with `d` key during presentation. Dark mode uses deep navy
-  background (not Catppuccin Mocha)
+- No `colorSchema` is set in `package.json` — dark/light toggles freely
+  with the `d` key. Dark mode is handled entirely by the `.dark` CSS
+  selector in `styles/index.css`
+- `canvasWidth`, `lineNumbers`, `katex`, and `mermaid` defaults live in
+  `package.json` under `slidev.defaults` — do not duplicate in
+  `example.md` headmatter
 - Logo image at `public/nuwave-logo.png` — referenced as `/nuwave-logo.png`
   in `NuWaveHeader.vue`
+- Git remote `origin` uses the `github-nuwave` SSH host alias:
+  `git@github-nuwave:lm-nuwave/slidev-theme-nuwave.git`
+- Git remote `upstream` points to the Vesper fork at
+  `https://github.com/lukemcguire/slidev-theme-vesper.git`
