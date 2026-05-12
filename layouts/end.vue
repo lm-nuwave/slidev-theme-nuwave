@@ -1,6 +1,7 @@
 <!-- Layout: end — Final slide with closing treatment and optional contact block -->
 <script setup lang="ts">
 import Banner from '../components/Banner.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
 
 defineProps<{
   contact?: string
@@ -12,6 +13,7 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-end">
+    <NuWaveHeader />
     <Banner :text="bannerText" />
 
     <div class="end-body">
@@ -22,7 +24,7 @@ defineProps<{
 
       <div class="end-text">
         <div class="end-rule-top"></div>
-        <div v-if="subtitle" class="end-subtitle vp-label">
+        <div v-if="subtitle" class="end-subtitle nw-label">
           {{ subtitle }}
         </div>
         <h1 class="end-title">
@@ -72,7 +74,7 @@ defineProps<{
   object-position: center top;
   display: block;
   border: 3px solid var(--color-accent);
-  box-shadow: 0 0 0 6px var(--vp-surface0-alpha);
+  box-shadow: 0 0 0 6px var(--nw-surface0-alpha);
 }
 
 .end-text {

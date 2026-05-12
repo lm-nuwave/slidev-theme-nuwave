@@ -1,25 +1,35 @@
 {
-  "name": "slidev-theme-vesper",
+  "name": "slidev-theme-nuwave",
   "version": "0.1.0",
-  "description": "A Slidev theme with Catppuccin Mocha/Latte palette, structured layouts, and technical documentation styling",
+  "description": "NuWave Energy Solutions Slidev theme — Source Sans 3, brand palette, structured layouts",
   "keywords": [
     "slidev-theme",
-    "catppuccin",
-    "dark-mode",
-    "technical",
-    "documentation"
+    "nuwave",
+    "energy",
+    "presentation"
   ],
-  "homepage": "https://github.com/luke-mcguire/slidev-theme-vesper",
+  "homepage": "https://github.com/lm-nuwave/slidev-theme-nuwave",
   "author": "luke.mcguire@gmail.com",
   "files": [
     "layouts/",
     "components/",
     "styles/",
     "setup/",
+    "public/",
     "README.md"
   ],
   "slidev": {
-    "colorSchema": "dark",
+    "colorSchema": "light",
     "highlighter": "shiki"
+  },
+  "scripts": {
+    "dev": "slidev example.md --port 3030",
+    "build": "slidev build example.md",
+    "export": "slidev export example.md"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^52.0.0",
+    "markdown-it-github-alerts": "*",
+    "playwright-chromium": "^1.59.1"
   }
 }

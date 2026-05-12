@@ -1,7 +1,7 @@
 <!-- Layout: table-of-contents — ToC with dot leaders and section numbers -->
 <script setup lang="ts">
-import VesperHeader from '../components/VesperHeader.vue'
-import VesperFooter from '../components/VesperFooter.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
+import NuWaveFooter from '../components/NuWaveFooter.vue'
 
 defineProps<{
   title?: string
@@ -11,11 +11,7 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-toc">
-    <VesperHeader
-      :title="title ?? 'TABLE OF CONTENTS'"
-      :section-number="sectionNumber ?? ''"
-
-    />
+    <NuWaveHeader />
 
     <div class="toc-body">
       <div class="toc-title-bar">
@@ -48,7 +44,7 @@ defineProps<{
       </div>
     </div>
 
-    <VesperFooter :section-number="sectionNumber ?? ''" />
+    <NuWaveFooter />
   </div>
 </template>
 
@@ -125,7 +121,7 @@ defineProps<{
   gap: var(--space-3);
   align-items: baseline;
   padding: var(--space-1) 0;
-  border-bottom: 1px dotted var(--vp-surface1);
+  border-bottom: 1px dotted var(--nw-surface1);
 }
 
 :deep(.toc-entry-num) {
@@ -164,7 +160,7 @@ defineProps<{
 
 /* Chapter-level entry (bold, elevated background) */
 :deep(.toc-entry--chapter) {
-  background: var(--vp-surface0-alpha);
+  background: var(--nw-surface0-alpha);
   padding: var(--space-1) 0;
   padding-left: var(--space-3);
   border-bottom: 1px solid var(--color-rule-light);

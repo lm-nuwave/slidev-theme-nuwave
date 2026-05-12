@@ -1,7 +1,7 @@
 <!-- Layout: chart-left — Mirror of chart-right: chart panel left, text right -->
 <script setup lang="ts">
-import VesperHeader from '../components/VesperHeader.vue'
-import VesperFooter from '../components/VesperFooter.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
+import NuWaveFooter from '../components/NuWaveFooter.vue'
 import FigureCaption from '../components/FigureCaption.vue'
 
 defineProps<{
@@ -14,16 +14,12 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-chart-left">
-    <VesperHeader
-      :title="title ?? ''"
-      :section-number="sectionNumber ?? ''"
-
-    />
+    <NuWaveHeader />
 
     <div class="cl-body">
       <!-- Left chart panel -->
       <div class="cl-chart-panel">
-        <div class="cl-chart-label vp-label">DATA / CHART</div>
+        <div class="cl-chart-label nw-label">DATA / CHART</div>
         <div class="cl-chart-area">
           <slot name="chart">
             <div class="cl-chart-placeholder"></div>
@@ -37,15 +33,13 @@ defineProps<{
 
       <!-- Right text column -->
       <div class="cl-text">
-        <div v-if="title" class="cl-rule"></div>
-        <h2 v-if="title" class="cl-title">{{ title }}</h2>
         <div class="cl-content">
           <slot />
         </div>
       </div>
     </div>
 
-    <VesperFooter :section-number="sectionNumber ?? ''" />
+    <NuWaveFooter />
   </div>
 </template>
 
@@ -83,10 +77,10 @@ defineProps<{
   overflow: hidden;
   position: relative;
   background-image:
-    linear-gradient(to right, var(--vp-surface0-alpha) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--vp-surface0-alpha) 1px, transparent 1px);
+    linear-gradient(to right, var(--nw-surface0-alpha) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--nw-surface0-alpha) 1px, transparent 1px);
   background-size: 24px 24px;
-  border: 1px solid var(--vp-overlay1-alpha);
+  border: 1px solid var(--nw-overlay1-alpha);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,7 +95,7 @@ defineProps<{
   content: '';
   position: absolute;
   inset: 10% 10% 15% 10%;
-  background: var(--vp-surface0-alpha);
+  background: var(--nw-surface0-alpha);
   clip-path: polygon(
     0% 100%,
     0% 60%, 16.7% 60%,

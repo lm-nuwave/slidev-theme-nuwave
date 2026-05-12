@@ -1,7 +1,7 @@
 <!-- Layout: two-column — Equal two-column text layout with a center dividing rule -->
 <script setup lang="ts">
-import VesperHeader from '../components/VesperHeader.vue'
-import VesperFooter from '../components/VesperFooter.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
+import NuWaveFooter from '../components/NuWaveFooter.vue'
 
 defineProps<{
   title?: string
@@ -11,18 +11,9 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-two-column">
-    <VesperHeader
-      :title="title ?? ''"
-      :section-number="sectionNumber ?? ''"
-
-    />
+    <NuWaveHeader />
 
     <div class="tc-body">
-      <div v-if="title" class="tc-title-bar">
-        <div class="tc-rule"></div>
-        <h2 class="tc-title">{{ title }}</h2>
-      </div>
-
       <div class="tc-columns">
         <!-- Left column -->
         <div class="tc-col tc-col--left">
@@ -41,7 +32,7 @@ defineProps<{
       </div>
     </div>
 
-    <VesperFooter :section-number="sectionNumber ?? ''" />
+    <NuWaveFooter />
   </div>
 </template>
 

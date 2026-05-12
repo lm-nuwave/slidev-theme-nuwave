@@ -1,7 +1,7 @@
 <!-- Layout: callout — Main content with a prominent WARNING/NOTE/CAUTION box -->
 <script setup lang="ts">
-import VesperHeader from '../components/VesperHeader.vue'
-import VesperFooter from '../components/VesperFooter.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
+import NuWaveFooter from '../components/NuWaveFooter.vue'
 import Callout from '../components/Callout.vue'
 
 defineProps<{
@@ -14,17 +14,11 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-callout">
-    <VesperHeader
-      :title="title ?? ''"
-      :section-number="sectionNumber ?? ''"
-
-    />
+    <NuWaveHeader />
 
     <div class="ca-body">
       <!-- Main content area -->
       <div class="ca-content">
-        <div v-if="title" class="ca-rule"></div>
-        <h2 v-if="title" class="ca-title">{{ title }}</h2>
         <div class="ca-main">
           <slot />
         </div>
@@ -39,7 +33,7 @@ defineProps<{
       </Callout>
     </div>
 
-    <VesperFooter :section-number="sectionNumber ?? ''" />
+    <NuWaveFooter />
   </div>
 </template>
 
@@ -54,9 +48,10 @@ defineProps<{
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: var(--space-4) var(--space-6) var(--space-2);
+  padding: var(--space-3) var(--space-6) var(--space-2);
   overflow: hidden;
-  gap: var(--space-4);
+  gap: var(--space-3);
+  min-height: 0;
 }
 
 .ca-content {

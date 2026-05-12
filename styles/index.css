@@ -1,63 +1,60 @@
 /**
- * Vesper Theme — Global Styles
- * Catppuccin Latte (light) / Catppuccin Mocha (dark)
+ * NuWave Theme — Global Styles
+ * NuWave Energy Solutions brand palette
  * ────────────────────────────────────────────────────
  */
 
 /* ── Google Fonts ─────────────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Fira+Code:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Fira+Code:wght@400;500;700&display=swap');
 
-/* ── Design Tokens — Catppuccin Latte (light mode) ───────────────────────── */
+/* ── Design Tokens — NuWave Light Mode ───────────────────────────────────── */
 :root {
-  /* Catppuccin Latte raw palette */
-  --vp-base:      #eff1f5;
-  --vp-mantle:    #e6e9ef;
-  --vp-crust:     #dce0e8;
-  --vp-surface0:  #ccd0da;
-  --vp-surface1:  #bcc0cc;
-  --vp-surface2:  #acb0be;
-  --vp-overlay0:  #9ca0b0;
-  --vp-overlay1:  #8c8fa1;
-  --vp-overlay2:  #7c7f93;
-  --vp-subtext0:  #6c6f85;
-  --vp-subtext1:  #5c5f77;
-  --vp-text:      #4c4f69;
-  --vp-lavender:  #7287fd;
-  --vp-blue:      #1e66f5;
-  --vp-sapphire:  #209fb5;
-  --vp-sky:       #04a5e5;
-  --vp-teal:      #179299;
-  --vp-green:     #40a02b;
-  --vp-yellow:    #df8e1d;
-  --vp-peach:     #fe640b;
-  --vp-red:       #d20f39;
-  --vp-mauve:     #8839ef;
-  --vp-pink:      #ea76cb;
-  --vp-flamingo:  #dd7878;
+  /* NuWave brand palette */
+  --nw-navy:         #1B3A6B;
+  --nw-cornflower:   #2B7DC8;
+  --nw-teal:         #1EADC4;
+  --nw-orange:       #E07820;
+  --nw-orange-rust:  #E86B28;
+  --nw-green:        #5BAB5A;
+  --nw-sky:          #5BB8E8;
+  --nw-silver:       #9BA8B5;
+  --nw-red:          #D04040;
+
+  /* Surface scale (light mode) */
+  --nw-base:       #FFFFFF;
+  --nw-mantle:     #E2E4E8;
+  --nw-surface0:   #D4D6DA;
+  --nw-surface1:   #C4C6CA;
+  --nw-surface2:   #B4B6BA;
+  --nw-overlay0:   #9BA8B5;
+  --nw-overlay1:   #8A96A3;
+  --nw-text:       #1B3A6B;
+  --nw-subtext0:   #4A6080;
+  --nw-subtext1:   #6A80A0;
 
   /* Alpha variants for subtle fills */
-  --vp-surface0-alpha: rgba(204, 208, 218, 0.5);
-  --vp-surface1-alpha: rgba(188, 192, 204, 0.4);
-  --vp-overlay1-alpha: rgba(140, 143, 161, 0.25);
+  --nw-surface0-alpha: rgba(212, 214, 218, 0.5);
+  --nw-surface1-alpha: rgba(196, 198, 202, 0.4);
+  --nw-overlay1-alpha: rgba(138, 150, 163, 0.25);
 
   /* Semantic aliases */
-  --color-bg:         var(--vp-base);
-  --color-bg-alt:     var(--vp-mantle);
-  --color-bg-panel:   var(--vp-surface0);
-  --color-fg:         var(--vp-text);
-  --color-fg-muted:   var(--vp-subtext1);
-  --color-fg-subtle:  var(--vp-subtext0);
-  --color-accent:     var(--vp-mauve);
-  --color-accent-alt: var(--vp-blue);
-  --color-rule:       var(--vp-overlay1);
-  --color-rule-light: var(--vp-surface2);
+  --color-bg:         var(--nw-base);
+  --color-bg-alt:     var(--nw-mantle);
+  --color-bg-panel:   var(--nw-surface0);
+  --color-fg:         var(--nw-text);
+  --color-fg-muted:   var(--nw-subtext0);
+  --color-fg-subtle:  var(--nw-subtext1);
+  --color-accent:     var(--nw-teal);
+  --color-accent-alt: var(--nw-cornflower);
+  --color-rule:       var(--nw-overlay1);
+  --color-rule-light: var(--nw-surface2);
 
   /* Typography */
-  --font-heading:        'IBM Plex Sans', sans-serif;
-  --font-body:           'IBM Plex Sans', sans-serif;
+  --font-heading:        'Source Sans 3', sans-serif;
+  --font-body:           'Source Sans 3', sans-serif;
   --font-mono:           'Fira Code', monospace;
-  --font-label:          'IBM Plex Sans', sans-serif;
-  --font-condensed-sans: 'IBM Plex Sans', sans-serif;
+  --font-label:          'Source Sans 3', sans-serif;
+  --font-condensed-sans: 'Source Sans 3', sans-serif;
 
   /* Type scale — clamp(min, preferred, max) */
   --text-xs:    clamp(0.60rem, 0.9vw, 0.70rem);
@@ -88,7 +85,7 @@
   /* Corner bracket size */
   --bracket-size:   14px;
   --bracket-weight: 2px;
-  --bracket-color:  var(--vp-overlay1);
+  --bracket-color:  var(--nw-overlay1);
 
   /* Letter spacing for labels */
   --tracking-wide:   0.10em;
@@ -96,52 +93,27 @@
   --tracking-widest: 0.24em;
 }
 
-/* ── Design Tokens — Catppuccin Mocha (dark mode) ────────────────────────── */
+/* ── Design Tokens — NuWave Dark Mode (navy-based) ───────────────────────── */
 .dark {
-  /* Catppuccin Mocha raw palette */
-  --vp-base:      #1e1e2e;
-  --vp-mantle:    #181825;
-  --vp-crust:     #11111b;
-  --vp-surface0:  #313244;
-  --vp-surface1:  #45475a;
-  --vp-surface2:  #585b70;
-  --vp-overlay0:  #6c7086;
-  --vp-overlay1:  #7f849c;
-  --vp-overlay2:  #9399b2;
-  --vp-subtext0:  #a6adc8;
-  --vp-subtext1:  #bac2de;
-  --vp-text:      #cdd6f4;
-  --vp-lavender:  #b4befe;
-  --vp-blue:      #89b4fa;
-  --vp-sapphire:  #74c7ec;
-  --vp-sky:       #89dceb;
-  --vp-teal:      #94e2d5;
-  --vp-green:     #a6e3a1;
-  --vp-yellow:    #f9e2af;
-  --vp-peach:     #fab387;
-  --vp-red:       #f38ba8;
-  --vp-mauve:     #cba6f7;
-  --vp-pink:      #f5c2e7;
-  --vp-flamingo:  #f2cdcd;
+  /* Dark navy surface scale */
+  --nw-base:     #0F2340;
+  --nw-mantle:   #0A1A30;
+  --nw-surface0: #162B4A;
+  --nw-surface1: #1E3558;
+  --nw-surface2: #254065;
+  --nw-overlay0: #3A5A82;
+  --nw-overlay1: #4A6A92;
+  --nw-text:     #E8EDF5;
+  --nw-subtext0: #B8C8DC;
+  --nw-subtext1: #90A8C0;
 
   /* Alpha variants */
-  --vp-surface0-alpha: rgba(49, 50, 68, 0.5);
-  --vp-surface1-alpha: rgba(69, 71, 90, 0.4);
-  --vp-overlay1-alpha: rgba(127, 132, 156, 0.25);
+  --nw-surface0-alpha: rgba(22, 43, 74, 0.6);
+  --nw-surface1-alpha: rgba(30, 53, 88, 0.5);
+  --nw-overlay1-alpha: rgba(74, 106, 146, 0.3);
 
-  /* Semantic aliases (same names, Mocha values) */
-  --color-bg:         var(--vp-base);
-  --color-bg-alt:     var(--vp-mantle);
-  --color-bg-panel:   var(--vp-surface0);
-  --color-fg:         var(--vp-text);
-  --color-fg-muted:   var(--vp-subtext1);
-  --color-fg-subtle:  var(--vp-subtext0);
-  --color-accent:     var(--vp-mauve);
-  --color-accent-alt: var(--vp-blue);
-  --color-rule:       var(--vp-overlay1);
-  --color-rule-light: var(--vp-surface2);
-
-  --bracket-color: var(--vp-overlay1);
+  /* Semantic aliases pick up new raw values automatically */
+  --bracket-color: var(--nw-overlay1);
 }
 
 /* ── Film grain overlay ───────────────────────────────────────────────────── */
@@ -173,8 +145,8 @@
 
 /* ── Content text scale (body layouts only, excludes header/footer) ──────── */
 /* Hero layouts (cover, section, image-full, statement, quote, end) keep full scale. */
-/* Direct-child combinator ensures .vp-header and .vp-footer are untouched.         */
-.slidev-layout:not(.layout-cover):not(.layout-section):not(.layout-image-full):not(.layout-statement):not(.layout-quote):not(.layout-end) > :not(.vp-header):not(.vp-footer) {
+/* Direct-child combinator ensures .nw-header and .nw-footer are untouched.          */
+.slidev-layout:not(.layout-cover):not(.layout-section):not(.layout-image-full):not(.layout-statement):not(.layout-quote):not(.layout-end) > :not(.nw-header):not(.nw-footer) {
   --text-xs:    clamp(0.54rem, 0.81vw, 0.63rem);
   --text-sm:    clamp(0.63rem, 0.99vw, 0.77rem);
   --text-base:  clamp(0.77rem, 1.26vw, 0.95rem);
@@ -323,11 +295,11 @@ ul li::before {
 
 ol {
   list-style: none;
-  counter-reset: vp-list;
+  counter-reset: nw-list;
 }
 
 ol li {
-  counter-increment: vp-list;
+  counter-increment: nw-list;
   margin-bottom: var(--space-2);
   position: relative;
 }
@@ -337,7 +309,7 @@ ol li:last-child {
 }
 
 ol li::before {
-  content: '(' counter(vp-list) ')';
+  content: '(' counter(nw-list) ')';
   position: absolute;
   left: -2.2em;
   color: var(--color-fg-muted);
@@ -347,7 +319,7 @@ ol li::before {
 code:not(pre code) {
   font-family: var(--font-mono);
   font-size: 0.88em;
-  background: var(--vp-surface0-alpha);
+  background: var(--nw-surface0-alpha);
   border: 1px solid var(--color-rule-light);
   padding: 0.1em 0.4em;
   border-radius: 3px;
@@ -386,7 +358,7 @@ hr.accent {
 }
 
 /* ── Label Utility ────────────────────────────────────────────────────────── */
-.vp-label {
+.nw-label {
   font-family: var(--font-label);
   font-size: var(--text-xs);
   letter-spacing: 0.12em;
@@ -394,11 +366,11 @@ hr.accent {
   color: var(--color-fg-muted);
 }
 
-.vp-label-accent {
+.nw-label-accent {
   color: var(--color-accent);
 }
 
-.vp-section-id {
+.nw-section-id {
   font-family: var(--font-label);
   font-size: var(--text-sm);
   letter-spacing: 0.08em;
@@ -407,12 +379,12 @@ hr.accent {
 }
 
 /* ── Corner Brackets — CSS-drawn ─────────────────────────────────────────── */
-.vp-bracketed {
+.nw-bracketed {
   position: relative;
 }
 
-.vp-bracketed::before,
-.vp-bracketed::after {
+.nw-bracketed::before,
+.nw-bracketed::after {
   content: '';
   position: absolute;
   width: var(--bracket-size);
@@ -422,7 +394,7 @@ hr.accent {
 }
 
 /* Top-left */
-.vp-bracketed::before {
+.nw-bracketed::before {
   top: -2px;
   left: -2px;
   border-top: var(--bracket-weight) solid var(--bracket-color);
@@ -430,7 +402,7 @@ hr.accent {
 }
 
 /* Top-right */
-.vp-bracketed::after {
+.nw-bracketed::after {
   top: -2px;
   right: -2px;
   border-top: var(--bracket-weight) solid var(--bracket-color);
@@ -438,8 +410,8 @@ hr.accent {
 }
 
 /* Bottom brackets via child spans */
-.vp-bracketed .vp-bracket-bl,
-.vp-bracketed .vp-bracket-br {
+.nw-bracketed .nw-bracket-bl,
+.nw-bracketed .nw-bracket-br {
   position: absolute;
   width: var(--bracket-size);
   height: var(--bracket-size);
@@ -447,14 +419,14 @@ hr.accent {
   z-index: 10;
 }
 
-.vp-bracketed .vp-bracket-bl {
+.nw-bracketed .nw-bracket-bl {
   bottom: -2px;
   left: -2px;
   border-bottom: var(--bracket-weight) solid var(--bracket-color);
   border-left: var(--bracket-weight) solid var(--bracket-color);
 }
 
-.vp-bracketed .vp-bracket-br {
+.nw-bracketed .nw-bracket-br {
   bottom: -2px;
   right: -2px;
   border-bottom: var(--bracket-weight) solid var(--bracket-color);
@@ -462,20 +434,20 @@ hr.accent {
 }
 
 /* ── Callout Box Base ─────────────────────────────────────────────────────── */
-.vp-callout {
+.nw-callout {
   border: var(--rule-mid) dashed var(--color-rule);
   padding: var(--space-4) var(--space-5);
   margin: var(--space-4) 0;
   position: relative;
-  background: var(--vp-surface0-alpha);
+  background: var(--nw-surface0-alpha);
 }
 
-.vp-callout-warning   { border-color: var(--vp-red);   background: rgba(242, 139, 168, 0.10); }
-.vp-callout-note      { border-color: var(--vp-blue);  background: rgba(137, 180, 250, 0.10); }
-.vp-callout-caution   { border-color: var(--vp-peach); background: rgba(250, 179, 135, 0.10); }
-.vp-callout-important { border-color: var(--vp-mauve); background: rgba(203, 166, 247, 0.10); }
+.nw-callout-warning   { border-color: var(--nw-red);    background: rgba(208, 64, 64, 0.08); }
+.nw-callout-note      { border-color: var(--nw-cornflower); background: rgba(43, 125, 200, 0.08); }
+.nw-callout-caution   { border-color: var(--nw-orange); background: rgba(224, 120, 32, 0.08); }
+.nw-callout-important { border-color: var(--nw-teal);   background: rgba(30, 173, 196, 0.08); }
 
-.vp-callout-label {
+.nw-callout-label {
   font-family: var(--font-label);
   font-size: var(--text-sm);
   font-weight: 600;
@@ -486,7 +458,7 @@ hr.accent {
 }
 
 /* ── Figure Caption Base ──────────────────────────────────────────────────── */
-.vp-fig-caption {
+.nw-fig-caption {
   font-family: var(--font-label);
   font-size: var(--text-xs);
   letter-spacing: 0.08em;
@@ -497,14 +469,14 @@ hr.accent {
 }
 
 /* ── Image Frame ──────────────────────────────────────────────────────────── */
-.vp-image-frame {
+.nw-image-frame {
   border: var(--rule-thick) solid var(--color-rule);
   position: relative;
   overflow: hidden;
   display: block;
 }
 
-.vp-image-frame img {
+.nw-image-frame img {
   display: block;
   width: 100%;
   height: 100%;
@@ -521,7 +493,7 @@ table {
 }
 
 thead {
-  background: var(--vp-surface1);
+  background: var(--nw-surface1);
   color: var(--color-fg);
 }
 
@@ -541,7 +513,7 @@ tbody tr {
 }
 
 tbody tr:nth-child(even) {
-  background: var(--vp-surface0-alpha);
+  background: var(--nw-surface0-alpha);
 }
 
 tbody td {
@@ -593,9 +565,7 @@ blockquote {
 
 /* ── Dark Mode Layout-Specific Overrides ─────────────────────────────────── */
 
-/* Mermaid xychart: transparent backgrounds.                                         */
-/* xychart may set background on the SVG element itself or on shallow <rect> elements. */
-/* Bars/data rects are deeper (≥3 levels), so targeting 1–2 levels is safe.           */
+/* Mermaid xychart: transparent backgrounds. */
 .cf-chart-area svg,
 .cr-chart-area svg,
 .cl-chart-area svg,
@@ -622,14 +592,14 @@ blockquote {
   fill: transparent !important;
 }
 
-/* Mermaid xychart: axis/title text color computed internally, needs override */
+/* Mermaid xychart: axis/title text color needs override in dark mode */
 .dark .cl-chart-area svg text,
 .dark .cl-chart-area svg tspan,
 .dark .cr-chart-area svg text,
 .dark .cr-chart-area svg tspan,
 .dark .db-panel-content svg text,
 .dark .db-panel-content svg tspan {
-  fill: var(--vp-text) !important;
+  fill: var(--nw-text) !important;
 }
 
 /* ── Print safe zone ─────────────────────────────────────────────────────── */

@@ -1,7 +1,7 @@
 <!-- Layout: chart-full — Chart/diagram takes 70% of slide height, title above, caption below -->
 <script setup lang="ts">
-import VesperHeader from '../components/VesperHeader.vue'
-import VesperFooter from '../components/VesperFooter.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
+import NuWaveFooter from '../components/NuWaveFooter.vue'
 import FigureCaption from '../components/FigureCaption.vue'
 
 defineProps<{
@@ -14,16 +14,11 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-chart-full">
-    <VesperHeader
-      :title="title ?? ''"
-      :section-number="sectionNumber ?? ''"
-
-    />
+    <NuWaveHeader />
 
     <div class="cf-body">
       <!-- Title bar -->
       <div class="cf-title-bar">
-        <h2 v-if="title" class="cf-title">{{ title }}</h2>
       </div>
 
       <!-- Chart area — main visual field -->
@@ -44,7 +39,7 @@ defineProps<{
       </div>
     </div>
 
-    <VesperFooter :section-number="sectionNumber ?? ''" />
+    <NuWaveFooter />
   </div>
 </template>
 
@@ -83,8 +78,8 @@ defineProps<{
   position: relative;
   border: var(--rule-mid) solid var(--color-rule);
   background-image:
-    linear-gradient(to right, var(--vp-surface0-alpha) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--vp-surface0-alpha) 1px, transparent 1px);
+    linear-gradient(to right, var(--nw-surface0-alpha) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--nw-surface0-alpha) 1px, transparent 1px);
   background-size: 30px 30px;
   display: flex;
   align-items: center;
@@ -101,7 +96,7 @@ defineProps<{
   content: '';
   position: absolute;
   inset: 10% 10% 15% 10%;
-  background: var(--vp-surface0-alpha);
+  background: var(--nw-surface0-alpha);
   clip-path: polygon(
     0% 100%,
     0% 60%, 16.7% 60%,

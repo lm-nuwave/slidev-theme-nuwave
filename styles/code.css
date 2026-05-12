@@ -1,5 +1,5 @@
 /**
- * Vesper Theme — Code Block Styles
+ * NuWave Theme — Code Block Styles
  * Applied on top of Shiki highlighting
  * ─────────────────────────────────────────────────────────────────────────
  */
@@ -34,13 +34,13 @@
 
 /* ── Line highlight ───────────────────────────────────────────────────────── */
 .shiki .line.highlighted {
-  background: var(--vp-surface1-alpha);
+  background: var(--nw-surface1-alpha);
   border-left: 2px solid var(--color-accent);
   padding-left: calc(var(--space-4) - 2px);
 }
 
-/* ── The Vesper code container ────────────────────────────────────────────── */
-.vp-code-container {
+/* ── The NuWave code container ────────────────────────────────────────────── */
+.nw-code-container {
   display: flex;
   flex-direction: column;
   border: var(--rule-mid) solid var(--color-rule);
@@ -51,8 +51,8 @@
 }
 
 /* Corner brackets on code container */
-.vp-code-container::before,
-.vp-code-container::after {
+.nw-code-container::before,
+.nw-code-container::after {
   content: '';
   position: absolute;
   width: 10px;
@@ -61,20 +61,20 @@
   pointer-events: none;
 }
 
-.vp-code-container::before {
+.nw-code-container::before {
   top: 0; left: 0;
   border-top: 2px solid var(--color-rule-light);
   border-left: 2px solid var(--color-rule-light);
 }
 
-.vp-code-container::after {
+.nw-code-container::after {
   top: 0; right: 0;
   border-top: 2px solid var(--color-rule-light);
   border-right: 2px solid var(--color-rule-light);
 }
 
-.vp-code-container .vp-code-bl,
-.vp-code-container .vp-code-br {
+.nw-code-container .nw-code-bl,
+.nw-code-container .nw-code-br {
   position: absolute;
   width: 10px;
   height: 10px;
@@ -82,20 +82,20 @@
   pointer-events: none;
 }
 
-.vp-code-container .vp-code-bl {
+.nw-code-container .nw-code-bl {
   bottom: 0; left: 0;
   border-bottom: 2px solid var(--color-rule-light);
   border-left: 2px solid var(--color-rule-light);
 }
 
-.vp-code-container .vp-code-br {
+.nw-code-container .nw-code-br {
   bottom: 0; right: 0;
   border-bottom: 2px solid var(--color-rule-light);
   border-right: 2px solid var(--color-rule-light);
 }
 
 /* ── Code header bar ──────────────────────────────────────────────────────── */
-.vp-code-header {
+.nw-code-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -105,7 +105,7 @@
   flex-shrink: 0;
 }
 
-.vp-code-title {
+.nw-code-title {
   font-family: var(--font-label);
   font-size: var(--text-xs);
   font-weight: 600;
@@ -114,7 +114,7 @@
   color: var(--color-fg-muted);
 }
 
-.vp-code-lang-badge {
+.nw-code-lang-badge {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   letter-spacing: 0.06em;
@@ -125,7 +125,7 @@
 }
 
 /* ── Code body ────────────────────────────────────────────────────────────── */
-.vp-code-body {
+.nw-code-body {
   display: flex;
   flex: 1;
   overflow: hidden;
@@ -133,7 +133,7 @@
 }
 
 /* ── Line number gutter ───────────────────────────────────────────────────── */
-.vp-code-gutter {
+.nw-code-gutter {
   display: flex;
   flex-direction: column;
   min-width: 2.8em;
@@ -145,7 +145,7 @@
   pointer-events: none;
 }
 
-.vp-line-number {
+.nw-line-number {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   line-height: 1.65;
@@ -155,19 +155,19 @@
 }
 
 /* ── Code content area ────────────────────────────────────────────────────── */
-.vp-code-content {
+.nw-code-content {
   flex: 1;
   overflow: auto;
   padding: var(--space-2) 0;
 }
 
 /* ── 5-line ruler marks ───────────────────────────────────────────────────── */
-.vp-code-ruler-line {
-  border-top: 1px solid var(--vp-overlay1-alpha);
+.nw-code-ruler-line {
+  border-top: 1px solid var(--nw-overlay1-alpha);
 }
 
 /* ── Code footer / caption ────────────────────────────────────────────────── */
-.vp-code-footer {
+.nw-code-footer {
   padding: var(--space-2) var(--space-4);
   border-top: var(--rule-thin) solid var(--color-rule);
   background: var(--color-bg-alt);
@@ -180,16 +180,16 @@
 }
 
 /* ── Full-slide code layout special sizing ────────────────────────────────── */
-.layout-code-full .vp-code-container {
+.layout-code-full .nw-code-container {
   height: 100%;
 }
 
-.layout-code-full .vp-code-content {
+.layout-code-full .nw-code-content {
   font-size: calc(var(--text-sm) * 1.05);
 }
 
 /* ── code-right layout panel sizing ──────────────────────────────────────── */
-.layout-code-right .vp-code-container,
-.layout-code-left .vp-code-container {
+.layout-code-right .nw-code-container,
+.layout-code-left .nw-code-container {
   height: 100%;
 }

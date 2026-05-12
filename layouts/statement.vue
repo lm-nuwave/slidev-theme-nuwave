@@ -1,6 +1,7 @@
 <!-- Layout: statement — Single large pull quote or key statement, centered with decorative rules -->
 <script setup lang="ts">
-import VesperFooter from '../components/VesperFooter.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
+import NuWaveFooter from '../components/NuWaveFooter.vue'
 
 defineProps<{
   sectionNumber?: string
@@ -9,6 +10,7 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-statement">
+    <NuWaveHeader />
     <div class="statement-body">
       <div class="statement-rule-top"></div>
       <div class="statement-content">
@@ -16,7 +18,7 @@ defineProps<{
       </div>
       <div class="statement-rule-bottom"></div>
     </div>
-    <VesperFooter :section-number="sectionNumber ?? ''" />
+    <NuWaveFooter />
   </div>
 </template>
 
@@ -42,7 +44,7 @@ defineProps<{
 .statement-rule-bottom {
   width: 120px;
   height: 3px;
-  background: var(--vp-red);
+  background: var(--nw-orange);
 }
 
 .statement-rule-top { margin-bottom: var(--space-7); }

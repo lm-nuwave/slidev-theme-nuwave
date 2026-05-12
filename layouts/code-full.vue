@@ -1,7 +1,7 @@
 <!-- Layout: code-full — Full-slide code block with prominent title bar and caption/source line -->
 <script setup lang="ts">
-import VesperHeader from '../components/VesperHeader.vue'
-import VesperFooter from '../components/VesperFooter.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
+import NuWaveFooter from '../components/NuWaveFooter.vue'
 
 defineProps<{
   title?: string
@@ -14,11 +14,7 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-code-full">
-    <VesperHeader
-      :title="title ?? ''"
-      :section-number="sectionNumber ?? ''"
-
-    />
+    <NuWaveHeader />
 
     <div class="cdf-body">
       <!-- Code panel: takes up ~80% of slide height -->
@@ -52,7 +48,7 @@ defineProps<{
       </div>
     </div>
 
-    <VesperFooter :section-number="sectionNumber ?? ''" />
+    <NuWaveFooter />
   </div>
 </template>
 
@@ -117,7 +113,7 @@ defineProps<{
 .cdf-header-indicator {
   width: 8px;
   height: 8px;
-  background: var(--vp-red);
+  background: var(--nw-orange);
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -163,7 +159,7 @@ defineProps<{
 .cdf-code-footer {
   padding: var(--space-2) var(--space-5);
   border-top: 1px solid var(--color-rule-light);
-  background: var(--vp-surface0-alpha);
+  background: var(--nw-surface0-alpha);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   letter-spacing: var(--tracking-wide);

@@ -1,7 +1,7 @@
 <!-- Layout: three-column — Three equal panels each with its own header slot -->
 <script setup lang="ts">
-import VesperHeader from '../components/VesperHeader.vue'
-import VesperFooter from '../components/VesperFooter.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
+import NuWaveFooter from '../components/NuWaveFooter.vue'
 
 defineProps<{
   title?: string
@@ -14,18 +14,9 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-three-column">
-    <VesperHeader
-      :title="title ?? ''"
-      :section-number="sectionNumber ?? ''"
-
-    />
+    <NuWaveHeader />
 
     <div class="thc-body">
-      <div v-if="title" class="thc-title-bar">
-        <div class="thc-rule"></div>
-        <h2 class="thc-title">{{ title }}</h2>
-      </div>
-
       <div class="thc-columns">
         <!-- Column 1 -->
         <div class="thc-col">
@@ -63,7 +54,7 @@ defineProps<{
       </div>
     </div>
 
-    <VesperFooter :section-number="sectionNumber ?? ''" />
+    <NuWaveFooter />
   </div>
 </template>
 

@@ -1,10 +1,10 @@
 ---
 theme: ./
 canvasWidth: 960
-title: 'Vesper: A Technical Slidev Theme'
-deckTitle: 'Vesper: A Technical Slidev Theme'
-author: 'Luke McGuire'
-colorSchema: dark
+title: 'NuWave Theme — Layout Reference'
+deckTitle: 'NuWave Theme'
+author: 'NuWave Energy Solutions'
+colorSchema: light
 highlighter: shiki
 lineNumbers: true
 layout: cover
@@ -12,48 +12,48 @@ date: 'MAY 2026'
 katex: true
 mermaid:
   theme: base
-  fontFamily: "'Fira Code', monospace"
+  fontFamily: "'Source Sans 3', sans-serif"
   themeVariables:
-    background: '#1e1e2e'
-    primaryColor: '#313244'
-    primaryTextColor: '#cdd6f4'
-    primaryBorderColor: '#585b70'
-    secondaryColor: '#181825'
-    tertiaryColor: '#1e1e2e'
-    lineColor: '#cba6f7'
-    mainBkg: '#313244'
-    nodeBorder: '#585b70'
-    clusterBkg: '#181825'
-    titleColor: '#cdd6f4'
-    edgeLabelBackground: '#1e1e2e'
-    pie1: '#cba6f7'
-    pie2: '#89b4fa'
-    pie3: '#a6e3a1'
-    pie4: '#f9e2af'
-    pie5: '#f38ba8'
-    pie6: '#94e2d5'
+    background: '#ECEEF2'
+    primaryColor: '#D4D6DA'
+    primaryTextColor: '#1B3A6B'
+    primaryBorderColor: '#B4B6BA'
+    secondaryColor: '#E2E4E8'
+    tertiaryColor: '#ECEEF2'
+    lineColor: '#1EADC4'
+    mainBkg: '#D4D6DA'
+    nodeBorder: '#B4B6BA'
+    clusterBkg: '#E2E4E8'
+    titleColor: '#1B3A6B'
+    edgeLabelBackground: '#ECEEF2'
+    pie1: '#1EADC4'
+    pie2: '#2B7DC8'
+    pie3: '#5BAB5A'
+    pie4: '#E07820'
+    pie5: '#D04040'
+    pie6: '#5BB8E8'
     xyChart:
       backgroundColor: transparent
-      plotColorPalette: '#89b4fa,#cba6f7,#a6e3a1,#f9e2af,#f38ba8,#94e2d5'
-    pieStrokeColor: '#1e1e2e'
-    pieLegendTextColor: '#cdd6f4'
-    pieTitleTextColor: '#cdd6f4'
-    pieSectionTextColor: '#1e1e2e'
+      plotColorPalette: '#2B7DC8,#1EADC4,#5BAB5A,#E07820,#D04040,#5BB8E8'
+    pieStrokeColor: '#ECEEF2'
+    pieLegendTextColor: '#1B3A6B'
+    pieTitleTextColor: '#1B3A6B'
+    pieSectionTextColor: '#ffffff'
 ---
 
-# Vesper
-## A Technical Slidev Theme
+# NuWave Theme
+## Layout & Component Reference
 
 <template v-slot:subtitle>
 
-Luke McGuire · May 2026
+NuWave Energy Solutions · May 2026
 
 </template>
 
 <!--
-Welcome to Vesper — a Slidev theme built for technical presentations. The design draws from structured documentation traditions: ruled frames, corner brackets, systematic typography, and a layout system that scales from a single slide to a full deck.
-
-Vesper ships with 24 layouts, 6 components, and a dual-mode palette built on Catppuccin Mocha (dark) and Catppuccin Latte (light). Let's walk through what it can do.
+Welcome to the NuWave Slidev theme. Built for NuWave Energy Solutions presentations — Source Sans 3
+typography, brand palette (Stone Fog / Deep Ocean Navy / Aqua Teal), and a layout system covering
+26 layouts and 8 components.
 -->
 
 ---
@@ -155,19 +155,17 @@ title: 1-1. TYPOGRAPHY & COLOR
 sectionNumber: 1-1
 ---
 
-## 1-1. Typography & Color
-
-Vesper uses **IBM Plex Sans** for all non-monospaced text and **Fira Code** for code, labels, and headers. Both are available from Google Fonts.
+NuWave uses **Source Sans 3** for all non-monospaced text and **Fira Code** for code and labels. Both are loaded from Google Fonts.
 
 **Color system.** All visual values flow from CSS custom properties declared in `styles/index.css`:
 
-| Token | Light (Latte) | Dark (Mocha) | Role |
+| Token | Light | Dark | Role |
 |---|---|---|---|
-| `--color-bg` | `#eff1f5` | `#1e1e2e` | Slide background |
-| `--color-fg` | `#4c4f69` | `#cdd6f4` | Primary text |
-| `--color-accent` | `#8839ef` | `#cba6f7` | Mauve — primary accent |
-| `--color-accent-alt` | `#1e66f5` | `#89b4fa` | Blue — secondary accent |
-| `--color-rule` | `#8c8fa1` | `#7f849c` | Dividing rules |
+| `--color-bg` | `#FFFFFF` | `#0F2340` | Slide background |
+| `--color-fg` | `#1B3A6B` | `#E8EDF5` | Primary text |
+| `--color-accent` | `#1EADC4` | `#1EADC4` | Aqua Teal — primary accent |
+| `--color-accent-alt` | `#2B7DC8` | `#5BB8E8` | Cornflower — secondary accent |
+| `--color-rule` | `#8A96A3` | `#4A6A92` | Dividing rules |
 
 Toggle dark/light mode with the `d` key during a presentation.
 
@@ -181,25 +179,22 @@ title: 1-2. LAYOUT ANATOMY
 sectionNumber: 1-2
 ---
 
-## 1-2. Layout Anatomy
-
 Every layout follows the same three-zone structure:
 
-1. **VesperHeader** — flex-shrink: 0; shows deck title · slide title · author
-2. **Content area** — flex: 1, overflow hidden; layout-specific content
-3. **VesperFooter** — flex-shrink: 0; shows section number · date · page/total
+1. **NuWaveHeader** — `position: absolute`; NuWave logo top-right, no vertical space consumed
+2. **Content area** — `flex: 1, overflow: hidden`; layout-specific content
+3. **NuWaveFooter** — `flex-shrink: 0`; shows date (left) · page/total (right)
 
 The `.slidev-layout` root is always `display: flex; flex-direction: column` at **960 × 540 px** (16:9, renders at 1920 × 1080 at 2×).
 
-**Front matter drives the header/footer.** Set these once in the global front matter block and they propagate everywhere:
+**Front matter drives the footer.** Set these once in the global front matter block and they propagate everywhere:
 
 ```yaml
-title: 'Deck Title'     # → VesperHeader left
-author: 'Your Name'     # → VesperHeader right
-date: 'MONTH YEAR'      # → VesperFooter center
+title: 'Deck Title'     # → page title
+date: 'MONTH YEAR'      # → NuWaveFooter left
 ```
 
-Per-slide overrides: add `title:` to any slide's front matter to set the center slot.
+Per-slide overrides: add `title:` to any slide's front matter to customize the page title.
 
 <!--
 Understanding the three-zone structure makes it easy to reason about vertical space on any slide. The header and footer are fixed-height; all available height flows to the content area between them.
@@ -224,8 +219,6 @@ sectionNumber: 2-1
 figNumber: 2-1
 figLabel: COMPONENT ARCHITECTURE — DEPENDENCY GRAPH
 ---
-
-## 2-1. Image Right
 
 The **image-right** layout places a text column on the left and an image panel on the right. The figure caption (`figNumber` + `figLabel` front matter) renders automatically below the image.
 
@@ -252,8 +245,6 @@ figNumber: 2-2
 figLabel: DEPLOYMENT PIPELINE — STAGE DIAGRAM
 ---
 
-## 2-2. Image Left
-
 The **image-left** layout mirrors image-right. Choose between the two based on the visual composition of your image — or to vary the rhythm of a deck that uses many image slides in sequence.
 
 Both variants share the same front matter props:
@@ -272,7 +263,7 @@ The mirror layout. Change `image-left` to `image-right` in front matter to flip 
 
 ---
 layout: image-full
-bannerText: VESPER THEME — LAYOUT SHOWCASE
+bannerText: NUWAVE THEME — LAYOUT SHOWCASE
 ---
 
 <template v-slot:image>
@@ -323,8 +314,6 @@ figNumber: 2-4
 figLabel: DATA PIPELINE — END-TO-END FLOW
 ---
 
-## 2-5. Image Bottom
-
 The **image-bottom** layout inverts image-top, placing the content area above and the image below. Use it when the argument needs to come first and the image is the visual conclusion — the evidence that lands at the end of the slide.
 
 **Effective for:**
@@ -346,7 +335,7 @@ sectionNumber: 2-6
 fig1Number: 2-5
 fig1Label: BEFORE — DEFAULT THEME
 fig2Number: 2-6
-fig2Label: AFTER — VESPER TREATMENT
+fig2Label: AFTER — NUWAVE TREATMENT
 ---
 
 The **two-images** layout places two image panels side by side, each with an independent figure caption. A shared text area above both panels frames the comparison.
@@ -393,8 +382,6 @@ layout: default
 title: 3-1. SLIDE DISCIPLINE
 sectionNumber: 3-1
 ---
-
-## 3-1. Slide Discipline
 
 The **one-idea principle**: each slide communicates exactly one primary idea. Supporting points clarify or expand it — they don't introduce new ones.
 
@@ -534,8 +521,6 @@ calloutType: warning
 calloutTitle: WARNING — DATA LOSS RISK
 ---
 
-## 3-5. Callout Boxes
-
 The callout layout adds a prominent alert box to the lower portion of the slide. Four severity levels with standardized visual treatment:
 
 - **Warning** (red) — conditions that can cause data loss or security incidents
@@ -659,8 +644,6 @@ codeTitle: CONFIG LOADER
 codeLang: typescript
 ---
 
-## 4-2. Code Right
-
 The **code-right** layout places explanatory prose on the left and a code panel on the right — the same split as the default layout, but with a fully-styled code panel replacing the right column.
 
 **Use this layout when:**
@@ -702,9 +685,7 @@ title: 4-3. BLOCK COMPONENT
 sectionNumber: 4-3
 ---
 
-## 4-3. Block Component
-
-The `Block` component creates titled content panels with a solid accent header bar and corner brackets. Six type variants map to Catppuccin semantic colors:
+The `Block` component creates titled content panels with a solid accent header bar and corner brackets. Six type variants map to NuWave brand colors:
 
 <Block type="info" title="INFO — API AUTHENTICATION">
 
@@ -734,8 +715,6 @@ title: 4-4. BLOCK VARIANTS (1/2)
 sectionNumber: 4-4
 ---
 
-## 4-4. Block Variants — Titled Types
-
 <Block type="default" title="DEFAULT">General-purpose note in the theme accent color (Mauve). Use for observations, cross-references, or supplementary context.</Block>
 
 <Block type="info" title="INFO">Prerequisites, background reading, or contextual explanation. Blue accent.</Block>
@@ -745,7 +724,7 @@ sectionNumber: 4-4
 <Block type="warning" title="WARNING">Degraded state, caveat, or important constraint. Yellow accent.</Block>
 
 <!--
-All six variants use the same component; only the `type` prop changes. The corner brackets on Block use the block's accent color, not the global bracket color.
+All six variants use the same component; only the `type` prop changes. Corner brackets on Block use the block's accent color, not the global bracket color.
 -->
 
 ---
@@ -753,8 +732,6 @@ layout: default
 title: 4-4. BLOCK VARIANTS (2/2)
 sectionNumber: 4-4
 ---
-
-## 4-4. Block Variants — Alert Types + Modifiers
 
 <Block type="danger" title="DANGER">Irreversible action or hard failure. Use for data loss, secret rotation, production drops. Red accent.</Block>
 
@@ -775,8 +752,6 @@ layout: default
 title: 4-5. CALLOUT COMPONENT
 sectionNumber: 4-5
 ---
-
-## 4-5. Callout Component
 
 The `Callout` component is a different tool from `Block` — it's for inline alert notices in the body of a regular slide:
 
@@ -807,8 +782,6 @@ layout: default
 title: 4-6. CODEBLOCK COMPONENT
 sectionNumber: 4-6
 ---
-
-## 4-6. CodeBlock Component
 
 The `CodeBlock` component embeds a fully-styled code panel **inline** on any layout — border, header bar, corner brackets, and caption — without needing `code-right` or `code-full`.
 
@@ -873,8 +846,6 @@ title: 5-2. CHART RIGHT — COMPONENT BREAKDOWN
 sectionNumber: 5-2
 ---
 
-## 5-2. Chart Right
-
 The **chart-right** layout places explanatory text on the left and a Mermaid diagram on the right — the same split as `code-right`, applied to charts.
 
 **When to use chart-right:**
@@ -905,8 +876,6 @@ title: 5-3. CHART LEFT — REQUEST LATENCY
 sectionNumber: 5-3
 ---
 
-## 5-3. Chart Left
-
 The **chart-left** layout mirrors chart-right, placing the diagram on the left and explanatory text on the right.
 
 Choose between the two based on visual composition — similar to the image-right vs. image-left decision.
@@ -933,8 +902,6 @@ layout: default
 title: 5-4. INLINE MERMAID
 sectionNumber: 5-4
 ---
-
-## 5-4. Inline Mermaid
 
 You can embed Mermaid diagrams directly in any layout using a fenced code block with the `mermaid` language tag. No special component or slot required.
 
@@ -971,21 +938,21 @@ panel4Label: 'DEPLOY FREQUENCY'
 
 <template v-slot:panel1>
 
-<div style="font-family: var(--font-mono); font-size: 3.2rem; font-weight: 900; color: var(--vp-green); text-align: center; padding: 1.2rem 0 0.4rem;">99.97%</div>
+<div style="font-family: var(--font-mono); font-size: 3.2rem; font-weight: 900; color: var(--nw-green); text-align: center; padding: 1.2rem 0 0.4rem;">99.97%</div>
 <div style="font-family: var(--font-mono); font-size: 0.65rem; text-align: center; color: var(--color-fg-subtle); letter-spacing: 0.12em;">30-DAY UPTIME</div>
 
 </template>
 
 <template v-slot:panel2>
 
-<div style="font-family: var(--font-mono); font-size: 3.2rem; font-weight: 900; color: var(--vp-yellow); text-align: center; padding: 1.2rem 0 0.4rem;">187ms</div>
+<div style="font-family: var(--font-mono); font-size: 3.2rem; font-weight: 900; color: var(--nw-orange); text-align: center; padding: 1.2rem 0 0.4rem;">187ms</div>
 <div style="font-family: var(--font-mono); font-size: 0.65rem; text-align: center; color: var(--color-fg-subtle); letter-spacing: 0.12em;">SLA: &lt; 200ms ✓</div>
 
 </template>
 
 <template v-slot:panel3>
 
-<div style="font-family: var(--font-mono); font-size: 3.2rem; font-weight: 900; color: var(--vp-red); text-align: center; padding: 1.2rem 0 0.4rem;">0.03%</div>
+<div style="font-family: var(--font-mono); font-size: 3.2rem; font-weight: 900; color: var(--nw-red); text-align: center; padding: 1.2rem 0 0.4rem;">0.03%</div>
 <div style="font-family: var(--font-mono); font-size: 0.65rem; text-align: center; color: var(--color-fg-subtle); letter-spacing: 0.12em;">7-DAY AVERAGE</div>
 
 </template>
@@ -1014,7 +981,7 @@ direction: horizontal
 <div class="tl-entry">
   <div class="tl-entry-marker"><div class="tl-entry-dot"></div></div>
   <div class="tl-entry-body">
-    <div class="tl-entry-date vp-label">WEEK 1</div>
+    <div class="tl-entry-date nw-label">WEEK 1</div>
     <div class="tl-entry-title">Discovery</div>
     <div class="tl-entry-desc">Stakeholder interviews, system audit, API contracts, data model.</div>
   </div>
@@ -1023,7 +990,7 @@ direction: horizontal
 <div class="tl-entry">
   <div class="tl-entry-marker"><div class="tl-entry-dot"></div></div>
   <div class="tl-entry-body">
-    <div class="tl-entry-date vp-label">WEEK 2–3</div>
+    <div class="tl-entry-date nw-label">WEEK 2–3</div>
     <div class="tl-entry-title">Infrastructure</div>
     <div class="tl-entry-desc">Kafka cluster, Flink scaffolding, ClickHouse schema, CI/CD pipeline.</div>
   </div>
@@ -1032,7 +999,7 @@ direction: horizontal
 <div class="tl-entry">
   <div class="tl-entry-marker"><div class="tl-entry-dot"></div></div>
   <div class="tl-entry-body">
-    <div class="tl-entry-date vp-label">WEEK 4–6</div>
+    <div class="tl-entry-date nw-label">WEEK 4–6</div>
     <div class="tl-entry-title">Feature Dev</div>
     <div class="tl-entry-desc">Stream processor, API endpoints, Grafana dashboards, alerts.</div>
   </div>
@@ -1041,7 +1008,7 @@ direction: horizontal
 <div class="tl-entry">
   <div class="tl-entry-marker"><div class="tl-entry-dot"></div></div>
   <div class="tl-entry-body">
-    <div class="tl-entry-date vp-label">WEEK 7</div>
+    <div class="tl-entry-date nw-label">WEEK 7</div>
     <div class="tl-entry-title">Load Testing</div>
     <div class="tl-entry-desc">k6 tests to 10× volume. Tune Kafka partitions and Flink parallelism.</div>
   </div>
@@ -1050,7 +1017,7 @@ direction: horizontal
 <div class="tl-entry">
   <div class="tl-entry-marker"><div class="tl-entry-dot"></div></div>
   <div class="tl-entry-body">
-    <div class="tl-entry-date vp-label">WEEK 8</div>
+    <div class="tl-entry-date nw-label">WEEK 8</div>
     <div class="tl-entry-title">Staged Rollout</div>
     <div class="tl-entry-desc">10% → 50% → 100% migration. 30-minute rollback window.</div>
   </div>
@@ -1061,12 +1028,98 @@ The timeline layout presents a vertical chronological sequence. Each entry uses 
 -->
 
 ---
+layout: section
+sectionNumber: '6'
+---
+
+# Chapter 6
+## NuWave Layouts
+
+<template v-slot:descriptor>
+stat-sidebar and process-steps — brand-specific layouts for NuWave presentations.
+</template>
+
+---
+layout: stat-sidebar
+title: NUWAVE ALPHA — TRACK RECORD
+sectionNumber: 6-1
+---
+
+Our clients operate in healthcare, education, commercial real estate, and municipal facilities across the Northeast and Mid-Atlantic.
+
+**Turnkey delivery** — NuWave owns every phase: assessment, engineering, financing, construction, and verification.
+
+::sidebar::
+
+## NuWave team has a track record
+
+<MetricStat value="40+" label="Projects Completed / Under Construction" :light="true" />
+
+<MetricStat value="$50M" label="In Project Financing Secured" :light="true" />
+
+<MetricStat value="800+" label="Metric Tons of Carbon Saved" :light="true" />
+
+<!--
+The stat-sidebar layout is a NuWave-specific two-column layout. The left
+column (260px, --nw-navy background) is ideal for MetricStat blocks. The
+right panel takes the default slot. Use :light="true" on MetricStat when
+placing it inside the sidebar.
+-->
+
+---
+layout: process-steps
+title: ALPHA PROCESS — WHAT TO EXPECT
+sectionNumber: 6-2
+durations: ['~1 MONTH', '~1-2 MONTHS', '~3-6 MONTHS', 'PAYBACK PERIOD']
+decisions: [null, 'DECISION POINT 1', 'DECISION POINT 2', null]
+---
+
+::step1::
+
+### Assessment & Analysis
+
+NuWave conducts a **free preliminary assessment** (ASHRAE I)
+
+**Benchmark building performance** via Energy Analytics.
+
+::step2::
+
+### Design, Engineering & Financing
+
+NuWave conducts a **deeper analysis** of energy systems
+
+**Finalize construction proposal** for scope of work.
+
+::step3::
+
+### Construction Management
+
+NuWave purchases equipment; provides **construction financing** to launch project.
+
+NuWave manages **all phases of construction** as project owner.
+
+::step4::
+
+### Measurement & Verification
+
+**Loan repayment** begins on bill (continues through loan term).
+
+**Measure & verify** savings upon project completion.
+
+<!--
+The process-steps layout renders a 4-column horizontal process flow.
+Each step slot (::step1:: through ::step4::) auto-renders a StepCircle
+at the top with auto-assigned color (1=teal, 2=navy, 3=orange, 4=silver).
+Duration badges are driven by the `durations` front matter array.
+Decision point labels appear between steps via the `decisions` array.
+H3 headings inside steps get styled as tracked-wide uppercase labels.
+-->
+
+---
 layout: default
 title: ALL CALLOUT TYPES — REFERENCE
 sectionNumber: A-1
 ---
-
-## Appendix A — Callout Reference
 
 All four Callout types, side by side:
 
@@ -1090,19 +1143,17 @@ title: CSS UTILITY CLASSES — REFERENCE
 sectionNumber: A-2
 ---
 
-## Appendix B — CSS Utilities
-
 | Class | Description |
 |---|---|
-| `.vp-label` | Monospaced uppercase label style (used in headers, timeline dates) |
+| `.nw-label` | Monospaced uppercase label style (used in headers, timeline dates) |
 | `.vp-bracketed` | Adds corner brackets via `::before`/`::after` pseudo-elements |
-| `.vp-bracket-bl` | Bottom-left corner bracket span |
-| `.vp-bracket-br` | Bottom-right corner bracket span |
-| `.vp-image-frame` | Adds a ruled frame with corner brackets around an image |
+| `.nw-bracket-bl` | Bottom-left corner bracket span |
+| `.nw-bracket-br` | Bottom-right corner bracket span |
+| `.nw-image-frame` | Adds a ruled frame with corner brackets around an image |
 | `.vp-list` | Converts a `<ol>` to parenthesized list markers: (1), (2), (3) |
-| `.vp-section-id` | Section number label style |
+| `.nw-section-id` | Section number label style |
 
-**Design tokens** — all layout CSS uses semantic vars (`--color-bg`, `--color-fg`, `--color-accent`, `--color-accent-alt`, `--color-rule`, `--color-rule-light`) rather than raw Catppuccin hex values, so both light and dark modes update automatically.
+**Design tokens** — all layout CSS uses semantic vars (`--color-bg`, `--color-fg`, `--color-accent`, `--color-accent-alt`, `--color-rule`, `--color-rule-light`) rather than raw hex values, so both light and dark modes update automatically.
 
 <!--
 This reference slide documents the CSS utility classes available for use in slide content. Because Slidev auto-imports components but not utility classes, you apply these directly via `class=""` attributes on HTML elements in your markdown.
@@ -1110,8 +1161,8 @@ This reference slide documents the CSS utility classes available for use in slid
 
 ---
 layout: end
-subtitle: VESPER THEME
-bannerText: VESPER — CATPPUCCIN · IBM PLEX SANS · FIRA CODE
+subtitle: NUWAVE ENERGY SOLUTIONS
+bannerText: NUWAVE THEME — SOURCE SANS 3 · FIRA CODE · BRAND PALETTE
 photo: https://github.com/lukemcguire.png
 contact: luke.mcguire@gmail.com
 ---
@@ -1120,11 +1171,11 @@ contact: luke.mcguire@gmail.com
 
 <template v-slot:contact>
 
-`github.com/lukemcguire/slidev-theme-vesper`
+`github.com/lm-nuwave/slidev-theme-nuwave`
 
 `luke.mcguire@gmail.com`
 
-Built with [Slidev](https://sli.dev) · Palette by [Catppuccin](https://catppuccin.com)
+Built with [Slidev](https://sli.dev) · Theme by NuWave Energy Solutions
 
 </template>
 

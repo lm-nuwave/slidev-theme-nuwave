@@ -1,6 +1,8 @@
-# slidev-theme-vesper
+# slidev-theme-nuwave
 
-A Slidev theme with structured layouts, a dual-mode Catppuccin palette, and a component system built for technical presentations. IBM Plex Sans for body text, Fira Code for code and labels. Dark-first (Catppuccin Mocha), with a light variant (Catppuccin Latte) available via front matter.
+A Slidev theme for NuWave Energy Solutions presentations. Source Sans 3
+for body text, Fira Code for code and labels. Navy-dark mode by default,
+with a light variant (Stone Fog background) available via the `d` key.
 
 ---
 
@@ -159,66 +161,64 @@ Standardized figure label rendered below images.
 
 Used automatically by image layouts via `figNumber` and `figLabel` front matter props.
 
-### `VesperHeader` / `VesperFooter`
+### `NuWaveHeader` / `NuWaveFooter`
 
-Included automatically by all layouts. Override individual slots via layout props:
-- `title` — center slot (slide title)
+Included automatically by all layouts. `NuWaveHeader` renders the NuWave
+logo top-right (absolute, no vertical space consumed). `NuWaveFooter`
+props:
 - `sectionNumber` — footer left slot
-- `author` — header right slot (falls back to global `author` from front matter)
 - `date` — footer center (falls back to global `date`)
 
 ---
 
 ## Color System
 
-All colors flow from CSS custom properties. Toggle dark/light with the `d` key during a presentation.
+All colors flow from CSS custom properties. Toggle dark/light with the
+`d` key during a presentation.
 
-### Catppuccin Mocha (dark — default)
-
-| Semantic Token | Value | Role |
-|---|---|---|
-| `--color-bg` | `#1e1e2e` Base | Slide background |
-| `--color-bg-alt` | `#181825` Mantle | Secondary background, code headers |
-| `--color-bg-panel` | `#313244` Surface0 | Panel backgrounds |
-| `--color-fg` | `#cdd6f4` Text | Primary foreground |
-| `--color-fg-muted` | `#bac2de` Subtext1 | Secondary text |
-| `--color-fg-subtle` | `#a6adc8` Subtext0 | Muted text |
-| `--color-accent` | `#cba6f7` Mauve | Primary accent |
-| `--color-accent-alt` | `#89b4fa` Blue | Secondary accent |
-| `--color-rule` | `#7f849c` Overlay1 | Dividing rules |
-| `--color-rule-light` | `#585b70` Surface2 | Subtle rules |
-
-### Catppuccin Latte (light)
+### NuWave Light Mode (default)
 
 | Semantic Token | Value | Role |
 |---|---|---|
-| `--color-bg` | `#eff1f5` Base | Slide background |
-| `--color-bg-alt` | `#e6e9ef` Mantle | Secondary background |
-| `--color-bg-panel` | `#ccd0da` Surface0 | Panel backgrounds |
-| `--color-fg` | `#4c4f69` Text | Primary foreground |
-| `--color-accent` | `#8839ef` Mauve | Primary accent |
-| `--color-accent-alt` | `#1e66f5` Blue | Secondary accent |
-| `--color-rule` | `#8c8fa1` Overlay1 | Dividing rules |
+| `--color-bg` | `#ECEEF2` Stone Fog | Slide background |
+| `--color-bg-alt` | `#E2E4E8` | Secondary background, code headers |
+| `--color-bg-panel` | `#D4D6DA` | Panel backgrounds |
+| `--color-fg` | `#1B3A6B` Deep Ocean Navy | Primary foreground |
+| `--color-fg-muted` | `#4A6080` | Secondary text |
+| `--color-accent` | `#1EADC4` Aqua Teal | Primary accent |
+| `--color-accent-alt` | `#2B7DC8` Cornflower | Secondary accent, links |
+| `--color-rule` | `#8A96A3` | Dividing rules |
 
-Additional raw palette vars: `--vp-red`, `--vp-green`, `--vp-yellow`, `--vp-teal`, `--vp-peach`, `--vp-sky`, `--vp-lavender` — available in both modes.
+### NuWave Dark Mode (navy-based)
+
+| Semantic Token | Value | Role |
+|---|---|---|
+| `--color-bg` | `#0F2340` | Deep navy background |
+| `--color-fg` | `#E8EDF5` | Light foreground text |
+| `--color-accent` | `#1EADC4` Aqua Teal | Stays consistent |
+
+Additional brand vars: `--nw-navy`, `--nw-cornflower`, `--nw-teal`,
+`--nw-orange`, `--nw-green`, `--nw-sky`, `--nw-silver` — available in
+both modes.
 
 ---
 
 ## Mermaid Configuration
 
-Set Catppuccin Mocha theme variables in your global front matter for consistent diagram rendering:
+Set NuWave theme variables in your global front matter for consistent
+diagram rendering:
 
 ```yaml
 mermaid:
   theme: base
   themeVariables:
-    background: '#1e1e2e'
-    primaryColor: '#313244'
-    primaryTextColor: '#cdd6f4'
-    primaryBorderColor: '#585b70'
-    lineColor: '#cba6f7'
-    mainBkg: '#313244'
-    nodeBorder: '#585b70'
+    background: '#ECEEF2'
+    primaryColor: '#D4D6DA'
+    primaryTextColor: '#1B3A6B'
+    primaryBorderColor: '#B4B6BA'
+    lineColor: '#1EADC4'
+    mainBkg: '#D4D6DA'
+    nodeBorder: '#B4B6BA'
 ```
 
 ---
@@ -227,12 +227,11 @@ mermaid:
 
 | Class | Description |
 |---|---|
-| `.vp-label` | Monospaced uppercase label style |
-| `.vp-bracketed` | Corner brackets via `::before`/`::after` |
-| `.vp-bracket-bl` / `.vp-bracket-br` | Bottom corner bracket spans |
-| `.vp-image-frame` | Ruled frame with corner brackets around an image |
-| `.vp-list` | Parenthesized list markers: (1), (2), (3) |
-| `.vp-section-id` | Section number label style |
+| `.nw-label` | Uppercase label style, tracked wide |
+| `.nw-bracketed` | Corner brackets via `::before`/`::after` |
+| `.nw-bracket-bl` / `.nw-bracket-br` | Bottom corner bracket spans |
+| `.nw-image-frame` | Ruled frame with corner brackets around an image |
+| `.nw-section-id` | Section number label style |
 
 ---
 

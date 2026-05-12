@@ -1,6 +1,7 @@
 <!-- Layout: quote — Attributed quotation with large decorative quotation mark and name/title/affiliation attribution -->
 <script setup lang="ts">
-import VesperFooter from '../components/VesperFooter.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
+import NuWaveFooter from '../components/NuWaveFooter.vue'
 
 defineProps<{
   attribution?: string
@@ -12,6 +13,7 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-quote">
+    <NuWaveHeader />
     <div class="quote-body">
       <!-- Giant decorative quotation mark -->
       <div class="quote-mark" aria-hidden="true">"</div>
@@ -27,14 +29,14 @@ defineProps<{
 
         <!-- Attribution block -->
         <div class="quote-attribution">
-          <span v-if="rank" class="quote-rank vp-label">{{ rank }}</span>
+          <span v-if="rank" class="quote-rank nw-label">{{ rank }}</span>
           <span v-if="attribution" class="quote-name">{{ attribution }}</span>
-          <span v-if="unit" class="quote-unit vp-label">{{ unit }}</span>
+          <span v-if="unit" class="quote-unit nw-label">{{ unit }}</span>
         </div>
       </div>
     </div>
 
-    <VesperFooter :section-number="sectionNumber ?? ''" />
+    <NuWaveFooter />
   </div>
 </template>
 
@@ -103,7 +105,7 @@ defineProps<{
 }
 
 .quote-rank {
-  color: var(--vp-red);
+  color: var(--nw-orange);
   letter-spacing: var(--tracking-widest);
 }
 

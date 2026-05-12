@@ -1,7 +1,7 @@
 <!-- Layout: image-bottom — Content top, image bottom with figure caption -->
 <script setup lang="ts">
-import VesperHeader from '../components/VesperHeader.vue'
-import VesperFooter from '../components/VesperFooter.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
+import NuWaveFooter from '../components/NuWaveFooter.vue'
 import FigureCaption from '../components/FigureCaption.vue'
 
 defineProps<{
@@ -14,16 +14,10 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-image-bottom">
-    <VesperHeader
-      :title="title ?? ''"
-      :section-number="sectionNumber ?? ''"
-
-    />
+    <NuWaveHeader />
 
     <!-- Top content area -->
     <div class="ib-content">
-      <div v-if="title" class="ib-rule"></div>
-      <h2 v-if="title" class="ib-title">{{ title }}</h2>
       <div class="ib-body">
         <slot />
       </div>
@@ -37,14 +31,14 @@ defineProps<{
       <div class="ib-image-frame">
         <slot name="image">
           <div class="ib-placeholder">
-            <span class="vp-label" style="color: var(--color-rule-light);">IMAGE</span>
+            <span class="nw-label" style="color: var(--color-rule-light);">IMAGE</span>
           </div>
         </slot>
       </div>
       <FigureCaption :number="figNumber ?? ''" :label="figLabel ?? ''" />
     </div>
 
-    <VesperFooter :section-number="sectionNumber ?? ''" />
+    <NuWaveFooter />
   </div>
 </template>
 
@@ -110,7 +104,7 @@ defineProps<{
 .ib-placeholder {
   width: 100%;
   height: 100%;
-  background: var(--vp-surface1);
+  background: var(--nw-surface1);
   display: flex;
   align-items: center;
   justify-content: center;

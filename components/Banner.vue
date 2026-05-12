@@ -6,13 +6,13 @@ defineProps<{
 </script>
 
 <template>
-  <div :class="['vp-banner', variant === 'accent' ? 'vp-banner--accent' : '']">
-    <span v-if="text" class="vp-banner__text">{{ text }}</span>
+  <div :class="['nw-banner', variant === 'accent' ? 'nw-banner--accent' : '']">
+    <span v-if="text" class="nw-banner__text">{{ text }}</span>
   </div>
 </template>
 
 <style scoped>
-.vp-banner {
+.nw-banner {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,12 +23,12 @@ defineProps<{
   min-height: 1.4rem;
 }
 
-.vp-banner--accent {
+.nw-banner--accent {
   background: var(--color-accent);
   border-bottom-color: var(--color-accent);
 }
 
-.vp-banner__text {
+.nw-banner__text {
   font-family: var(--font-label);
   font-size: var(--text-xs);
   font-weight: 600;
@@ -37,7 +37,7 @@ defineProps<{
   color: var(--color-fg-muted);
 }
 
-.vp-banner--accent .vp-banner__text {
-  color: var(--vp-base);
+.nw-banner--accent .nw-banner__text {
+  color: #ffffff;
 }
 </style>

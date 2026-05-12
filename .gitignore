@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+# Reference Materials
+reference/
+
 # Slidev build output
 dist/
 .output/

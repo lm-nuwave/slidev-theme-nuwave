@@ -1,7 +1,7 @@
 <!-- Layout: comparison — Two-column with center dividing rule, each column has its own header -->
 <script setup lang="ts">
-import VesperHeader from '../components/VesperHeader.vue'
-import VesperFooter from '../components/VesperFooter.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
+import NuWaveFooter from '../components/NuWaveFooter.vue'
 
 defineProps<{
   title?: string
@@ -15,17 +15,7 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-comparison">
-    <VesperHeader
-      :title="title ?? ''"
-      :section-number="sectionNumber ?? ''"
-
-    />
-
-    <!-- Main title rule -->
-    <div v-if="title" class="cmp-title-bar">
-      <div class="cmp-title-rule"></div>
-      <h2 class="cmp-title">{{ title }}</h2>
-    </div>
+    <NuWaveHeader />
 
     <div class="cmp-body">
       <!-- Left column -->
@@ -62,7 +52,7 @@ defineProps<{
       </div>
     </div>
 
-    <VesperFooter :section-number="sectionNumber ?? ''" />
+    <NuWaveFooter />
   </div>
 </template>
 
@@ -114,9 +104,9 @@ defineProps<{
   flex-shrink: 0;
 }
 
-.cmp-col-header--red   { border-left: 4px solid var(--vp-red);      background: rgba(243,139,168,0.12); }
-.cmp-col-header--blue  { border-left: 4px solid var(--color-accent-alt);     background: rgba(137,180,250,0.12); }
-.cmp-col-header--teal  { border-left: 4px solid var(--vp-teal);           background: rgba(148,226,213,0.12); }
+.cmp-col-header--red   { border-left: 4px solid var(--nw-orange);      background: rgba(224,120,32,0.12); }
+.cmp-col-header--blue  { border-left: 4px solid var(--color-accent-alt); background: rgba(43,125,200,0.12); }
+.cmp-col-header--teal  { border-left: 4px solid var(--nw-teal);          background: rgba(30,173,196,0.12); }
 
 .cmp-col-label {
   font-family: var(--font-mono);

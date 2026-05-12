@@ -1,7 +1,7 @@
 <!-- Layout: timeline — CSS-only horizontal or vertical timeline with military stencil aesthetic -->
 <script setup lang="ts">
-import VesperHeader from '../components/VesperHeader.vue'
-import VesperFooter from '../components/VesperFooter.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
+import NuWaveFooter from '../components/NuWaveFooter.vue'
 
 defineProps<{
   title?: string
@@ -12,18 +12,9 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-timeline">
-    <VesperHeader
-      :title="title ?? ''"
-      :section-number="sectionNumber ?? ''"
-
-    />
+    <NuWaveHeader />
 
     <div class="tl-body">
-      <div v-if="title" class="tl-title-bar">
-        <div class="tl-rule"></div>
-        <h2 class="tl-title">{{ title }}</h2>
-      </div>
-
       <div :class="['tl-track', direction === 'vertical' ? 'tl-track--vertical' : 'tl-track--horizontal']">
         <slot>
           <!-- Default placeholder entries — replace with ::TLEntry components or divs -->
@@ -32,7 +23,7 @@ defineProps<{
               <div class="tl-entry-dot"></div>
             </div>
             <div class="tl-entry-body">
-              <div class="tl-entry-date vp-label">T+0</div>
+              <div class="tl-entry-date nw-label">T+0</div>
               <div class="tl-entry-title">Entry One</div>
               <div class="tl-entry-desc">Description goes here</div>
             </div>
@@ -41,7 +32,7 @@ defineProps<{
       </div>
     </div>
 
-    <VesperFooter :section-number="sectionNumber ?? ''" />
+    <NuWaveFooter />
   </div>
 </template>
 
@@ -164,7 +155,7 @@ defineProps<{
 :deep(.tl-entry-dot) {
   width: 14px;
   height: 14px;
-  border: 2px solid var(--vp-red);
+  border: 2px solid var(--nw-orange);
   background: var(--color-bg);
   position: relative;
 }
@@ -178,11 +169,11 @@ defineProps<{
   transform: translate(-50%, -50%);
   width: 5px;
   height: 5px;
-  background: var(--vp-red);
+  background: var(--nw-orange);
 }
 
 :deep(.tl-entry-date) {
-  color: var(--vp-red);
+  color: var(--nw-orange);
   letter-spacing: var(--tracking-widest);
   margin-bottom: var(--space-1);
 }

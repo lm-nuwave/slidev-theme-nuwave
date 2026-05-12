@@ -1,6 +1,7 @@
 <!-- Layout: cover — Full-bleed title slide with accent banners and corner bracket frame -->
 <script setup lang="ts">
 import Banner from '../components/Banner.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
 
 defineProps<{
   date?: string
@@ -10,6 +11,7 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-cover">
+    <NuWaveHeader />
     <!-- Accent banner top -->
     <Banner :text="bannerText" />
 
@@ -42,7 +44,7 @@ defineProps<{
 
         <!-- Date -->
         <div class="cover-meta">
-          <span class="cover-date vp-label">{{ date ?? '' }}</span>
+          <span class="cover-date nw-label">{{ date ?? '' }}</span>
           <slot name="meta" />
         </div>
       </div>
@@ -78,7 +80,7 @@ defineProps<{
   max-width: 800px;
   padding: var(--space-6) var(--space-7);
   position: relative;
-  border: 1px solid var(--vp-overlay1-alpha);
+  border: 1px solid var(--nw-overlay1-alpha);
 }
 
 /* Corner brackets */

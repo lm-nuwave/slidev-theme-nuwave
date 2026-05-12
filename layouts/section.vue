@@ -1,6 +1,7 @@
 <!-- Layout: section — Chapter/section divider with ghosted large section number behind title -->
 <script setup lang="ts">
-import VesperFooter from '../components/VesperFooter.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
+import NuWaveFooter from '../components/NuWaveFooter.vue'
 
 defineProps<{
   sectionNumber?: string
@@ -9,10 +10,11 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-section">
+    <NuWaveHeader />
     <div class="section-body">
       <div class="section-top-rule"></div>
 
-      <div v-if="sectionNumber" class="section-id vp-label">SECTION {{ sectionNumber }}</div>
+      <div v-if="sectionNumber" class="section-id nw-label">SECTION {{ sectionNumber }}</div>
 
       <div class="section-content">
         <slot />
@@ -25,10 +27,7 @@ defineProps<{
       <div class="section-bottom-rule"></div>
     </div>
 
-    <VesperFooter
-      :section-number="sectionNumber ?? '1'"
-
-    />
+    <NuWaveFooter />
   </div>
 </template>
 

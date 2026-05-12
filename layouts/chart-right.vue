@@ -1,7 +1,7 @@
 <!-- Layout: chart-right — Text/bullets left, chart/graphic right with subtle grid background -->
 <script setup lang="ts">
-import VesperHeader from '../components/VesperHeader.vue'
-import VesperFooter from '../components/VesperFooter.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
+import NuWaveFooter from '../components/NuWaveFooter.vue'
 import FigureCaption from '../components/FigureCaption.vue'
 
 defineProps<{
@@ -14,17 +14,11 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-chart-right">
-    <VesperHeader
-      :title="title ?? ''"
-      :section-number="sectionNumber ?? ''"
-
-    />
+    <NuWaveHeader />
 
     <div class="cr-body">
       <!-- Left text column -->
       <div class="cr-text">
-        <div v-if="title" class="cr-rule"></div>
-        <h2 v-if="title" class="cr-title">{{ title }}</h2>
         <div class="cr-content">
           <slot />
         </div>
@@ -32,7 +26,7 @@ defineProps<{
 
       <!-- Right chart panel -->
       <div class="cr-chart-panel">
-        <div class="cr-chart-label vp-label">DATA / CHART</div>
+        <div class="cr-chart-label nw-label">DATA / CHART</div>
         <div class="cr-chart-area">
           <slot name="chart">
             <div class="cr-chart-placeholder"></div>
@@ -45,7 +39,7 @@ defineProps<{
       </div>
     </div>
 
-    <VesperFooter :section-number="sectionNumber ?? ''" />
+    <NuWaveFooter />
   </div>
 </template>
 
@@ -111,10 +105,10 @@ defineProps<{
   position: relative;
   /* Subtle grid background */
   background-image:
-    linear-gradient(to right, var(--vp-surface0-alpha) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--vp-surface0-alpha) 1px, transparent 1px);
+    linear-gradient(to right, var(--nw-surface0-alpha) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--nw-surface0-alpha) 1px, transparent 1px);
   background-size: 24px 24px;
-  border: 1px solid var(--vp-overlay1-alpha);
+  border: 1px solid var(--nw-overlay1-alpha);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -129,7 +123,7 @@ defineProps<{
   content: '';
   position: absolute;
   inset: 10% 10% 15% 10%;
-  background: var(--vp-surface0-alpha);
+  background: var(--nw-surface0-alpha);
   clip-path: polygon(
     0% 100%,
     0% 60%, 16.7% 60%,

@@ -1,7 +1,7 @@
 <!-- Layout: code-right — Prose/text left 50%, code panel right 50% in ruled frame with corner brackets -->
 <script setup lang="ts">
-import VesperHeader from '../components/VesperHeader.vue'
-import VesperFooter from '../components/VesperFooter.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
+import NuWaveFooter from '../components/NuWaveFooter.vue'
 
 defineProps<{
   title?: string
@@ -14,17 +14,11 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-code-right">
-    <VesperHeader
-      :title="title ?? ''"
-      :section-number="sectionNumber ?? ''"
-
-    />
+    <NuWaveHeader />
 
     <div class="cdr-body">
       <!-- Left prose column -->
       <div class="cdr-prose">
-        <div v-if="title" class="cdr-rule"></div>
-        <h2 v-if="title" class="cdr-title">{{ title }}</h2>
         <div class="cdr-content">
           <slot />
         </div>
@@ -56,7 +50,7 @@ defineProps<{
       </div>
     </div>
 
-    <VesperFooter :section-number="sectionNumber ?? ''" />
+    <NuWaveFooter />
   </div>
 </template>
 
@@ -183,7 +177,7 @@ defineProps<{
 .cdr-code-caption {
   padding: var(--space-2) var(--space-4);
   border-top: 1px solid var(--color-rule-light);
-  background: var(--vp-surface0-alpha);
+  background: var(--nw-surface0-alpha);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   letter-spacing: var(--tracking-wide);

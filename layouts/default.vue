@@ -1,7 +1,7 @@
 <!-- Layout: default — Standard text layout with top rule, title treatment, and footer -->
 <script setup lang="ts">
-import VesperHeader from '../components/VesperHeader.vue'
-import VesperFooter from '../components/VesperFooter.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
+import NuWaveFooter from '../components/NuWaveFooter.vue'
 
 defineProps<{
   title?: string
@@ -11,26 +11,15 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-default">
-    <VesperHeader
-      :title="title ?? ''"
-      :section-number="sectionNumber ?? ''"
-
-    />
+    <NuWaveHeader />
 
     <main class="layout-default__body">
-      <div v-if="$slots.title || title" class="layout-default__title-block">
-        <div class="layout-default__rule-top"></div>
-        <h2 class="layout-default__title">
-          <slot name="title">{{ title }}</slot>
-        </h2>
-      </div>
-
       <div class="layout-default__content">
         <slot />
       </div>
     </main>
 
-    <VesperFooter
+    <NuWaveFooter
       :section-number="sectionNumber ?? '1-1'"
 
     />

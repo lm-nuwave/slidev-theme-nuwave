@@ -1,7 +1,7 @@
 <!-- Layout: dashboard — 2×2 grid of labeled panels, each with metric/chart area and bottom caption -->
 <script setup lang="ts">
-import VesperHeader from '../components/VesperHeader.vue'
-import VesperFooter from '../components/VesperFooter.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
+import NuWaveFooter from '../components/NuWaveFooter.vue'
 
 defineProps<{
   title?: string
@@ -15,23 +15,14 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-dashboard">
-    <VesperHeader
-      :title="title ?? ''"
-      :section-number="sectionNumber ?? ''"
-
-    />
+    <NuWaveHeader />
 
     <div class="db-body">
-      <div v-if="title" class="db-title-bar">
-        <div class="db-rule"></div>
-        <h2 class="db-title">{{ title }}</h2>
-      </div>
-
       <div class="db-grid">
         <!-- Panel 1 (top-left) -->
         <div class="db-panel">
           <div class="db-panel-header">
-            <span class="db-panel-label vp-label">{{ panel1Label ?? 'METRIC 01' }}</span>
+            <span class="db-panel-label nw-label">{{ panel1Label ?? 'METRIC 01' }}</span>
           </div>
           <div class="db-panel-content">
             <slot name="panel1">
@@ -46,7 +37,7 @@ defineProps<{
         <!-- Panel 2 (top-right) -->
         <div class="db-panel">
           <div class="db-panel-header">
-            <span class="db-panel-label vp-label">{{ panel2Label ?? 'METRIC 02' }}</span>
+            <span class="db-panel-label nw-label">{{ panel2Label ?? 'METRIC 02' }}</span>
           </div>
           <div class="db-panel-content">
             <slot name="panel2">
@@ -61,7 +52,7 @@ defineProps<{
         <!-- Panel 3 (bottom-left) -->
         <div class="db-panel">
           <div class="db-panel-header">
-            <span class="db-panel-label vp-label">{{ panel3Label ?? 'METRIC 03' }}</span>
+            <span class="db-panel-label nw-label">{{ panel3Label ?? 'METRIC 03' }}</span>
           </div>
           <div class="db-panel-content">
             <slot name="panel3">
@@ -76,7 +67,7 @@ defineProps<{
         <!-- Panel 4 (bottom-right) -->
         <div class="db-panel">
           <div class="db-panel-header">
-            <span class="db-panel-label vp-label">{{ panel4Label ?? 'METRIC 04' }}</span>
+            <span class="db-panel-label nw-label">{{ panel4Label ?? 'METRIC 04' }}</span>
           </div>
           <div class="db-panel-content">
             <slot name="panel4">
@@ -90,7 +81,7 @@ defineProps<{
       </div>
     </div>
 
-    <VesperFooter :section-number="sectionNumber ?? ''" />
+    <NuWaveFooter />
   </div>
 </template>
 
@@ -169,8 +160,8 @@ defineProps<{
   padding: var(--space-2);
   position: relative;
   background-image:
-    linear-gradient(to right, var(--vp-surface0-alpha) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--vp-surface0-alpha) 1px, transparent 1px);
+    linear-gradient(to right, var(--nw-surface0-alpha) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--nw-surface0-alpha) 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
@@ -183,7 +174,7 @@ defineProps<{
   content: '';
   position: absolute;
   inset: 10% 10% 15% 10%;
-  background: var(--vp-surface0-alpha);
+  background: var(--nw-surface0-alpha);
   clip-path: polygon(
     0% 100%,
     0% 60%, 20% 60%,
@@ -205,7 +196,7 @@ defineProps<{
 
 .db-panel-footer {
   padding: var(--space-1) var(--space-3);
-  border-top: 1px solid var(--vp-overlay1-alpha);
+  border-top: 1px solid var(--nw-overlay1-alpha);
   font-family: var(--font-condensed-sans);
   font-size: var(--text-xs);
   text-transform: uppercase;

@@ -1,7 +1,7 @@
 <!-- Layout: image-right — Text 55% left, bracketed image frame 45% right with caption slot -->
 <script setup lang="ts">
-import VesperHeader from '../components/VesperHeader.vue'
-import VesperFooter from '../components/VesperFooter.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
+import NuWaveFooter from '../components/NuWaveFooter.vue'
 import FigureCaption from '../components/FigureCaption.vue'
 
 defineProps<{
@@ -14,17 +14,11 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-image-right">
-    <VesperHeader
-      :title="title ?? ''"
-      :section-number="sectionNumber ?? ''"
-
-    />
+    <NuWaveHeader />
 
     <div class="ir-body">
       <!-- Left text column -->
       <div class="ir-text">
-        <div v-if="title" class="ir-rule"></div>
-        <h2 v-if="title" class="ir-title">{{ title }}</h2>
         <div class="ir-content">
           <slot />
         </div>
@@ -32,12 +26,12 @@ defineProps<{
 
       <!-- Right image column -->
       <div class="ir-image-col">
-        <div class="ir-image-frame vp-bracketed">
-          <span class="vp-bracket-bl"></span>
-          <span class="vp-bracket-br"></span>
+        <div class="ir-image-frame nw-bracketed">
+          <span class="nw-bracket-bl"></span>
+          <span class="nw-bracket-br"></span>
           <slot name="image">
             <div class="ir-image-placeholder">
-              <span class="ir-placeholder-label vp-label">IMAGE</span>
+              <span class="ir-placeholder-label nw-label">IMAGE</span>
             </div>
           </slot>
         </div>
@@ -51,7 +45,7 @@ defineProps<{
       </div>
     </div>
 
-    <VesperFooter :section-number="sectionNumber ?? ''" />
+    <NuWaveFooter />
   </div>
 </template>
 
@@ -124,7 +118,7 @@ defineProps<{
 .ir-image-placeholder {
   width: 100%;
   height: 100%;
-  background: var(--vp-surface1);
+  background: var(--nw-surface1);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -21,10 +21,10 @@ const typeConfig = computed(() => {
 </script>
 
 <template>
-  <div :class="['vp-callout-box', typeConfig.colorClass]">
+  <div :class="['nw-callout-box', typeConfig.colorClass]">
     <div class="callout-header">
       <span class="callout-icon">{{ typeConfig.icon }}</span>
-      <span class="callout-label vp-label">{{ title || typeConfig.label }}</span>
+      <span class="callout-label nw-label">{{ title || typeConfig.label }}</span>
     </div>
     <div class="callout-body">
       <slot />
@@ -33,7 +33,7 @@ const typeConfig = computed(() => {
 </template>
 
 <style scoped>
-.vp-callout-box {
+.nw-callout-box {
   border: 2px dashed var(--color-rule);
   padding: 0;
   position: relative;
@@ -41,45 +41,47 @@ const typeConfig = computed(() => {
   margin-bottom: var(--space-3);
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
+  min-height: 0;
 }
 
-.vp-callout-box::after {
+.nw-callout-box::after {
   content: '';
   display: block;
   height: 1.25rem;
   flex-shrink: 0;
 }
 
-.vp-callout-box:last-child {
+.nw-callout-box:last-child {
   margin-bottom: 0;
 }
 
 /* Type variants */
 .callout--warning {
-  border-color: var(--vp-red);
-  background: rgba(242, 139, 168, 0.10);
+  border-color: var(--nw-red);
+  background: rgba(208, 64, 64, 0.08);
 }
 
 .callout--note {
-  border-color: var(--vp-blue);
-  background: rgba(137, 180, 250, 0.10);
+  border-color: var(--nw-cornflower);
+  background: rgba(43, 125, 200, 0.08);
 }
 
 .callout--caution {
-  border-color: var(--vp-peach);
-  background: rgba(250, 179, 135, 0.10);
+  border-color: var(--nw-orange);
+  background: rgba(224, 120, 32, 0.08);
 }
 
 .callout--important {
-  border-color: var(--vp-mauve);
-  background: rgba(203, 166, 247, 0.10);
+  border-color: var(--nw-teal);
+  background: rgba(30, 173, 196, 0.08);
 }
 
-/* Dark mode: Latte palette uses different values for the same vars */
-:global(.dark) .callout--warning  { background: rgba(243, 139, 168, 0.12); }
-:global(.dark) .callout--note     { background: rgba(137, 180, 250, 0.12); }
-:global(.dark) .callout--caution  { background: rgba(250, 179, 135, 0.12); }
-:global(.dark) .callout--important { background: rgba(203, 166, 247, 0.12); }
+/* Dark mode adjustments */
+:global(.dark) .callout--warning  { background: rgba(208, 64, 64, 0.12); }
+:global(.dark) .callout--note     { background: rgba(43, 125, 200, 0.12); }
+:global(.dark) .callout--caution  { background: rgba(224, 120, 32, 0.12); }
+:global(.dark) .callout--important { background: rgba(30, 173, 196, 0.12); }
 
 /* Header bar */
 .callout-header {
@@ -90,10 +92,10 @@ const typeConfig = computed(() => {
   border-bottom: 1px dashed currentColor;
 }
 
-.callout--warning  .callout-header  { background: rgba(242, 139, 168, 0.15); border-bottom-color: var(--vp-red); }
-.callout--note     .callout-header  { background: rgba(137, 180, 250, 0.15); border-bottom-color: var(--vp-blue); }
-.callout--caution  .callout-header  { background: rgba(250, 179, 135, 0.15); border-bottom-color: var(--vp-peach); }
-.callout--important .callout-header { background: rgba(203, 166, 247, 0.15); border-bottom-color: var(--vp-mauve); }
+.callout--warning  .callout-header  { background: rgba(208, 64, 64, 0.15);  border-bottom-color: var(--nw-red); }
+.callout--note     .callout-header  { background: rgba(43, 125, 200, 0.15); border-bottom-color: var(--nw-cornflower); }
+.callout--caution  .callout-header  { background: rgba(224, 120, 32, 0.15); border-bottom-color: var(--nw-orange); }
+.callout--important .callout-header { background: rgba(30, 173, 196, 0.15); border-bottom-color: var(--nw-teal); }
 
 .callout-icon {
   font-size: var(--text-md);
@@ -101,20 +103,20 @@ const typeConfig = computed(() => {
   line-height: 1;
 }
 
-.callout--warning  .callout-icon  { color: var(--vp-red); }
-.callout--note     .callout-icon  { color: var(--vp-blue); }
-.callout--caution  .callout-icon  { color: var(--vp-peach); }
-.callout--important .callout-icon { color: var(--vp-mauve); }
+.callout--warning  .callout-icon  { color: var(--nw-red); }
+.callout--note     .callout-icon  { color: var(--nw-cornflower); }
+.callout--caution  .callout-icon  { color: var(--nw-orange); }
+.callout--important .callout-icon { color: var(--nw-teal); }
 
 .callout-label {
   font-weight: 600;
   letter-spacing: 0.12em;
 }
 
-.callout--warning  .callout-label  { color: var(--vp-red); }
-.callout--note     .callout-label  { color: var(--vp-blue); }
-.callout--caution  .callout-label  { color: var(--vp-peach); }
-.callout--important .callout-label { color: var(--vp-mauve); }
+.callout--warning  .callout-label  { color: var(--nw-red); }
+.callout--note     .callout-label  { color: var(--nw-cornflower); }
+.callout--caution  .callout-label  { color: var(--nw-orange); }
+.callout--important .callout-label { color: var(--nw-teal); }
 
 /* Content */
 .callout-body {

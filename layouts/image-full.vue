@@ -1,6 +1,7 @@
 <!-- Layout: image-full — Full-bleed background image with gradient overlay and text block bottom-left -->
 <script setup lang="ts">
 import Banner from '../components/Banner.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
 
 defineProps<{
   sectionNumber?: string
@@ -10,6 +11,8 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-image-full">
+    <NuWaveHeader class="if-header" />
+
     <!-- Background image slot -->
     <div class="if-bg">
       <slot name="image">
@@ -38,6 +41,8 @@ defineProps<{
 
 <style scoped>
 .layout-image-full {
+  display: flex;
+  flex-direction: column;
   padding: 0;
   position: relative;
   overflow: hidden;
@@ -60,7 +65,7 @@ defineProps<{
 .if-bg-placeholder {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, var(--color-rule) 0%, var(--vp-surface1) 100%);
+  background: linear-gradient(135deg, var(--color-rule) 0%, var(--nw-surface1) 100%);
 }
 
 .if-overlay {
@@ -78,6 +83,16 @@ defineProps<{
 .if-banner {
   position: relative;
   z-index: 3;
+}
+
+.if-header {
+  background: transparent;
+  position: relative;
+  z-index: 4;
+}
+
+.if-header :deep(.nw-header__logo) {
+  filter: brightness(0) invert(1) opacity(0.9);
 }
 
 .if-text-block {

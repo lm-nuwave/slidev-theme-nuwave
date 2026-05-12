@@ -1,7 +1,7 @@
 <!-- Layout: two-images — Side-by-side images each with figure captions, text block above -->
 <script setup lang="ts">
-import VesperHeader from '../components/VesperHeader.vue'
-import VesperFooter from '../components/VesperFooter.vue'
+import NuWaveHeader from '../components/NuWaveHeader.vue'
+import NuWaveFooter from '../components/NuWaveFooter.vue'
 import FigureCaption from '../components/FigureCaption.vue'
 
 defineProps<{
@@ -16,16 +16,10 @@ defineProps<{
 
 <template>
   <div class="slidev-layout layout-two-images">
-    <VesperHeader
-      :title="title ?? ''"
-      :section-number="sectionNumber ?? ''"
-
-    />
+    <NuWaveHeader />
 
     <!-- Top text strip -->
     <div class="ti-top">
-      <div v-if="title" class="ti-rule"></div>
-      <h2 v-if="title" class="ti-title">{{ title }}</h2>
       <div class="ti-caption">
         <slot />
       </div>
@@ -34,12 +28,12 @@ defineProps<{
     <!-- Image pair -->
     <div class="ti-images">
       <div class="ti-image-col">
-        <div class="ti-image-frame vp-bracketed">
-          <span class="vp-bracket-bl"></span>
-          <span class="vp-bracket-br"></span>
+        <div class="ti-image-frame nw-bracketed">
+          <span class="nw-bracket-bl"></span>
+          <span class="nw-bracket-br"></span>
           <slot name="image1">
             <div class="ti-placeholder">
-              <span class="vp-label" style="color: var(--color-rule-light);">IMAGE A</span>
+              <span class="nw-label" style="color: var(--color-rule-light);">IMAGE A</span>
             </div>
           </slot>
         </div>
@@ -49,12 +43,12 @@ defineProps<{
       <div class="ti-divider"></div>
 
       <div class="ti-image-col">
-        <div class="ti-image-frame vp-bracketed">
-          <span class="vp-bracket-bl"></span>
-          <span class="vp-bracket-br"></span>
+        <div class="ti-image-frame nw-bracketed">
+          <span class="nw-bracket-bl"></span>
+          <span class="nw-bracket-br"></span>
           <slot name="image2">
             <div class="ti-placeholder">
-              <span class="vp-label" style="color: var(--color-rule-light);">IMAGE B</span>
+              <span class="nw-label" style="color: var(--color-rule-light);">IMAGE B</span>
             </div>
           </slot>
         </div>
@@ -62,7 +56,7 @@ defineProps<{
       </div>
     </div>
 
-    <VesperFooter :section-number="sectionNumber ?? ''" />
+    <NuWaveFooter />
   </div>
 </template>
 
@@ -142,7 +136,7 @@ defineProps<{
 .ti-placeholder {
   width: 100%;
   height: 100%;
-  background: var(--vp-surface1);
+  background: var(--nw-surface1);
   display: flex;
   align-items: center;
   justify-content: center;
