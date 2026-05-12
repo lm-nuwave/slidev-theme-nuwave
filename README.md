@@ -59,7 +59,6 @@ Per-slide overrides:
 ---
 layout: default
 title: 1-1. SLIDE TITLE      # → NuWaveHeader left, accent underline
-sectionNumber: 1-1
 ---
 ```
 
@@ -279,7 +278,6 @@ Additional brand vars available in both modes: `--nw-navy`,
 | `.nw-label` | Uppercase monospaced label, tracked wide |
 | `.nw-bracketed` | Corner brackets via `::before`/`::after` (top pair) |
 | `.nw-bracket-bl` / `.nw-bracket-br` | Bottom corner bracket spans |
-| `.nw-section-id` | Section number label style |
 
 ---
 
