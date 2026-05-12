@@ -9,7 +9,7 @@
     "presentation"
   ],
   "homepage": "https://github.com/lm-nuwave/slidev-theme-nuwave",
-  "author": "luke.mcguire@gmail.com",
+  "author": "luke.mcguire@nuwave.energy",
   "files": [
     "layouts/",
     "components/",
@@ -20,41 +20,41 @@
     "README.md"
   ],
   "slidev": {
-    "colorSchema": "light",
     "highlighter": "shiki",
     "defaults": {
       "canvasWidth": 960,
       "lineNumbers": true,
+      "katex": true,
       "mermaid": {
         "theme": "base",
-        "fontFamily": "'Fira Code', monospace",
+        "fontFamily": "'Source Sans 3', sans-serif",
         "themeVariables": {
-          "background": "#0F2340",
-          "primaryColor": "#162B4A",
-          "primaryTextColor": "#E8EDF5",
-          "primaryBorderColor": "#3A5A82",
-          "secondaryColor": "#0A1A30",
-          "tertiaryColor": "#1E3558",
+          "background": "#ECEEF2",
+          "primaryColor": "#D4D6DA",
+          "primaryTextColor": "#1B3A6B",
+          "primaryBorderColor": "#B4B6BA",
+          "secondaryColor": "#E2E4E8",
+          "tertiaryColor": "#ECEEF2",
           "lineColor": "#1EADC4",
-          "mainBkg": "#162B4A",
-          "nodeBorder": "#3A5A82",
-          "clusterBkg": "#0A1A30",
-          "titleColor": "#E8EDF5",
-          "edgeLabelBackground": "#0F2340",
+          "mainBkg": "#D4D6DA",
+          "nodeBorder": "#B4B6BA",
+          "clusterBkg": "#E2E4E8",
+          "titleColor": "#1B3A6B",
+          "edgeLabelBackground": "#ECEEF2",
           "pie1": "#1EADC4",
           "pie2": "#2B7DC8",
           "pie3": "#5BAB5A",
           "pie4": "#E07820",
-          "pie5": "#E86B28",
+          "pie5": "#D04040",
           "pie6": "#5BB8E8",
           "xyChart": {
             "backgroundColor": "transparent",
-            "plotColorPalette": "#1EADC4,#2B7DC8,#5BAB5A,#E07820,#E86B28,#5BB8E8"
+            "plotColorPalette": "#2B7DC8,#1EADC4,#5BAB5A,#E07820,#D04040,#5BB8E8"
           },
-          "pieStrokeColor": "#0F2340",
-          "pieLegendTextColor": "#E8EDF5",
-          "pieTitleTextColor": "#E8EDF5",
-          "pieSectionTextColor": "#0F2340"
+          "pieStrokeColor": "#ECEEF2",
+          "pieLegendTextColor": "#1B3A6B",
+          "pieTitleTextColor": "#1B3A6B",
+          "pieSectionTextColor": "#ffffff"
         }
       }
     }

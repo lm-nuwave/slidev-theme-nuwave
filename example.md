@@ -1,44 +1,9 @@
 ---
 theme: ./
-canvasWidth: 960
-title: 'NuWave Theme — Layout Reference'
 deckTitle: 'NuWave Theme'
 author: 'NuWave Energy Solutions'
-colorSchema: light
-highlighter: shiki
-lineNumbers: true
 layout: cover
 date: 'MAY 2026'
-katex: true
-mermaid:
-  theme: base
-  fontFamily: "'Source Sans 3', sans-serif"
-  themeVariables:
-    background: '#ECEEF2'
-    primaryColor: '#D4D6DA'
-    primaryTextColor: '#1B3A6B'
-    primaryBorderColor: '#B4B6BA'
-    secondaryColor: '#E2E4E8'
-    tertiaryColor: '#ECEEF2'
-    lineColor: '#1EADC4'
-    mainBkg: '#D4D6DA'
-    nodeBorder: '#B4B6BA'
-    clusterBkg: '#E2E4E8'
-    titleColor: '#1B3A6B'
-    edgeLabelBackground: '#ECEEF2'
-    pie1: '#1EADC4'
-    pie2: '#2B7DC8'
-    pie3: '#5BAB5A'
-    pie4: '#E07820'
-    pie5: '#D04040'
-    pie6: '#5BB8E8'
-    xyChart:
-      backgroundColor: transparent
-      plotColorPalette: '#2B7DC8,#1EADC4,#5BAB5A,#E07820,#D04040,#5BB8E8'
-    pieStrokeColor: '#ECEEF2'
-    pieLegendTextColor: '#1B3A6B'
-    pieTitleTextColor: '#1B3A6B'
-    pieSectionTextColor: '#ffffff'
 ---
 
 # NuWave Theme
@@ -206,20 +171,19 @@ title: 1-3. DESIGN TOKENS & SVG DIAGRAMS
 sectionNumber: 1-3
 ---
 
-## 1-3. Design Tokens & SVG Diagrams
-
-All palette values live as **`--vp-*` CSS custom properties** (Catppuccin Latte in light mode, Mocha in dark). Never hardcode hex values.
+All palette values live as **`--nw-*` CSS custom properties** (Stone Fog in light mode, Deep Ocean Navy in dark). Never hardcode hex values — use semantic aliases wherever possible.
 
 | Token | Role | Token | Role |
 |---|---|---|---|
-| `--vp-base` | Slide background | `--vp-text` | Body text |
-| `--vp-surface0` | Panel / node fill | `--vp-overlay1` | Muted / subtext |
-| `--vp-surface1` | Raised surface | `--vp-mauve` | Primary accent |
-| `--vp-surface2` | Border / divider | `--vp-blue` | Secondary accent |
-| `--vp-mantle` | Deep background | `--vp-teal` · `--vp-green` | Success / positive |
-| `--vp-overlay0` | Subtle stroke | `--vp-red` · `--vp-yellow` | Error / warning |
+| `--color-bg` | Slide background | `--color-fg` | Body text |
+| `--color-bg-panel` | Panel / node fill | `--color-fg-muted` | Muted text |
+| `--color-bg-alt` | Raised surface | `--color-fg-subtle` | Subtle text |
+| `--color-rule` | Dividing rules | `--color-accent` | Aqua Teal accent |
+| `--color-rule-light` | Light borders | `--color-accent-alt` | Cornflower accent |
+| `--nw-navy` | Deep Ocean Navy | `--nw-teal` · `--nw-green` | Success / positive |
+| `--nw-cornflower` | Mid blue | `--nw-orange` · `--nw-red` | Warning / danger |
 
-**SVG diagrams** — use `var(--vp-*)` in `fill`/`stroke` attributes and embed with `<SvgDiagram src="..." />`. This inlines the SVG so CSS vars resolve and it responds to dark/light mode. Plain `<img>` tags cannot inherit CSS variables.
+**SVG diagrams** — use `var(--nw-*)` or `var(--color-*)` in `fill`/`stroke` attributes and embed with `<SvgDiagram src="..." />`. This inlines the SVG so CSS vars resolve and it responds to dark/light mode. Plain `<img>` tags cannot inherit CSS variables.
 
 ---
 layout: section
@@ -1051,7 +1015,7 @@ direction: horizontal
 </div>
 
 <!--
-The timeline layout presents a vertical chronological sequence. Each entry uses the `tl-entry-date` for the time label, `tl-entry-title` for the milestone name, and `tl-entry-body` for descriptive text. The `vp-label` utility class applies the monospaced label treatment to date strings.
+The timeline layout presents a vertical chronological sequence. Each entry uses the `tl-entry-date` for the time label, `tl-entry-title` for the milestone name, and `tl-entry-body` for descriptive text. The `nw-label` utility class applies the monospaced label treatment to date strings.
 -->
 
 ---
@@ -1206,8 +1170,6 @@ This reference slide documents the CSS utility classes available for use in slid
 layout: end
 subtitle: NUWAVE ENERGY SOLUTIONS
 bannerText: NUWAVE THEME — SOURCE SANS 3 · FIRA CODE · BRAND PALETTE
-photo: https://github.com/lukemcguire.png
-contact: luke.mcguire@gmail.com
 ---
 
 <template v-slot:title>Thank You</template>
@@ -1216,7 +1178,7 @@ contact: luke.mcguire@gmail.com
 
 `github.com/lm-nuwave/slidev-theme-nuwave`
 
-`luke.mcguire@gmail.com`
+`luke.mcguire@nuwave.energy`
 
 Built with [Slidev](https://sli.dev) · Theme by NuWave Energy Solutions
 

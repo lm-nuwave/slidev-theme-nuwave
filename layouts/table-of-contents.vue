@@ -15,8 +15,6 @@ defineProps<{
 
     <div class="toc-body">
       <div class="toc-title-bar">
-        <div class="toc-rule"></div>
-        <h2 class="toc-title">{{ title ?? 'TABLE OF CONTENTS' }}</h2>
         <div class="toc-col-headers">
           <span class="toc-col-section">SECTION</span>
           <span class="toc-col-title"></span>

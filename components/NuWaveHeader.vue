@@ -23,8 +23,8 @@
 }
 
 .nw-header--titled {
-  border-bottom-width: var(--rule-thick);
-  border-bottom-color: var(--color-accent);
+  border-bottom: none;
+  box-shadow: inset 0 calc(-1 * var(--rule-thick)) 0 0 var(--color-accent);
 }
 
 .nw-header__title {
@@ -41,6 +41,7 @@
 }
 
 .nw-header__logo {
+  margin-left: auto;
   height: 36px;
   width: auto;
   display: block;

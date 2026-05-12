@@ -1,19 +1,19 @@
-<svg viewBox="0 0 960 420" xmlns="http://www.w3.org/2000/svg" font-family="'IBM Plex Sans', monospace, sans-serif">
+<svg viewBox="0 0 960 420" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3', monospace, sans-serif">
   <defs>
     <radialGradient id="glow" cx="50%" cy="50%" r="55%">
-      <stop offset="0%" stop-color="var(--vp-mauve)" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="var(--vp-base)" stop-opacity="0"/>
+      <stop offset="0%" stop-color="var(--color-accent)" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="var(--color-bg)" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="glow2" cx="20%" cy="30%" r="40%">
-      <stop offset="0%" stop-color="var(--vp-blue)" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="var(--vp-base)" stop-opacity="0"/>
+      <stop offset="0%" stop-color="var(--color-accent-alt)" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="var(--color-bg)" stop-opacity="0"/>
     </radialGradient>
   </defs>
 
-  <rect width="960" height="420" fill="var(--vp-base)"/>
+  <rect width="960" height="420" fill="var(--color-bg)"/>
 
   <!-- Grid lines -->
-  <g stroke="var(--vp-surface0)" stroke-width="0.8" opacity="0.6">
+  <g stroke="var(--color-bg-panel)" stroke-width="0.8" opacity="0.6">
     <line x1="0" y1="60" x2="960" y2="60"/>
     <line x1="0" y1="120" x2="960" y2="120"/>
     <line x1="0" y1="180" x2="960" y2="180"/>
@@ -38,7 +38,7 @@
   <rect width="960" height="420" fill="url(#glow2)"/>
 
   <!-- Connection lines between nodes -->
-  <g stroke="var(--vp-surface2)" stroke-width="1" opacity="0.7">
+  <g stroke="var(--color-rule-light)" stroke-width="1" opacity="0.7">
     <line x1="240" y1="120" x2="480" y2="210"/>
     <line x1="480" y1="210" x2="720" y2="120"/>
     <line x1="720" y1="120" x2="840" y2="300"/>
@@ -51,7 +51,7 @@
   </g>
 
   <!-- Accent connection lines -->
-  <g stroke="var(--vp-mauve)" stroke-width="1.5" opacity="0.4">
+  <g stroke="var(--color-accent)" stroke-width="1.5" opacity="0.4">
     <line x1="480" y1="210" x2="240" y2="120"/>
     <line x1="480" y1="210" x2="720" y2="120"/>
     <line x1="480" y1="210" x2="600" y2="300"/>
@@ -59,40 +59,40 @@
 
   <!-- Nodes -->
   <!-- Center large node -->
-  <circle cx="480" cy="210" r="18" fill="var(--vp-surface0)" stroke="var(--vp-mauve)" stroke-width="2.5"/>
-  <circle cx="480" cy="210" r="8" fill="var(--vp-mauve)" opacity="0.7"/>
+  <circle cx="480" cy="210" r="18" fill="var(--color-bg-panel)" stroke="var(--color-accent)" stroke-width="2.5"/>
+  <circle cx="480" cy="210" r="8" fill="var(--color-accent)" opacity="0.7"/>
 
   <!-- Satellite nodes -->
-  <circle cx="240" cy="120" r="12" fill="var(--vp-surface0)" stroke="var(--vp-blue)" stroke-width="2"/>
-  <circle cx="240" cy="120" r="5" fill="var(--vp-blue)" opacity="0.6"/>
+  <circle cx="240" cy="120" r="12" fill="var(--color-bg-panel)" stroke="var(--color-accent-alt)" stroke-width="2"/>
+  <circle cx="240" cy="120" r="5" fill="var(--color-accent-alt)" opacity="0.6"/>
 
-  <circle cx="720" cy="120" r="12" fill="var(--vp-surface0)" stroke="var(--vp-teal)" stroke-width="2"/>
-  <circle cx="720" cy="120" r="5" fill="var(--vp-teal)" opacity="0.6"/>
+  <circle cx="720" cy="120" r="12" fill="var(--color-bg-panel)" stroke="var(--nw-teal)" stroke-width="2"/>
+  <circle cx="720" cy="120" r="5" fill="var(--nw-teal)" opacity="0.6"/>
 
-  <circle cx="480" cy="60" r="10" fill="var(--vp-surface0)" stroke="var(--vp-blue)" stroke-width="1.5"/>
-  <circle cx="480" cy="60" r="4" fill="var(--vp-blue)" opacity="0.5"/>
+  <circle cx="480" cy="60" r="10" fill="var(--color-bg-panel)" stroke="var(--color-accent-alt)" stroke-width="1.5"/>
+  <circle cx="480" cy="60" r="4" fill="var(--color-accent-alt)" opacity="0.5"/>
 
-  <circle cx="160" cy="300" r="10" fill="var(--vp-surface0)" stroke="var(--vp-surface2)" stroke-width="1.5"/>
-  <circle cx="160" cy="300" r="4" fill="var(--vp-overlay1)" opacity="0.5"/>
+  <circle cx="160" cy="300" r="10" fill="var(--color-bg-panel)" stroke="var(--color-rule-light)" stroke-width="1.5"/>
+  <circle cx="160" cy="300" r="4" fill="var(--color-rule)" opacity="0.5"/>
 
-  <circle cx="600" cy="300" r="10" fill="var(--vp-surface0)" stroke="var(--vp-teal)" stroke-width="1.5"/>
-  <circle cx="600" cy="300" r="4" fill="var(--vp-teal)" opacity="0.5"/>
+  <circle cx="600" cy="300" r="10" fill="var(--color-bg-panel)" stroke="var(--nw-teal)" stroke-width="1.5"/>
+  <circle cx="600" cy="300" r="4" fill="var(--nw-teal)" opacity="0.5"/>
 
-  <circle cx="840" cy="300" r="8" fill="var(--vp-surface0)" stroke="var(--vp-surface2)" stroke-width="1.5"/>
-  <circle cx="320" cy="360" r="8" fill="var(--vp-surface0)" stroke="var(--vp-surface2)" stroke-width="1.5"/>
+  <circle cx="840" cy="300" r="8" fill="var(--color-bg-panel)" stroke="var(--color-rule-light)" stroke-width="1.5"/>
+  <circle cx="320" cy="360" r="8" fill="var(--color-bg-panel)" stroke="var(--color-rule-light)" stroke-width="1.5"/>
 
   <!-- Small scatter nodes -->
-  <circle cx="100" cy="80" r="5" fill="var(--vp-surface0)" stroke="var(--vp-surface1)" stroke-width="1"/>
-  <circle cx="860" cy="80" r="5" fill="var(--vp-surface0)" stroke="var(--vp-surface1)" stroke-width="1"/>
-  <circle cx="80" cy="200" r="4" fill="var(--vp-surface0)" stroke="var(--vp-surface1)" stroke-width="1"/>
-  <circle cx="880" cy="200" r="4" fill="var(--vp-surface0)" stroke="var(--vp-surface1)" stroke-width="1"/>
+  <circle cx="100" cy="80" r="5" fill="var(--color-bg-panel)" stroke="var(--nw-surface1)" stroke-width="1"/>
+  <circle cx="860" cy="80" r="5" fill="var(--color-bg-panel)" stroke="var(--nw-surface1)" stroke-width="1"/>
+  <circle cx="80" cy="200" r="4" fill="var(--color-bg-panel)" stroke="var(--nw-surface1)" stroke-width="1"/>
+  <circle cx="880" cy="200" r="4" fill="var(--color-bg-panel)" stroke="var(--nw-surface1)" stroke-width="1"/>
 
   <!-- Labels -->
-  <text x="480" y="250" text-anchor="middle" fill="var(--vp-mauve)" font-size="10" letter-spacing="2" opacity="0.8">ORCHESTRATOR</text>
-  <text x="240" y="152" text-anchor="middle" fill="var(--vp-blue)" font-size="9" letter-spacing="1" opacity="0.7">SERVICE A</text>
-  <text x="720" y="152" text-anchor="middle" fill="var(--vp-teal)" font-size="9" letter-spacing="1" opacity="0.7">SERVICE B</text>
+  <text x="480" y="250" text-anchor="middle" fill="var(--color-accent)" font-size="10" letter-spacing="2" opacity="0.8">ORCHESTRATOR</text>
+  <text x="240" y="152" text-anchor="middle" fill="var(--color-accent-alt)" font-size="9" letter-spacing="1" opacity="0.7">SERVICE A</text>
+  <text x="720" y="152" text-anchor="middle" fill="var(--nw-teal)" font-size="9" letter-spacing="1" opacity="0.7">SERVICE B</text>
 
   <!-- Subtle corner label -->
-  <text x="20" y="405" fill="var(--vp-surface0)" font-size="9" letter-spacing="3">VESPER · DISTRIBUTED SYSTEMS</text>
-  <text x="940" y="405" text-anchor="end" fill="var(--vp-surface0)" font-size="9" letter-spacing="3">CATPPUCCIN MOCHA</text>
+  <text x="20" y="405" fill="var(--color-bg-panel)" font-size="9" letter-spacing="3">VESPER · DISTRIBUTED SYSTEMS</text>
+  <text x="940" y="405" text-anchor="end" fill="var(--color-bg-panel)" font-size="9" letter-spacing="3">CATPPUCCIN MOCHA</text>
 </svg>
