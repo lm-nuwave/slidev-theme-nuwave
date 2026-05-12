@@ -16,11 +16,48 @@
     "styles/",
     "setup/",
     "public/",
+    "vite.config.ts",
     "README.md"
   ],
   "slidev": {
     "colorSchema": "light",
-    "highlighter": "shiki"
+    "highlighter": "shiki",
+    "defaults": {
+      "canvasWidth": 960,
+      "lineNumbers": true,
+      "mermaid": {
+        "theme": "base",
+        "fontFamily": "'Fira Code', monospace",
+        "themeVariables": {
+          "background": "#0F2340",
+          "primaryColor": "#162B4A",
+          "primaryTextColor": "#E8EDF5",
+          "primaryBorderColor": "#3A5A82",
+          "secondaryColor": "#0A1A30",
+          "tertiaryColor": "#1E3558",
+          "lineColor": "#1EADC4",
+          "mainBkg": "#162B4A",
+          "nodeBorder": "#3A5A82",
+          "clusterBkg": "#0A1A30",
+          "titleColor": "#E8EDF5",
+          "edgeLabelBackground": "#0F2340",
+          "pie1": "#1EADC4",
+          "pie2": "#2B7DC8",
+          "pie3": "#5BAB5A",
+          "pie4": "#E07820",
+          "pie5": "#E86B28",
+          "pie6": "#5BB8E8",
+          "xyChart": {
+            "backgroundColor": "transparent",
+            "plotColorPalette": "#1EADC4,#2B7DC8,#5BAB5A,#E07820,#E86B28,#5BB8E8"
+          },
+          "pieStrokeColor": "#0F2340",
+          "pieLegendTextColor": "#E8EDF5",
+          "pieTitleTextColor": "#E8EDF5",
+          "pieSectionTextColor": "#0F2340"
+        }
+      }
+    }
   },
   "scripts": {
     "dev": "slidev example.md --port 3030",

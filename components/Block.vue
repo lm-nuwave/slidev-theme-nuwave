@@ -47,7 +47,7 @@ defineProps<{
   background: var(--color-bg-panel);
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-2);
   /* Corner brackets reuse the nw-bracketed system via --bracket-color */
   --bracket-color: var(--block-accent);
   --bracket-size: 12px;
@@ -139,14 +139,14 @@ defineProps<{
 
 /* ── Body ─────────────────────────────────────────────────────────────────── */
 .nw-block__body {
-  padding: var(--space-4);
+  padding: var(--space-2) var(--space-4);
   font-size: var(--text-sm);
   color: var(--color-fg);
   line-height: 1.6;
 }
 
 .nw-block--compact .nw-block__body {
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-1) var(--space-3);
 }
 
 /* Titleless variant: left accent border instead of header bar */

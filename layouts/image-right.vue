@@ -9,6 +9,8 @@ defineProps<{
   sectionNumber?: string
   figNumber?: string | number
   figLabel?: string
+  image?: string
+  imageClass?: string
 }>()
 </script>
 
@@ -29,7 +31,8 @@ defineProps<{
         <div class="ir-image-frame nw-bracketed">
           <span class="nw-bracket-bl"></span>
           <span class="nw-bracket-br"></span>
-          <slot name="image">
+          <img v-if="image" :src="image" :class="imageClass" alt="" />
+          <slot v-else name="image">
             <div class="ir-image-placeholder">
               <span class="ir-placeholder-label nw-label">IMAGE</span>
             </div>

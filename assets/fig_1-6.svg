@@ -1,88 +1,88 @@
-<svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3', sans-serif">
-  <rect width="400" height="320" fill="#FFFFFF"/>
+<svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" font-family="'IBM Plex Sans', monospace, sans-serif">
+  <rect width="400" height="320" fill="var(--vp-base)"/>
 
   <!-- Browser chrome mockup -->
-  <rect x="10" y="10" width="380" height="24" rx="4" fill="#ECEEF2"/>
-  <circle cx="28" cy="22" r="5" fill="#D04040" opacity="0.7"/>
-  <circle cx="46" cy="22" r="5" fill="#E07820" opacity="0.7"/>
-  <circle cx="64" cy="22" r="5" fill="#5BAB5A" opacity="0.7"/>
-  <rect x="90" y="16" width="270" height="12" rx="3" fill="#D4D6DA"/>
-  <text x="225" y="25" text-anchor="middle" fill="#8A96A3" font-size="7" letter-spacing="1">localhost:3030</text>
+  <rect x="10" y="10" width="380" height="24" rx="4" fill="var(--vp-mantle)"/>
+  <circle cx="28" cy="22" r="5" fill="var(--vp-red)" opacity="0.7"/>
+  <circle cx="46" cy="22" r="5" fill="var(--vp-yellow)" opacity="0.7"/>
+  <circle cx="64" cy="22" r="5" fill="var(--vp-green)" opacity="0.7"/>
+  <rect x="90" y="16" width="270" height="12" rx="3" fill="var(--vp-surface0)"/>
+  <text x="225" y="25" text-anchor="middle" fill="var(--vp-surface2)" font-size="7" letter-spacing="1">localhost:3030</text>
 
   <!-- Slide preview background -->
-  <rect x="10" y="34" width="380" height="276" fill="#FFFFFF"/>
+  <rect x="10" y="34" width="380" height="276" fill="var(--vp-base)"/>
 
   <!-- Vesper header -->
-  <rect x="10" y="34" width="380" height="28" fill="#ECEEF2" stroke-bottom="#6A80A0"/>
-  <line x1="10" y1="59" x2="390" y2="59" stroke="#2B7DC8" stroke-width="2"/>
-  <text x="24" y="52" fill="#4A6080" font-size="8" letter-spacing="2">NUWAVE THEME — LAYOUT REFERENCE</text>
-  <text x="376" y="52" text-anchor="end" fill="#4A6080" font-size="8" letter-spacing="2">NUWAVE ENERGY SOLUTIONS</text>
+  <rect x="10" y="34" width="380" height="28" fill="var(--vp-mantle)" stroke-bottom="var(--vp-overlay1)"/>
+  <line x1="10" y1="59" x2="390" y2="59" stroke="var(--vp-mauve)" stroke-width="2"/>
+  <text x="24" y="52" fill="var(--vp-subtext0)" font-size="8" letter-spacing="2">VESPER: A TECHNICAL SLIDEV THEME</text>
+  <text x="376" y="52" text-anchor="end" fill="var(--vp-subtext0)" font-size="8" letter-spacing="2">LUKE MCGUIRE</text>
 
   <!-- Slide content area -->
-  <text x="24" y="88" fill="#1B3A6B" font-size="12" font-weight="700">Vesper-styled Slide</text>
-  <line x1="24" y1="95" x2="366" y2="95" stroke="#6A80A0" stroke-width="1.5"/>
+  <text x="24" y="88" fill="var(--vp-text)" font-size="12" font-weight="700">Vesper-styled Slide</text>
+  <line x1="24" y1="95" x2="366" y2="95" stroke="var(--vp-overlay1)" stroke-width="1.5"/>
 
   <!-- Bullets with Mauve dashes -->
-  <text x="28" y="114" fill="#2B7DC8" font-size="10">—</text>
-  <rect x="44" y="107" width="180" height="6" rx="1" fill="#9BA8B5"/>
+  <text x="28" y="114" fill="var(--vp-mauve)" font-size="10">—</text>
+  <rect x="44" y="107" width="180" height="6" rx="1" fill="var(--vp-surface1)"/>
 
-  <text x="28" y="130" fill="#2B7DC8" font-size="10">—</text>
-  <rect x="44" y="123" width="150" height="6" rx="1" fill="#9BA8B5"/>
+  <text x="28" y="130" fill="var(--vp-mauve)" font-size="10">—</text>
+  <rect x="44" y="123" width="150" height="6" rx="1" fill="var(--vp-surface1)"/>
 
-  <text x="28" y="146" fill="#2B7DC8" font-size="10">—</text>
-  <rect x="44" y="139" width="165" height="6" rx="1" fill="#9BA8B5"/>
+  <text x="28" y="146" fill="var(--vp-mauve)" font-size="10">—</text>
+  <rect x="44" y="139" width="165" height="6" rx="1" fill="var(--vp-surface1)"/>
 
   <!-- Code block with Vesper styling -->
-  <rect x="24" y="160" width="352" height="108" rx="2" fill="#ECEEF2" stroke="#8A96A3" stroke-width="1.5"/>
-  <rect x="24" y="160" width="352" height="20" rx="2" fill="#ECEEF2" stroke-bottom="none"/>
-  <rect x="24" y="160" width="352" height="20" fill="#ECEEF2"/>
-  <line x1="24" y1="180" x2="376" y2="180" stroke="#8A96A3" stroke-width="0.5"/>
-  <text x="36" y="174" fill="#4A6080" font-size="8" letter-spacing="2">STREAM PROCESSOR</text>
-  <text x="362" y="174" text-anchor="end" fill="#8A96A3" font-size="8" letter-spacing="1">TYPESCRIPT</text>
+  <rect x="24" y="160" width="352" height="108" rx="2" fill="var(--vp-mantle)" stroke="var(--vp-surface2)" stroke-width="1.5"/>
+  <rect x="24" y="160" width="352" height="20" rx="2" fill="var(--vp-mantle)" stroke-bottom="none"/>
+  <rect x="24" y="160" width="352" height="20" fill="var(--vp-mantle)"/>
+  <line x1="24" y1="180" x2="376" y2="180" stroke="var(--vp-surface2)" stroke-width="0.5"/>
+  <text x="36" y="174" fill="var(--vp-subtext0)" font-size="8" letter-spacing="2">STREAM PROCESSOR</text>
+  <text x="362" y="174" text-anchor="end" fill="var(--vp-surface2)" font-size="8" letter-spacing="1">TYPESCRIPT</text>
 
   <!-- Syntax-colored code -->
   <text x="36" y="196" font-family="monospace" font-size="9">
-    <tspan fill="#2B7DC8">const</tspan>
-    <tspan fill="#1B3A6B"> processor </tspan>
-    <tspan fill="#1EADC4">=</tspan>
-    <tspan fill="#1B3A6B"> new </tspan>
-    <tspan fill="#E07820">FlinkJob</tspan>
-    <tspan fill="#1B3A6B">()</tspan>
+    <tspan fill="var(--vp-mauve)">const</tspan>
+    <tspan fill="var(--vp-text)"> processor </tspan>
+    <tspan fill="var(--vp-sky)">=</tspan>
+    <tspan fill="var(--vp-text)"> new </tspan>
+    <tspan fill="var(--vp-yellow)">FlinkJob</tspan>
+    <tspan fill="var(--vp-text)">()</tspan>
   </text>
   <text x="36" y="212" font-family="monospace" font-size="9">
-    <tspan fill="#1B3A6B">  .</tspan>
-    <tspan fill="#1EADC4">window</tspan>
-    <tspan fill="#1B3A6B">(</tspan>
-    <tspan fill="#E07820">TumblingWindow</tspan>
-    <tspan fill="#1B3A6B">.</tspan>
-    <tspan fill="#1EADC4">of</tspan>
-    <tspan fill="#1B3A6B">(</tspan>
-    <tspan fill="#E86B28">60</tspan>
-    <tspan fill="#1B3A6B">))</tspan>
+    <tspan fill="var(--vp-text)">  .</tspan>
+    <tspan fill="var(--vp-blue)">window</tspan>
+    <tspan fill="var(--vp-text)">(</tspan>
+    <tspan fill="var(--vp-yellow)">TumblingWindow</tspan>
+    <tspan fill="var(--vp-text)">.</tspan>
+    <tspan fill="var(--vp-blue)">of</tspan>
+    <tspan fill="var(--vp-text)">(</tspan>
+    <tspan fill="var(--vp-peach)">60</tspan>
+    <tspan fill="var(--vp-text)">))</tspan>
   </text>
   <text x="36" y="228" font-family="monospace" font-size="9">
-    <tspan fill="#1B3A6B">  .</tspan>
-    <tspan fill="#1EADC4">aggregate</tspan>
-    <tspan fill="#1B3A6B">(</tspan>
-    <tspan fill="#5BAB5A">sumByKey</tspan>
-    <tspan fill="#1B3A6B">)</tspan>
+    <tspan fill="var(--vp-text)">  .</tspan>
+    <tspan fill="var(--vp-blue)">aggregate</tspan>
+    <tspan fill="var(--vp-text)">(</tspan>
+    <tspan fill="var(--vp-green)">sumByKey</tspan>
+    <tspan fill="var(--vp-text)">)</tspan>
   </text>
   <text x="36" y="244" font-family="monospace" font-size="9">
-    <tspan fill="#6A80A0">  // emit to ClickHouse sink</tspan>
+    <tspan fill="var(--vp-overlay1)">  // emit to ClickHouse sink</tspan>
   </text>
   <text x="36" y="260" font-family="monospace" font-size="9">
-    <tspan fill="#1B3A6B">  .</tspan>
-    <tspan fill="#1EADC4">sink</tspan>
-    <tspan fill="#1B3A6B">(clickhouseSink)</tspan>
+    <tspan fill="var(--vp-text)">  .</tspan>
+    <tspan fill="var(--vp-blue)">sink</tspan>
+    <tspan fill="var(--vp-text)">(clickhouseSink)</tspan>
   </text>
 
   <!-- Footer -->
-  <rect x="10" y="294" width="380" height="16" fill="#ECEEF2"/>
-  <text x="24" y="305" fill="#8A96A3" font-size="7" letter-spacing="2">5-1</text>
-  <text x="200" y="305" text-anchor="middle" fill="#8A96A3" font-size="7" letter-spacing="2">MAY 2026</text>
-  <text x="376" y="305" text-anchor="end" fill="#8A96A3" font-size="7" letter-spacing="2">23 / 37</text>
+  <rect x="10" y="294" width="380" height="16" fill="var(--vp-mantle)"/>
+  <text x="24" y="305" fill="var(--vp-surface2)" font-size="7" letter-spacing="2">5-1</text>
+  <text x="200" y="305" text-anchor="middle" fill="var(--vp-surface2)" font-size="7" letter-spacing="2">MAY 2026</text>
+  <text x="376" y="305" text-anchor="end" fill="var(--vp-surface2)" font-size="7" letter-spacing="2">23 / 37</text>
 
   <!-- AFTER label -->
-  <rect x="136" y="136" width="128" height="32" rx="3" fill="#5BAB5A" opacity="0.9"/>
-  <text x="200" y="157" text-anchor="middle" fill="#FFFFFF" font-size="14" font-weight="700" letter-spacing="1">AFTER</text>
+  <rect x="136" y="136" width="128" height="32" rx="3" fill="var(--vp-green)" opacity="0.9"/>
+  <text x="200" y="157" text-anchor="middle" fill="var(--vp-base)" font-size="14" font-weight="700" letter-spacing="1">AFTER</text>
 </svg>
