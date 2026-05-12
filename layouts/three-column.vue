@@ -8,7 +8,6 @@ defineProps<{
   col1Header?: string
   col2Header?: string
   col3Header?: string
-  sectionNumber?: string
 }>()
 </script>
 

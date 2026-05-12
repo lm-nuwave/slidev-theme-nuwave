@@ -4,7 +4,6 @@ import NuWaveHeader from '../components/NuWaveHeader.vue'
 import NuWaveFooter from '../components/NuWaveFooter.vue'
 
 defineProps<{
-  sectionNumber?: string
 }>()
 </script>
 

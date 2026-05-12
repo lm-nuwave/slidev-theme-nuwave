@@ -7,7 +7,6 @@ defineProps<{
   title?: string
   leftHeader?: string
   rightHeader?: string
-  sectionNumber?: string
   leftAccent?: 'red' | 'blue' | 'teal'
   rightAccent?: 'red' | 'blue' | 'teal'
 }>()

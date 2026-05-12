@@ -7,7 +7,6 @@ defineProps<{
   title?: string
   codeTitle?: string
   codeLang?: string
-  sectionNumber?: string
   lineNumbers?: boolean
 }>()
 </script>

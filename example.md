@@ -23,7 +23,6 @@ typography, brand palette (Stone Fog / Deep Ocean Navy / Aqua Teal), and a layou
 
 ---
 layout: table-of-contents
-sectionNumber: TOC
 title: TABLE OF CONTENTS
 ---
 
@@ -100,7 +99,6 @@ This ToC slide demonstrates the table-of-contents layout. Chapter entries use th
 
 ---
 layout: section
-sectionNumber: '1'
 ---
 
 # Chapter 1
@@ -117,7 +115,6 @@ The section divider layout creates a structural pause between chapters. Bold dis
 ---
 layout: default
 title: 1-1. TYPOGRAPHY & COLOR
-sectionNumber: 1-1
 ---
 
 NuWave uses **Source Sans 3** for all non-monospaced text and **Fira Code** for code and labels. Both are loaded from Google Fonts.
@@ -141,7 +138,6 @@ The default layout is the primary workhorse of the theme. Everything in the cont
 ---
 layout: default
 title: 1-2. LAYOUT ANATOMY
-sectionNumber: 1-2
 ---
 
 Every layout follows the same three-zone structure:
@@ -168,7 +164,6 @@ Understanding the three-zone structure makes it easy to reason about vertical sp
 ---
 layout: default
 title: 1-3. DESIGN TOKENS & SVG DIAGRAMS
-sectionNumber: 1-3
 ---
 
 All palette values live as **`--nw-*` CSS custom properties** (Stone Fog in light mode, Deep Ocean Navy in dark). Never hardcode hex values — use semantic aliases wherever possible.
@@ -187,7 +182,6 @@ All palette values live as **`--nw-*` CSS custom properties** (Stone Fog in ligh
 
 ---
 layout: section
-sectionNumber: '2'
 ---
 
 # Chapter 2
@@ -200,7 +194,6 @@ Six image layout variants: right, left, full-bleed, top, bottom, and two-up.
 ---
 layout: image-right
 title: 2-1. IMAGE RIGHT
-sectionNumber: 2-1
 figNumber: 2-1
 figLabel: COMPONENT ARCHITECTURE — DEPENDENCY GRAPH
 ---
@@ -225,7 +218,6 @@ The image panel fills the right half of the content area; the figure caption ren
 ---
 layout: image-left
 title: 2-2. IMAGE LEFT
-sectionNumber: 2-2
 figNumber: 2-2
 figLabel: DEPLOYMENT PIPELINE — STAGE DIAGRAM
 ---
@@ -270,7 +262,6 @@ The optional `bannerText` prop adds a label bar at the top — useful for persis
 ---
 layout: image-top
 title: 2-4. IMAGE TOP
-sectionNumber: 2-4
 figNumber: 2-3
 figLabel: SYSTEM MONITORING DASHBOARD — LIVE VIEW
 ---
@@ -294,7 +285,6 @@ Image-top is the natural layout when the visual is the premise and the text is t
 ---
 layout: image-bottom
 title: 2-5. IMAGE BOTTOM
-sectionNumber: 2-5
 figNumber: 2-4
 figLabel: DATA PIPELINE — END-TO-END FLOW
 ---
@@ -316,7 +306,6 @@ Where image-top says "here's the context, now the explanation" — image-bottom 
 ---
 layout: two-images
 title: 2-6. TWO IMAGES
-sectionNumber: 2-6
 fig1Number: 2-5
 fig1Label: BEFORE — DEFAULT THEME
 fig2Number: 2-6
@@ -341,7 +330,6 @@ Both figure captions are independently labeled, so each is individually citable 
 
 ---
 layout: section
-sectionNumber: '3'
 ---
 
 # Chapter 3
@@ -353,7 +341,6 @@ Columns, statement, quote, callout boxes, and side-by-side comparison panels.
 
 ---
 layout: statement
-sectionNumber: 3-0
 ---
 
 "Good design is as little design as possible."
@@ -365,7 +352,6 @@ The statement layout presents a single piece of text in large display type, cent
 ---
 layout: default
 title: 3-1. SLIDE DISCIPLINE
-sectionNumber: 3-1
 ---
 
 The **one-idea principle**: each slide communicates exactly one primary idea. Supporting points clarify or expand it — they don't introduce new ones.
@@ -386,7 +372,6 @@ The default layout handles prose, bullet lists, and tables equally well. All spa
 ---
 layout: two-column
 title: 3-2. TWO COLUMNS
-sectionNumber: 3-2
 ---
 
 <template v-slot:left>
@@ -426,7 +411,6 @@ The two-column layout splits the content area into two equal columns with a divi
 ---
 layout: three-column
 title: 3-3. THREE COLUMNS
-sectionNumber: 3-3
 col1Header: INGESTION
 col2Header: PROCESSING
 col3Header: DELIVERY
@@ -489,7 +473,6 @@ layout: quote
 attribution: Donald Knuth
 rank: Professor Emeritus of The Art of Computer Programming
 unit: Stanford University
-sectionNumber: 3-4
 ---
 
 "Programs are meant to be read by humans and only incidentally for computers to execute."
@@ -501,7 +484,6 @@ The quote layout presents a quotation in large display type with attribution bel
 ---
 layout: callout
 title: 3-5. CALLOUT TYPES
-sectionNumber: 3-5
 calloutType: warning
 calloutTitle: WARNING — DATA LOSS RISK
 ---
@@ -526,7 +508,6 @@ The callout box color treatment makes severity readable at a glance before the l
 ---
 layout: comparison
 title: 3-6. COMPARISON LAYOUT
-sectionNumber: 3-6
 leftHeader: RELATIONAL — PostgreSQL
 rightHeader: DOCUMENT — MongoDB
 leftAccent: blue
@@ -569,7 +550,6 @@ The comparison layout creates two labeled panels for deliberate point-counterpoi
 
 ---
 layout: section
-sectionNumber: '4'
 ---
 
 # Chapter 4
@@ -582,7 +562,6 @@ Code display layouts, the Block component, the Callout component, and the CodeBl
 ---
 layout: code-full
 title: 4-1. CODE FULL
-sectionNumber: 4-1
 codeTitle: STREAM PROCESSOR
 codeLang: python
 ---
@@ -624,7 +603,6 @@ The code-full layout fills the entire content area with a single code panel. A p
 ---
 layout: code-right
 title: 4-2. CODE RIGHT
-sectionNumber: 4-2
 codeTitle: CONFIG LOADER
 codeLang: typescript
 ---
@@ -667,7 +645,6 @@ The code-right layout is the most common layout for step-by-step technical walkt
 ---
 layout: default
 title: 4-3. BLOCK COMPONENT
-sectionNumber: 4-3
 ---
 
 The `Block` component creates titled content panels with a solid accent header bar and corner brackets. Six type variants map to NuWave brand colors:
@@ -697,7 +674,6 @@ The Block component is the inline version of the callout layout — it can appea
 ---
 layout: default
 title: 4-4. BLOCK VARIANTS (1/2)
-sectionNumber: 4-4
 ---
 
 <Block type="default" title="DEFAULT">General-purpose note in the theme accent color (Mauve). Use for observations, cross-references, or supplementary context.</Block>
@@ -715,7 +691,6 @@ All six variants use the same component; only the `type` prop changes. Corner br
 ---
 layout: default
 title: 4-4. BLOCK VARIANTS (2/2)
-sectionNumber: 4-4
 ---
 
 <Block type="danger" title="DANGER">Irreversible action or hard failure. Use for data loss, secret rotation, production drops. Red accent.</Block>
@@ -741,7 +716,6 @@ The titleless variant is useful for advisory inline content that doesn't need th
 ---
 layout: default
 title: 4-5. CALLOUT COMPONENT
-sectionNumber: 4-5
 ---
 
 The `Callout` component is a different tool from `Block` — it's for inline alert notices in the body of a regular slide:
@@ -771,7 +745,6 @@ Both Block and Callout exist because they serve different roles. Callout is advi
 ---
 layout: default
 title: 4-6. CODEBLOCK COMPONENT
-sectionNumber: 4-6
 ---
 
 The `CodeBlock` component embeds a fully-styled code panel **inline** on any layout — border, header bar, corner brackets, and caption — without needing `code-right` or `code-full`.
@@ -796,7 +769,6 @@ The CodeBlock component is the standalone version of the code panel — same sty
 
 ---
 layout: section
-sectionNumber: '5'
 ---
 
 # Chapter 5
@@ -809,7 +781,6 @@ Mermaid diagram layouts, a multi-panel dashboard, and a chronological timeline.
 ---
 layout: chart-full
 title: 5-1. CHART FULL — SYSTEM ARCHITECTURE
-sectionNumber: 5-1
 codeTitle: SERVICE DEPENDENCY MAP
 ---
 
@@ -834,7 +805,6 @@ The chart-full layout renders a Mermaid diagram in the full content area. The Me
 ---
 layout: chart-right
 title: 5-2. CHART RIGHT — COMPONENT BREAKDOWN
-sectionNumber: 5-2
 ---
 
 The **chart-right** layout places explanatory text on the left and a Mermaid diagram on the right — the same split as `code-right`, applied to charts.
@@ -864,7 +834,6 @@ Chart-right mirrors code-right structurally. The diagram area fills the right ha
 ---
 layout: chart-left
 title: 5-3. CHART LEFT — REQUEST LATENCY
-sectionNumber: 5-3
 ---
 
 The **chart-left** layout mirrors chart-right, placing the diagram on the left and explanatory text on the right.
@@ -891,7 +860,6 @@ Chart-left for when the diagram is the primary subject and the text is the annot
 ---
 layout: default
 title: 5-4. INLINE MERMAID
-sectionNumber: 5-4
 ---
 
 You can embed Mermaid diagrams directly in any layout using a fenced code block with the `mermaid` language tag. No special component or slot required.
@@ -920,7 +888,6 @@ Inline Mermaid is the simplest option — just write the fenced block in the sli
 ---
 layout: dashboard
 title: 5-5. DASHBOARD LAYOUT
-sectionNumber: 5-5
 panel1Label: 'API HEALTH'
 panel2Label: 'LATENCY P99'
 panel3Label: 'ERROR RATE'
@@ -965,7 +932,6 @@ The dashboard layout provides six independent panels in a 3×2 grid, each accept
 
 ---
 layout: timeline
-sectionNumber: 5-6
 direction: horizontal
 ---
 
@@ -1020,7 +986,6 @@ The timeline layout presents a vertical chronological sequence. Each entry uses 
 
 ---
 layout: section
-sectionNumber: '6'
 ---
 
 # Chapter 6
@@ -1033,7 +998,6 @@ stat-sidebar and process-steps — brand-specific layouts for NuWave presentatio
 ---
 layout: stat-sidebar
 title: NUWAVE ALPHA — TRACK RECORD
-sectionNumber: 6-1
 ---
 
 Our clients operate in healthcare, education, commercial real estate, and municipal facilities across the Northeast and Mid-Atlantic.
@@ -1060,7 +1024,6 @@ placing it inside the sidebar.
 ---
 layout: process-steps
 title: ALPHA PROCESS — WHAT TO EXPECT
-sectionNumber: 6-2
 durations: ['~1 MONTH', '~1-2 MONTHS', '~3-6 MONTHS', 'PAYBACK PERIOD']
 decisions: [null, 'DECISION POINT 1', 'DECISION POINT 2', null]
 ---
@@ -1109,7 +1072,6 @@ H3 headings inside steps get styled as tracked-wide uppercase labels.
 ---
 layout: default
 title: ALL CALLOUT TYPES — REFERENCE
-sectionNumber: A-1
 ---
 
 All four Callout types, side by side:
@@ -1141,13 +1103,12 @@ All four Callout types, side by side:
 See image layout slides for `FigureCaption` usage (renders below the image with figure number and label).
 
 <!--
-Appendix slides work identically to regular content slides. Use the `sectionNumber` front matter to assign appendix numbering (A-1, A-2, etc.) — it flows through to the header and footer automatically.
+Appendix slides work identically to regular content slides. 
 -->
 
 ---
 layout: default
 title: CSS UTILITY CLASSES — REFERENCE
-sectionNumber: A-2
 ---
 
 | Class | Description |

@@ -6,7 +6,6 @@ import StepCircle from '../components/StepCircle.vue'
 
 const props = defineProps<{
   title?: string
-  sectionNumber?: string
   durations?: string[]
   decisions?: (string | null)[]
 }>()

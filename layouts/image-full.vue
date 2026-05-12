@@ -4,7 +4,6 @@ import Banner from '../components/Banner.vue'
 import NuWaveHeader from '../components/NuWaveHeader.vue'
 
 defineProps<{
-  sectionNumber?: string
   bannerText?: string
 }>()
 </script>

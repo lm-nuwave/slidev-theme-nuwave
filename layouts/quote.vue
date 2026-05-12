@@ -7,7 +7,6 @@ defineProps<{
   attribution?: string
   rank?: string
   unit?: string
-  sectionNumber?: string
 }>()
 </script>
 

@@ -5,7 +5,6 @@ import NuWaveFooter from '../components/NuWaveFooter.vue'
 
 defineProps<{
   title?: string
-  sectionNumber?: string
 }>()
 </script>
 
@@ -19,10 +18,7 @@ defineProps<{
       </div>
     </main>
 
-    <NuWaveFooter
-      :section-number="sectionNumber ?? '1-1'"
-
-    />
+    <NuWaveFooter />
   </div>
 </template>
 

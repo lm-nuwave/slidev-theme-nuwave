@@ -6,7 +6,6 @@ import FigureCaption from '../components/FigureCaption.vue'
 
 defineProps<{
   title?: string
-  sectionNumber?: string
   figNumber?: string | number
   figLabel?: string
   image?: string

@@ -5,7 +5,6 @@ import NuWaveFooter from '../components/NuWaveFooter.vue'
 
 defineProps<{
   title?: string
-  sectionNumber?: string
   panel1Label?: string
   panel2Label?: string
   panel3Label?: string

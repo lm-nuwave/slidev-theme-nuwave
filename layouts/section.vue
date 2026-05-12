@@ -3,9 +3,7 @@
 import NuWaveHeader from '../components/NuWaveHeader.vue'
 import NuWaveFooter from '../components/NuWaveFooter.vue'
 
-defineProps<{
-  sectionNumber?: string
-}>()
+defineProps({})
 </script>
 
 <template>
@@ -14,9 +12,7 @@ defineProps<{
     <div class="section-body">
       <div class="section-top-rule"></div>
 
-      <div v-if="sectionNumber" class="section-id nw-label">SECTION {{ sectionNumber }}</div>
-
-      <div class="section-content">
+<div class="section-content">
         <slot />
       </div>
 
@@ -58,12 +54,6 @@ defineProps<{
   margin-bottom: var(--space-4);
 }
 
-.section-id {
-  color: var(--color-rule-light);
-  margin-bottom: var(--space-3);
-  letter-spacing: var(--tracking-widest);
-}
-
 .section-content {
   max-width: 70%;
 }
@@ -84,10 +74,6 @@ defineProps<{
 }
 
 /* ── Dark Mode ────────────────────────────────────────────────────────────── */
-:global(.dark) .section-id {
-  color: var(--color-rule-light);
-}
-
 :global(.dark) .section-bottom-rule {
   background: var(--color-rule);
 }

@@ -8,7 +8,6 @@ defineProps<{
   title?: string
   calloutType?: 'warning' | 'note' | 'caution' | 'important'
   calloutTitle?: string
-  sectionNumber?: string
 }>()
 </script>
 
